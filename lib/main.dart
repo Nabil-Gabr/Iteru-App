@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/helpers/functions/on_generate_route.dart';
 import 'package:iteru_app/layouts/layouts.dart';
 
 void main() {
@@ -10,8 +11,10 @@ class IteruApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Layouts(),
+    return  const MaterialApp(
+      // home: Layouts(),
+      onGenerateRoute:onGenerateRoute ,
+      initialRoute: Layouts.routename,
     );
   }
 }
