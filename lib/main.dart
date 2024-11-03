@@ -13,6 +13,7 @@ class IteruApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  const MaterialApp(
       // home: Layouts(),
+      debugShowCheckedModeBanner: false,
       onGenerateRoute:onGenerateRoute ,
       initialRoute: Layouts.routename,
     );
