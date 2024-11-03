@@ -7,9 +7,10 @@ class PageViewItem extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
-    required this.subTitle,
+    required this.subTitle, required this.currentPageIndex,
   });
   final String image, title, subTitle;
+  final int currentPageIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +27,9 @@ class PageViewItem extends StatelessWidget {
             const Expanded(child: SizedBox()),
             Container(
               padding: const EdgeInsets.all(16),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(12))
+              decoration:  BoxDecoration(
+                color: Colors.white.withOpacity(.7),
+                borderRadius: const BorderRadius.all(Radius.circular(12))
               ),
               
               child: Column(
@@ -55,7 +56,7 @@ class PageViewItem extends StatelessWidget {
               const SizedBox(
                 height: 22,
               ),
-              const DotsIndicator(),
+               DotsIndicator(currentPageIndex: currentPageIndex,),
               const SizedBox(
                 height: 32,
               ),
