@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/helpers/functions/on_generate_route.dart';
+import 'package:iteru_app/core/services/shared_preferences_singleton.dart';
 import 'package:iteru_app/layouts/layouts.dart';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPrefs.init();
   runApp(const IteruApp());
 }
 

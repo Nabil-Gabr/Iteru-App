@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iteru_app/core/constants/constant.dart';
+import 'package:iteru_app/core/services/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/widgets/custtom_button.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/widgets/dots_indicator.dart';
 
@@ -74,11 +77,16 @@ class PageViewItem extends StatelessWidget {
                       children: [
                         Expanded(
                           child: CusttomButton(
-                            text: 'Next',
+                            text: currentPageIndex == 2 ? 'Start' : 'Next',
                             backgroundColor:
                                 const Color(0xFFDBB13B).withOpacity(.8),
                             textColor: Colors.white,
-                            onPressed: () {},
+                            onPressed: () {
+                              if (currentPageIndex == 2) {
+                                SharedPrefs.setBool(kIsOnboardingViewSeen, true);
+                                Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+                              }
+                            },
                           ),
                         ),
                       ],

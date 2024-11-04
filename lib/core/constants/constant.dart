@@ -1,0 +1,1 @@
+const kIsOnboardingViewSeen='isOnboardingViewSeen';
