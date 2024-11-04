@@ -13,5 +13,9 @@ class Assets {
   /// Assets for imagesBackgroundOnboardingScreenTwo
   /// assets/images/background_onboarding_screen_two.png
   static const String imagesBackgroundOnboardingScreenTwo = "assets/images/background_onboarding_screen_two.png";
+
+  /// Assets for imagesBackgroundPageViewItemOneOnobarding
+  /// assets/images/background_PageViewItemOne_onobarding.svg
+  static const String imagesBackgroundPageViewItemOneOnobarding = "assets/images/background_PageViewItemOne_onobarding.svg";
 }
 
