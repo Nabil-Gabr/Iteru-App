@@ -29,7 +29,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   Widget build(BuildContext context) {
     return PageView(
       controller: pageController,
-      children:  [
+      children: [
         PageViewItem(
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenOne,
@@ -37,7 +37,6 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           subTitle:
               'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
         ),
-
         PageViewItem(
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenTwo,
@@ -45,7 +44,6 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           subTitle:
               'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
         ),
-
         PageViewItem(
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenThree,

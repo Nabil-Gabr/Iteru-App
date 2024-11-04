@@ -3,7 +3,7 @@ import 'package:iteru_app/modules/onboarding/presentation/views/widgets/custtom_
 
 class DotsIndicator extends StatelessWidget {
   const DotsIndicator({super.key, required this.currentPageIndex});
-  final int currentPageIndex; 
+  final int currentPageIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +11,11 @@ class DotsIndicator extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         3,
-        (index) =>  Padding(
+        (index) => Padding(
           padding: const EdgeInsets.only(right: 8.0),
-          child: CustomDotIndicator(active: index == currentPageIndex,),
+          child: CustomDotIndicator(
+            active: index == currentPageIndex,
+          ),
         ),
       ),
     );

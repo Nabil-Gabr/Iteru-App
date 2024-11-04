@@ -9,22 +9,25 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
-
   @override
   void initState() {
     excuteNaviagtion();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('SplashViewTestOne'),);
+    return const Center(
+      child: Text('SplashViewTestOne'),
+    );
   }
-  
+
   void excuteNaviagtion() {
     Future.delayed(
       const Duration(seconds: 3),
       () {
         Navigator.pushReplacementNamed(context, OnboardingView.routeName);
-      },);
+      },
+    );
   }
 }

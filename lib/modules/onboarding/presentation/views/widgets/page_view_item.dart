@@ -93,24 +93,3 @@ class PageViewItem extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// Padding(
-//         padding: const EdgeInsets.symmetric(horizontal: 32.0,vertical: 32),
-//         child: Column(
-//           children: [
-//             const Expanded(child: SizedBox()),
-            
-//           ],
-//         ),
-//       )
