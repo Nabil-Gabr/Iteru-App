@@ -31,6 +31,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
       controller: pageController,
       children: [
         PageViewItem(
+          visible: true,
+          controller: pageController,
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenOne,
           title: 'Embark On Your Simple Travel Experience',
@@ -38,6 +40,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
               'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
         ),
         PageViewItem(
+          visible: true,
+          controller: pageController,
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenTwo,
           title: 'Embark On Your Simple Travel Experience',
@@ -45,6 +49,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
               'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
         ),
         PageViewItem(
+          visible: false,
+          controller: pageController,
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenThree,
           title: 'Embark On Your Simple Travel Experience',

@@ -14,9 +14,12 @@ class PageViewItem extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.currentPageIndex,
+    this.controller, required this.visible,
   });
   final String image, title, subTitle;
   final int currentPageIndex;
+  final PageController? controller;
+  final bool visible;
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +86,16 @@ class PageViewItem extends StatelessWidget {
                             textColor: Colors.white,
                             onPressed: () {
                               if (currentPageIndex == 2) {
-                                SharedPrefs.setBool(kIsOnboardingViewSeen, true);
-                                Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+                                SharedPrefs.setBool(
+                                    kIsOnboardingViewSeen, true);
+                                Navigator.of(context)
+                                    .pushReplacementNamed(LoginView.routeName);
+                              } else {
+                                // int nextPage = currentPageIndex + 1;
+                                controller!.nextPage(
+                                  duration: const Duration(milliseconds: 900),
+                                  curve: Curves.easeInOut,
+                                );
                               }
                             },
                           ),
@@ -95,7 +106,29 @@ class PageViewItem extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
+          Visibility(
+            visible: visible,
+            child: Positioned(
+              top: 0,
+              right: 0,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 50),
+                child: GestureDetector(
+                  onTap: () {
+                    SharedPrefs.setBool(kIsOnboardingViewSeen, true);
+                    Navigator.of(context)
+                        .pushReplacementNamed(LoginView.routeName);
+                  },
+                  child: const Text(
+                    'Skip',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
