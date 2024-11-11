@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/layouts/layouts.dart';
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
+import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
 
@@ -24,6 +25,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case LoginView.routeName:
       return MaterialPageRoute(
         builder: (context) => const LoginView(),
+      );
+    
+    case SignupView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const SignupView(),
       );
 
     default:

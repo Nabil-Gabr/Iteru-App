@@ -17,5 +17,25 @@ class Assets {
   /// Assets for imagesBackgroundPageViewItemOneOnobarding
   /// assets/images/background_PageViewItemOne_onobarding.svg
   static const String imagesBackgroundPageViewItemOneOnobarding = "assets/images/background_PageViewItemOne_onobarding.svg";
+
+  /// Assets for imagesCheck
+  /// assets/images/Check.svg
+  static const String imagesCheck = "assets/images/Check.svg";
+
+  /// Assets for imagesFaceBookLogo
+  /// assets/images/faceBook_logo.svg
+  static const String imagesFaceBookLogo = "assets/images/faceBook_logo.svg";
+
+  /// Assets for imagesFreepikLoginP
+  /// assets/images/freepik__login_p.png
+  static const String imagesFreepikLoginP = "assets/images/freepik__login_p.png";
+
+  /// Assets for imagesGoogleLogo
+  /// assets/images/google_logo.svg
+  static const String imagesGoogleLogo = "assets/images/google_logo.svg";
+
+  /// Assets for imagesWhatsAppImage
+  /// assets/images/whats_app_image.png
+  static const String imagesWhatsAppImage = "assets/images/whats_app_image.png";
 }
 

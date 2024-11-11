@@ -15,7 +15,7 @@ class CusttomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 37,
+      height: 56, //height: 37, base
       child: TextButton(
           style: TextButton.styleFrom(
             backgroundColor: backgroundColor,
@@ -25,7 +25,8 @@ class CusttomButton extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             text,
-            style: TextStyle(color: textColor, fontSize: 18),
+            style: TextStyle(
+                color: textColor, fontSize: 18, fontWeight: FontWeight.w700),
           )),
     );
   }
