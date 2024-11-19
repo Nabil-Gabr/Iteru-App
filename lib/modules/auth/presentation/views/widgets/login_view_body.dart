@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/core/constants/constant.dart';
-import 'package:iteru_app/core/services/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
+import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/custtom_button_social.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/dont_have_account_widget.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/or_divider_widget.dart';
-import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/widgets/custtom_button.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -63,9 +61,13 @@ class LoginViewBody extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                SharedPrefs.removeShared(kIsOnboardingViewSeen);
+                // SharedPrefs.removeShared(kIsOnboardingViewSeen);
+                // Navigator.of(context)
+                //     .pushReplacementNamed(OnboardingView.routeName);
+                
                 Navigator.of(context)
-                    .pushReplacementNamed(OnboardingView.routeName);
+                    .pushNamed(ForgotPasswordView.routeName);
+
               },
               child: const Align(
                   alignment: Alignment.centerLeft,
@@ -103,7 +105,7 @@ class LoginViewBody extends StatelessWidget {
               image: Assets.imagesGoogleLogo,
             ),
             const SizedBox(
-              height: 26,
+              height: 16,
             ),
             const CusttomButtonSocial(
               title: 'Login with FaceBook',
