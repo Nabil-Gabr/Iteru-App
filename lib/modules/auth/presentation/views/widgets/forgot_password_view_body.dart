@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
-import 'package:iteru_app/modules/onboarding/presentation/views/widgets/custtom_button.dart';
+import 'package:iteru_app/modules/auth/presentation/views/code_validation_view.dart';
 
 class ForgotPasswordViewBody extends StatelessWidget {
   const ForgotPasswordViewBody({super.key});
@@ -29,7 +30,7 @@ class ForgotPasswordViewBody extends StatelessWidget {
                   // fit: BoxFit.fill,
                 ),
                 const SizedBox(
-                  height: 100,
+                  height: 26,
                 ),
                 const Text(
                   'Forgot password?',
@@ -97,11 +98,14 @@ class ForgotPasswordViewBody extends StatelessWidget {
                   backgroundColor: const Color(0xFFDBB13B),
                   textColor: const Color(0xFF1A1D2E),
                   text: 'Submit',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context)
+                    .pushNamed(CodeValidationView.routeName);
+                  },
                 ),
                 const SizedBox(
-                  // height: 26, bace
-                  height: 50,
+                  height: 26, // bace
+                  // height: 50,
                 ),
               ],
             ),

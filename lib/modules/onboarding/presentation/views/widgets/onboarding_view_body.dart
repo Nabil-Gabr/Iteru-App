@@ -35,27 +35,27 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           controller: pageController,
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenOne,
-          title: 'Embark On Your Simple Travel Experience',
+          title: 'Explore Egypt Effortlessly',
           subTitle:
-              'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
+              'Discover cultural, historical, and entertainment spots with personalized guidance at your fingertips',
         ),
         PageViewItem(
           visible: true,
           controller: pageController,
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenTwo,
-          title: 'Embark On Your Simple Travel Experience',
+          title: 'Your Virtual Travel Companion',
           subTitle:
-              'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
+              'Chat with our smart bot to uncover Egypt’s secrets, history, and attractions anytime,anywhere',
         ),
         PageViewItem(
           visible: false,
           controller: pageController,
           currentPageIndex: currentPageIndex,
           image: Assets.imagesBackgroundOnboardingScreenThree,
-          title: 'Embark On Your Simple Travel Experience',
+          title: 'Navigate with Ease',
           subTitle:
-              'Enjoy a Smooth, stress-free travel Journey with ease and simplicity every step.',
+              'Enjoy interactive maps, voice-guided tours, and seamless travel support designed just for you',
         ),
       ],
     );

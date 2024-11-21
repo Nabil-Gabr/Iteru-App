@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/widgets/custom_button.dart';
+import 'package:iteru_app/core/widgets/custom_text_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
 import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/custtom_button_social.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/dont_have_account_widget.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/or_divider_widget.dart';
-import 'package:iteru_app/modules/onboarding/presentation/views/widgets/custtom_button.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});
@@ -42,7 +43,7 @@ class LoginViewBody extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 16,
+              height: 24,
             ),
             const CusttomTextFormField(
               textInputType: TextInputType.emailAddress,
@@ -59,26 +60,13 @@ class LoginViewBody extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            GestureDetector(
+            CustomTextButton(
+              text: 'Forgot your password?',
+              textColor: Colors.black,
               onTap: () {
-                // SharedPrefs.removeShared(kIsOnboardingViewSeen);
-                // Navigator.of(context)
-                //     .pushReplacementNamed(OnboardingView.routeName);
-                
-                Navigator.of(context)
-                    .pushNamed(ForgotPasswordView.routeName);
-
+                Navigator.of(context).pushNamed(ForgotPasswordView.routeName);
               },
-              child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Forgot your password?',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                    ),
-                  )),
+              alignment: Alignment.centerLeft,
             ),
             const SizedBox(
               height: 33,
@@ -90,7 +78,7 @@ class LoginViewBody extends StatelessWidget {
               onPressed: () {},
             ),
             const SizedBox(
-              height: 33,
+              height: 26,
             ),
             const DontHaveAccountWidget(),
             const SizedBox(
@@ -98,7 +86,7 @@ class LoginViewBody extends StatelessWidget {
             ),
             const OrDividerWidget(),
             const SizedBox(
-              height: 26,
+              height: 16,
             ),
             const CusttomButtonSocial(
               title: 'Login with Google',

@@ -3,16 +3,16 @@ class Assets {
   Assets._();
   
   /// Assets for imagesBackgroundOnboardingScreenOne
-  /// assets/images/background_onboarding_screen_one.png
-  static const String imagesBackgroundOnboardingScreenOne = "assets/images/background_onboarding_screen_one.png";
+  /// assets/images/background_onboarding_screen_one.jpg
+  static const String imagesBackgroundOnboardingScreenOne = "assets/images/background_onboarding_screen_one.jpg";
 
   /// Assets for imagesBackgroundOnboardingScreenThree
   /// assets/images/background_onboarding_screen_three.png
   static const String imagesBackgroundOnboardingScreenThree = "assets/images/background_onboarding_screen_three.png";
 
   /// Assets for imagesBackgroundOnboardingScreenTwo
-  /// assets/images/background_onboarding_screen_two.png
-  static const String imagesBackgroundOnboardingScreenTwo = "assets/images/background_onboarding_screen_two.png";
+  /// assets/images/background_onboarding_screen_two.jpeg
+  static const String imagesBackgroundOnboardingScreenTwo = "assets/images/background_onboarding_screen_two.jpeg";
 
   /// Assets for imagesBackgroundPageViewItemOneOnobarding
   /// assets/images/background_PageViewItemOne_onobarding.svg
@@ -25,10 +25,6 @@ class Assets {
   /// Assets for imagesFaceBookLogo
   /// assets/images/faceBook_logo.svg
   static const String imagesFaceBookLogo = "assets/images/faceBook_logo.svg";
-
-  /// Assets for imagesFreepikLoginP
-  /// assets/images/freepik__login_p.png
-  static const String imagesFreepikLoginP = "assets/images/freepik__login_p.png";
 
   /// Assets for imagesGoogleLogo
   /// assets/images/google_logo.svg

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/constants/constant.dart';
+import 'package:iteru_app/core/services/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
-import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
-import 'package:iteru_app/modules/auth/presentation/views/widgets/have_an_account_widget.dart';
-import 'package:iteru_app/modules/auth/presentation/views/widgets/terms_and_condition.dart';
+import 'package:iteru_app/core/widgets/custom_text_button.dart';
+import 'package:iteru_app/modules/auth/presentation/views/widgets/pin_code_text_field_widget.dart';
+import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 
-class SignupViewBody extends StatelessWidget {
-  const SignupViewBody({super.key});
+class CodeValidationViewBody extends StatelessWidget {
+  const CodeValidationViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,40 +36,34 @@ class SignupViewBody extends StatelessWidget {
                   height: 26,
                 ),
                 const Text(
-                  'Hello there! Let’s create your account.',
+                  'Code validation',
                   style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                    fontSize: 26,
+                    fontWeight: FontWeight.w700,
                     color: Color(0xFF1A1D2E),
                   ),
                 ),
                 const SizedBox(
-                  height: 26,
+                  height: 10,
                 ),
-                const CusttomTextFormField(
-                  textInputType: TextInputType.emailAddress,
-                  hintText: 'Name or surname',
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-
-                const CusttomTextFormField(
-                  textInputType: TextInputType.emailAddress,
-                  hintText: 'e-mail',
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                const CusttomTextFormField(
-                  textInputType: TextInputType.emailAddress,
-                  hintText: 'Password',
-                  suffixIcon: Icons.visibility,
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                    'Please enter the 4 digit code sent to your mobile number +010123456789',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF808B9A),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 32,
                 ),
-                const TermsAndCondition(),
+                PinCodeTextFieldWidget(
+                  onChanged: (value) {},
+                ),
 
                 // Center(
                 //   child: GestureDetector(
@@ -97,23 +93,33 @@ class SignupViewBody extends StatelessWidget {
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Expanded(
                     child: SizedBox(
-                  height: 33,
+                  height: 20,
                 )),
                 CusttomButton(
                   backgroundColor: const Color(0xFFDBB13B),
                   textColor: const Color(0xFF1A1D2E),
-                  text: 'Create Account',
-                  onPressed: () {},
+                  text: 'Check the code',
+                  onPressed: () {
+                    SharedPrefs.removeShared(kIsOnboardingViewSeen);
+                    Navigator.of(context)
+                        .pushReplacementNamed(OnboardingView.routeName);
+                  },
                 ),
                 const SizedBox(
-                  height: 26,
+                  height: 26, //bace
                 ),
-                const HaveAnAccountWidget(),
+                const CustomTextButton(
+                  text: 'Resend code?',
+                  textColor: Color(0xFF616A6B),
+                  alignment: Alignment.center,
+                ),
                 const SizedBox(
-                  height: 26,
+                  height: 26, //bace
+                  // height: 50,
                 ),
               ],
             ),
