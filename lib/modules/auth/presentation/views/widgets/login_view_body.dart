@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custom_text_button.dart';
@@ -15,90 +16,122 @@ class LoginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
+        //Padding horizontal screen
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // SizedBox(
-            //   height: 175,
-            //   width: 175,
-            //   child: Image.asset(
-            //     Assets.imagesFreepikLoginP,
-            //     fit: BoxFit.fill,
-            //   ),
-            // ),
+
+            //logo App
             Image.asset(
               Assets.imagesWhatsAppImage,
-              // fit: BoxFit.fill,
             ),
+
+            //SizedBox
             const SizedBox(
               height: 26,
             ),
+
+            //Welcome back
             const Text(
               'Welcome back! Please enter your details.',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF1A1D2E),
+                color: AppColors.lightBlackColor,
               ),
             ),
+
+            //SizedBox
             const SizedBox(
               height: 24,
             ),
+
+            //text field e-mail
             const CusttomTextFormField(
               textInputType: TextInputType.emailAddress,
               hintText: 'e-mail',
             ),
+
+            //SizedBox
             const SizedBox(
               height: 16,
             ),
+
+            //text field Password
             const CusttomTextFormField(
               textInputType: TextInputType.emailAddress,
               hintText: 'Password',
               suffixIcon: Icons.visibility,
             ),
+
+            //SizedBox
             const SizedBox(
               height: 16,
             ),
+
+            //Button Forgot your password
             CustomTextButton(
               text: 'Forgot your password?',
-              textColor: Colors.black,
+              textColor: AppColors.blackColor,
               onTap: () {
                 Navigator.of(context).pushNamed(ForgotPasswordView.routeName);
               },
               alignment: Alignment.centerLeft,
             ),
+
+            //SizedBox
             const SizedBox(
               height: 33,
             ),
+
+            //Button Login
             CusttomButton(
-              backgroundColor: const Color(0xFFDBB13B),
-              textColor: const Color(0xFF1A1D2E),
+              backgroundColor: AppColors.primaryColor,
+              textColor: AppColors.lightBlackColor,
               text: 'Login',
               onPressed: () {},
             ),
+
+            //SizedBox
             const SizedBox(
               height: 26,
             ),
+
+            //Dont Have Account Widget
             const DontHaveAccountWidget(),
+
+            //SizedBox
             const SizedBox(
               height: 26,
             ),
+
+            //Or Divider Widget
             const OrDividerWidget(),
+
+            //SizedBox
             const SizedBox(
               height: 16,
             ),
+
+            //Button 'Login with Google'
             const CusttomButtonSocial(
               title: 'Login with Google',
               image: Assets.imagesGoogleLogo,
             ),
+
+            //SizedBox
             const SizedBox(
               height: 16,
             ),
+
+            //Button 'Login with FaceBook'
             const CusttomButtonSocial(
               title: 'Login with FaceBook',
               image: Assets.imagesFaceBookLogo,
             ),
+
+            //SizedBox 
             const SizedBox(
               height: 26,
             ),

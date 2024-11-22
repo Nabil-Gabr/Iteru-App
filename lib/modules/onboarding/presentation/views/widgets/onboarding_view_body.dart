@@ -10,9 +10,12 @@ class OnboardingViewBody extends StatefulWidget {
 }
 
 class _OnboardingViewBodyState extends State<OnboardingViewBody> {
+  //pageController
   late PageController pageController;
+  //currentPageIndex
   int currentPageIndex = 0;
-
+  
+  //initState
   @override
   void initState() {
     pageController = PageController();
@@ -27,9 +30,11 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    //PageView
     return PageView(
       controller: pageController,
       children: [
+        //PageViewItem One
         PageViewItem(
           visible: true,
           controller: pageController,
@@ -39,6 +44,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           subTitle:
               'Discover cultural, historical, and entertainment spots with personalized guidance at your fingertips',
         ),
+
+        //PageViewItem Two
         PageViewItem(
           visible: true,
           controller: pageController,
@@ -48,6 +55,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           subTitle:
               'Chat with our smart bot to uncover Egypt’s secrets, history, and attractions anytime,anywhere',
         ),
+
+        //PageViewItem Three
         PageViewItem(
           visible: false,
           controller: pageController,

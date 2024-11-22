@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/custtom_check_box.dart';
 
 class TermsAndCondition extends StatefulWidget {
@@ -32,19 +33,19 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                 TextSpan(
                     text: 'I agree to Platform',
                     style: TextStyle(
-                        color: Color(0xFF949D9E),
+                        color: AppColors.captionColor,
                         fontWeight: FontWeight.w600,
                         fontSize: 13)),
                 TextSpan(
                     text: ' ',
                     style: TextStyle(
-                        color: Color(0xFF949D9E),
+                        color: AppColors.captionColor,
                         fontWeight: FontWeight.w600,
                         fontSize: 13)),
                 TextSpan(
                   text: 'Terms of Serivce and Privacy Policy',
                   style: TextStyle(
-                      color: Color(0xFFDBB13B),
+                      color: AppColors.primaryColor,
                       fontWeight: FontWeight.w600,
                       fontSize: 13),
                 ),

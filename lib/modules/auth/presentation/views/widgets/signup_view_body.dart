@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
@@ -11,107 +12,112 @@ class SignupViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
+      //Padding horizontal screen
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
+
+      //CustomScrollView
       child: CustomScrollView(
         slivers: [
+          //sliver to aox adapter
           SliverToBoxAdapter(
+            //Column
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // SizedBox(
-                //   height: 175,
-                //   width: 175,
-                //   child: Image.asset(
-                //     Assets.imagesFreepikLoginP,
-                //     fit: BoxFit.fill,
-                //   ),
-                // ),
+                //logo App
                 Image.asset(
                   Assets.imagesWhatsAppImage,
-                  // fit: BoxFit.fill,
                 ),
+
+                //SizedBox
                 const SizedBox(
                   height: 26,
                 ),
+
+                //Hello there!
                 const Text(
                   'Hello there! Let’s create your account.',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF1A1D2E),
+                    color: AppColors.lightBlackColor,
                   ),
                 ),
+
+                //SizedBox
                 const SizedBox(
                   height: 26,
                 ),
+
+                //text field 'Name or surname'
                 const CusttomTextFormField(
                   textInputType: TextInputType.emailAddress,
                   hintText: 'Name or surname',
                 ),
+
+                //SizedBox
                 const SizedBox(
                   height: 16,
                 ),
 
+                //text field 'e-mail'
                 const CusttomTextFormField(
                   textInputType: TextInputType.emailAddress,
                   hintText: 'e-mail',
                 ),
+
+                //SizedBox
                 const SizedBox(
                   height: 16,
                 ),
+
+                //text field 'Password'
                 const CusttomTextFormField(
                   textInputType: TextInputType.emailAddress,
                   hintText: 'Password',
                   suffixIcon: Icons.visibility,
                 ),
+
+                //SizedBox
                 const SizedBox(
                   height: 16,
                 ),
-                const TermsAndCondition(),
 
-                // Center(
-                //   child: GestureDetector(
-                //     onTap: () {
-                //       SharedPrefs.removeShared(kIsOnboardingViewSeen);
-                //       Navigator.of(context)
-                //           .pushReplacementNamed(OnboardingView.routeName);
-                //     },
-                //     child: const Text(
-                //       'Login View',
-                //       style: TextStyle(fontSize: 24),
-                //     ),
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 50,
-                // ),
-                // TextButton(
-                //     onPressed: () {
-                //       Navigator.of(context)
-                //           .pushReplacementNamed(OnboardingView.routeName);
-                //     },
-                //     child: const Text('Back')),
+                //TermsAndCondition widget
+                const TermsAndCondition(),
               ],
             ),
           ),
+
+          //SliverFillRemaining
           SliverFillRemaining(
             hasScrollBody: false,
+            //Column
             child: Column(
               children: [
+                //Expanded widget
                 const Expanded(
                     child: SizedBox(
                   height: 33,
                 )),
+
+                //Button 'Create Account'
                 CusttomButton(
-                  backgroundColor: const Color(0xFFDBB13B),
-                  textColor: const Color(0xFF1A1D2E),
+                  backgroundColor: AppColors.primaryColor,
+                  textColor: AppColors.lightBlackColor,
                   text: 'Create Account',
                   onPressed: () {},
                 ),
+
+                //SizedBox
                 const SizedBox(
                   height: 26,
                 ),
+
+                //Have an account widget
                 const HaveAnAccountWidget(),
+
+                //SizedBox
                 const SizedBox(
                   height: 26,
                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
 
 class DontHaveAccountWidget extends StatelessWidget {
@@ -15,14 +16,14 @@ class DontHaveAccountWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF949D9E),
+                color: AppColors.captionColor,
               )),
           const TextSpan(
               text: ' ',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF949D9E),
+                color: AppColors.captionColor,
               )),
           TextSpan(
               recognizer: TapGestureRecognizer()
@@ -33,7 +34,7 @@ class DontHaveAccountWidget extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Colors.black,
+                color: AppColors.blackColor,
               )),
         ],
       ),

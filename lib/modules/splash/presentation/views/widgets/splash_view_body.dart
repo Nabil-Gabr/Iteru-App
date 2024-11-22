@@ -13,9 +13,12 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
+  //initState
   @override
   void initState() {
+    //excuteNaviagtion function
     excuteNaviagtion();
+
     super.initState();
   }
 
@@ -26,6 +29,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     );
   }
 
+  //excuteNaviagtion function implementation
   void excuteNaviagtion() {
     Future.delayed(
       const Duration(seconds: 3),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 
 class CusttomButtonSocial extends StatelessWidget {
   const CusttomButtonSocial(
@@ -13,9 +14,9 @@ class CusttomButtonSocial extends StatelessWidget {
       height: 56,
       child: TextButton(
         style: TextButton.styleFrom(
-            backgroundColor: Colors.white,
+            backgroundColor: AppColors.whiteColor,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(8),
                 side: const BorderSide(color: Color(0xFFDDDFDF)))),
         onPressed: () {},
         child: ListTile(
@@ -28,7 +29,7 @@ class CusttomButtonSocial extends StatelessWidget {
           titleTextStyle: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF1A1D2E)),
+              color: AppColors.lightBlackColor),
           trailing: SvgPicture.asset(image),
         ),
       ),

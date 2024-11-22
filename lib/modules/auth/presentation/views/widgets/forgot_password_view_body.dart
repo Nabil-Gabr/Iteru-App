@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
@@ -10,37 +11,40 @@ class ForgotPasswordViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
+      //Padding horizontal screen
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
+
+      //Custom Scroll View Widget
       child: CustomScrollView(
         slivers: [
+          //sliver to box adapter
           SliverToBoxAdapter(
+            //Column
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // SizedBox(
-                //   height: 175,
-                //   width: 175,
-                //   child: Image.asset(
-                //     Assets.imagesFreepikLoginP,
-                //     fit: BoxFit.fill,
-                //   ),
-                // ),
+                //logo App
                 Image.asset(
                   Assets.imagesWhatsAppImage,
-                  // fit: BoxFit.fill,
                 ),
+                //SizedBox
                 const SizedBox(
                   height: 26,
                 ),
+                //Text Widget 'Forgot password?'
                 const Text(
                   'Forgot password?',
                   style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w700,
-                color: Color(0xFF1A1D2E),
-              ),
+                    fontSize: 26,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.lightBlackColor,
+                  ),
                 ),
-                const SizedBox(height: 10,),
+                //SizedBox
+                const SizedBox(
+                  height: 10,
+                ),
+                // Text widget 'Don’t worry!'
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
@@ -48,61 +52,48 @@ class ForgotPasswordViewBody extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFF808B9A),
+                      color: AppColors.captionColor,
+                      //0xFF949D9E
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
+                //SizedBox
                 const SizedBox(
                   height: 32,
                 ),
+                //text field widget
                 const CusttomTextFormField(
                   textInputType: TextInputType.emailAddress,
                   hintText: 'Insert email address / mobile number',
                 ),
-
-                // Center(
-                //   child: GestureDetector(
-                //     onTap: () {
-                //       SharedPrefs.removeShared(kIsOnboardingViewSeen);
-                //       Navigator.of(context)
-                //           .pushReplacementNamed(OnboardingView.routeName);
-                //     },
-                //     child: const Text(
-                //       'Login View',
-                //       style: TextStyle(fontSize: 24),
-                //     ),
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 50,
-                // ),
-                // TextButton(
-                //     onPressed: () {
-                //       Navigator.of(context)
-                //           .pushReplacementNamed(OnboardingView.routeName);
-                //     },
-                //     child: const Text('Back')),
               ],
             ),
           ),
+
+          //sliver fill remaining
           SliverFillRemaining(
             hasScrollBody: false,
+            //Column
             child: Column(
               children: [
+                //Expanded
                 const Expanded(
                     child: SizedBox(
                   height: 20,
                 )),
+
+                //Button 'Submit'
                 CusttomButton(
-                  backgroundColor: const Color(0xFFDBB13B),
-                  textColor: const Color(0xFF1A1D2E),
+                  backgroundColor: AppColors.primaryColor,
+                  textColor: AppColors.lightBlackColor,
                   text: 'Submit',
                   onPressed: () {
                     Navigator.of(context)
-                    .pushNamed(CodeValidationView.routeName);
+                        .pushNamed(CodeValidationView.routeName);
                   },
                 ),
+                //SizedBox
                 const SizedBox(
                   height: 26, // bace
                   // height: 50,

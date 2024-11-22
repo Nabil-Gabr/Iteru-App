@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 
 class CusttomTextFormField extends StatelessWidget {
   const CusttomTextFormField(
@@ -33,7 +34,7 @@ class CusttomTextFormField extends StatelessWidget {
         hintStyle: const TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.w700,
-            color: Color(0xFF949D9E)),
+            color: AppColors.captionColor),
 
         //2:6-suffixIcon
         suffixIcon: Icon(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/services/shared_preferences_singleton.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/widgets/dots_indicator.dart';
@@ -12,7 +13,8 @@ class PageViewItem extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.currentPageIndex,
-    this.controller, required this.visible,
+    this.controller,
+    required this.visible,
   });
   final String image, title, subTitle;
   final int currentPageIndex;
@@ -26,13 +28,15 @@ class PageViewItem extends StatelessWidget {
       height: MediaQuery.sizeOf(context).height,
       child: Stack(
         children: [
+          //backgrount image Page View
           Positioned.fill(
             child: Image.asset(
               image,
-              // Assets.imagesBackgroundPageViewItemOneOnobarding,
               fit: BoxFit.fill,
             ),
           ),
+
+          //Container Details
           Positioned(
             bottom: 0,
             left: 0,
@@ -42,14 +46,14 @@ class PageViewItem extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(.7),
+                    color: AppColors.whiteColor.withOpacity(.7),
                     borderRadius: const BorderRadius.all(Radius.circular(12))),
                 child: Column(
                   children: [
                     Text(
                       title,
                       style: const TextStyle(
-                          color: Colors.black,
+                          color: AppColors.blackColor,
                           fontSize: 24,
                           fontWeight: FontWeight.w600),
                       textAlign: TextAlign.start,
@@ -60,7 +64,7 @@ class PageViewItem extends StatelessWidget {
                     Text(
                       subTitle,
                       style: const TextStyle(
-                          color: Colors.black,
+                          color: AppColors.blackColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w500),
                       textAlign: TextAlign.start,
@@ -81,8 +85,8 @@ class PageViewItem extends StatelessWidget {
                           child: CusttomButton(
                             text: currentPageIndex == 2 ? 'Start' : 'Next',
                             backgroundColor:
-                                const Color(0xFFDBB13B).withOpacity(.8),
-                            textColor: Colors.white,
+                                AppColors.primaryColor.withOpacity(.8),
+                            textColor: AppColors.whiteColor,
                             onPressed: () {
                               if (currentPageIndex == 2) {
                                 SharedPrefs.setBool(
@@ -106,6 +110,8 @@ class PageViewItem extends StatelessWidget {
               ),
             ),
           ),
+
+          //Skip Button
           Visibility(
             visible: visible,
             child: Positioned(
@@ -122,7 +128,7 @@ class PageViewItem extends StatelessWidget {
                   },
                   child: const Text(
                     'Skip',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: AppColors.whiteColor),
                   ),
                 ),
               ),

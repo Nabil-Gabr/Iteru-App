@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
   const HaveAnAccountWidget({super.key});
@@ -14,14 +15,14 @@ class HaveAnAccountWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF949D9E),
+                color: AppColors.captionColor,
               )),
           const TextSpan(
               text: ' ',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF949D9E),
+                color: AppColors.captionColor,
               )),
           TextSpan(
               recognizer: TapGestureRecognizer()
@@ -32,7 +33,7 @@ class HaveAnAccountWidget extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Colors.black,
+                color: AppColors.blackColor,
               )),
         ],
       ),

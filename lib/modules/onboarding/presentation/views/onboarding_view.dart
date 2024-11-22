@@ -3,8 +3,10 @@ import 'package:iteru_app/modules/onboarding/presentation/views/widgets/onboardi
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
-
+  
+  //routeName
   static const String routeName = 'OnboardingView';
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

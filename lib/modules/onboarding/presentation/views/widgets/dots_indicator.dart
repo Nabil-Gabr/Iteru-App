@@ -7,6 +7,7 @@ class DotsIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //three dot indicators
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(

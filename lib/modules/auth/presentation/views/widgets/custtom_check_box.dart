@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 
 class CusttomCheckBox extends StatelessWidget {
@@ -19,11 +20,11 @@ class CusttomCheckBox extends StatelessWidget {
         height: 24,
         duration: const Duration(milliseconds: 100),
         decoration: ShapeDecoration(
-          color: isChecked ? const Color(0xFFDBB13B) : null,
+          color: isChecked ? AppColors.primaryColor : null,
           shape: RoundedRectangleBorder(
-            side: const BorderSide(
+            side: BorderSide(
               width: 1.50,
-              color: Color(0xFFDCDEDE),
+              color: isChecked ? AppColors.primaryColor : AppColors.captionColor,
             ),
             borderRadius: BorderRadius.circular(8),
           ),
