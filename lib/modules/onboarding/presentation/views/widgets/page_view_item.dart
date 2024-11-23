@@ -50,6 +50,7 @@ class PageViewItem extends StatelessWidget {
                     color: AppColors.whiteColor.withOpacity(.7),
                     borderRadius: const BorderRadius.all(Radius.circular(12))),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       title,
@@ -61,7 +62,7 @@ class PageViewItem extends StatelessWidget {
                     ),
                     Text(
                       subTitle,
-                      style: AppTextStyles.medium16(context),
+                      style: AppTextStyles.bold16(context),
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(
@@ -78,7 +79,7 @@ class PageViewItem extends StatelessWidget {
                       children: [
                         Expanded(
                           child: CusttomButton(
-                            text: currentPageIndex == 2 ? 'Start' : 'Next',
+                            text: currentPageIndex == 2 ? 'Get Started' : 'Next',
                             backgroundColor:
                                 AppColors.primaryColor.withOpacity(.8),
                             textColor: AppColors.whiteColor,

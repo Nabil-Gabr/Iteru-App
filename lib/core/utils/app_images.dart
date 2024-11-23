@@ -30,6 +30,10 @@ class Assets {
   /// assets/images/google_logo.svg
   static const String imagesGoogleLogo = "assets/images/google_logo.svg";
 
+  /// Assets for imagesPyramids
+  /// assets/images/Pyramids.jpg
+  static const String imagesPyramids = "assets/images/Pyramids.jpg";
+
   /// Assets for imagesWhatsAppImage
   /// assets/images/whats_app_image.png
   static const String imagesWhatsAppImage = "assets/images/whats_app_image.png";

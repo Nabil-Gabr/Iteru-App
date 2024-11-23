@@ -23,6 +23,34 @@ abstract class AppTextStyles {
     );
   }
 
+  static TextStyle semiBold16(BuildContext context) {
+    return TextStyle(
+      color: AppColors.captionColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  static TextStyle bold16(BuildContext context) {
+    return TextStyle(
+      color: AppColors.blackColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+//fontSize = 16
+  static TextStyle medium18(BuildContext context) {
+    return TextStyle(
+      color: AppColors.blackColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w500,
+    );
+  }
+
 //fontSize = 20
   static TextStyle medium20(BuildContext context) {
     return TextStyle(

@@ -39,7 +39,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           visible: true,
           controller: pageController,
           currentPageIndex: currentPageIndex,
-          image: Assets.imagesBackgroundOnboardingScreenOne,
+          image: Assets.imagesPyramids,
           title: 'Explore Egypt Effortlessly',
           subTitle:
               'Discover cultural, historical, and entertainment spots with personalized guidance at your fingertips',
@@ -61,7 +61,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           visible: false,
           controller: pageController,
           currentPageIndex: currentPageIndex,
-          image: Assets.imagesBackgroundOnboardingScreenThree,
+          image: Assets.imagesBackgroundOnboardingScreenOne,
           title: 'Navigate with Ease',
           subTitle:
               'Enjoy interactive maps, voice-guided tours, and seamless travel support designed just for you',

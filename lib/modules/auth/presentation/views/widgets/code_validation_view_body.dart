@@ -45,10 +45,10 @@ class CodeValidationViewBody extends StatelessWidget {
                 ),
                 //text widget 'Please enter the 4 digit code'
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     'Please enter the 4 digit code sent to your mobile number +010123456789',
-                    style: AppTextStyles.medium16(context)
+                    style: AppTextStyles.medium18(context)
                         .copyWith(color: AppColors.captionColor),
                     textAlign: TextAlign.center,
                   ),

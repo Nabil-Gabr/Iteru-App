@@ -33,10 +33,9 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
               children: [
                 TextSpan(
                     text: 'I agree to Platform',
-                    style: AppTextStyles.semiBold15(context)),
-                TextSpan(
-                    text: ' ',
-                    style: AppTextStyles.semiBold15(context)),
+                    style: AppTextStyles.semiBold16(context)),
+                const TextSpan(
+                    text: ' ',),
                 TextSpan(
                   text: 'Terms of Serivce and Privacy Policy',
                   style: AppTextStyles.semiBold15(context).copyWith(color: AppColors.primaryColor))
