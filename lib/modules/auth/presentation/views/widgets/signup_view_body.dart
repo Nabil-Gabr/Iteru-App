@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/have_an_account_widget.dart';
@@ -13,7 +15,7 @@ class SignupViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       //Padding horizontal screen
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
 
       //CustomScrollView
       child: CustomScrollView(
@@ -35,13 +37,9 @@ class SignupViewBody extends StatelessWidget {
                 ),
 
                 //Hello there!
-                const Text(
+                Text(
                   'Hello there! Let’s create your account.',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.lightBlackColor,
-                  ),
+                  style: AppTextStyles.semiBold20(context)
                 ),
 
                 //SizedBox

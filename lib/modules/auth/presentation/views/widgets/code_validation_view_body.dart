@@ -3,6 +3,7 @@ import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/services/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custom_text_button.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/pin_code_text_field_widget.dart';
@@ -15,7 +16,7 @@ class CodeValidationViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       //Padding horizontal screen
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
       //custom scroll view widget
       child: CustomScrollView(
         slivers: [
@@ -34,28 +35,21 @@ class CodeValidationViewBody extends StatelessWidget {
                   height: 26,
                 ),
                 // text widget 'Code validation'
-                const Text(
+                 Text(
                   'Code validation',
-                  style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.lightBlackColor,
-                  ),
+                  style: AppTextStyles.bold30(context),
                 ),
                 //SizedBox
                 const SizedBox(
                   height: 10,
                 ),
                 //text widget 'Please enter the 4 digit code'
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     'Please enter the 4 digit code sent to your mobile number +010123456789',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.captionColor,
-                    ),
+                    style: AppTextStyles.medium16(context)
+                        .copyWith(color: AppColors.captionColor),
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custom_text_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
@@ -17,7 +19,7 @@ class LoginViewBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         //Padding horizontal screen
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -33,13 +35,9 @@ class LoginViewBody extends StatelessWidget {
             ),
 
             //Welcome back
-            const Text(
+            Text(
               'Welcome back! Please enter your details.',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppColors.lightBlackColor,
-              ),
+              style: AppTextStyles.semiBold20(context)
             ),
 
             //SizedBox

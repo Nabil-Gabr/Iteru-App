@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PinCodeTextFieldWidget extends StatelessWidget {
@@ -20,7 +21,7 @@ class PinCodeTextFieldWidget extends StatelessWidget {
         length: 4,
         cursorHeight: 19,
         enableActiveFill: true,
-        textStyle: const TextStyle(fontSize: 20),
+        textStyle: AppTextStyles.semiBold24(context),
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         pinTheme: PinTheme(
           shape: PinCodeFieldShape.box,

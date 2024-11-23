@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class CusttomButtonSocial extends StatelessWidget {
   const CusttomButtonSocial(
@@ -26,10 +27,7 @@ class CusttomButtonSocial extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
           ),
-          titleTextStyle: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: AppColors.lightBlackColor),
+          titleTextStyle: AppTextStyles.semiBold20(context),
           trailing: SvgPicture.asset(image),
         ),
       ),

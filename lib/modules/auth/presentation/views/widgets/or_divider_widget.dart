@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class OrDividerWidget extends StatelessWidget {
   const OrDividerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       children: [
-        Expanded(child: Divider()),
-        SizedBox(
+        const Expanded(child: Divider()),
+        const SizedBox(
           width: 18,
         ),
         Text(
           'OR',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          style: AppTextStyles.semiBold20(context),
         ),
-        SizedBox(
+        const SizedBox(
           width: 18,
         ),
-        Expanded(child: Divider()),
+        const Expanded(child: Divider()),
       ],
     );
   }

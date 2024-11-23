@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
 import 'package:iteru_app/modules/auth/presentation/views/code_validation_view.dart';
@@ -12,7 +14,7 @@ class ForgotPasswordViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       //Padding horizontal screen
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
 
       //Custom Scroll View Widget
       child: CustomScrollView(
@@ -32,29 +34,21 @@ class ForgotPasswordViewBody extends StatelessWidget {
                   height: 26,
                 ),
                 //Text Widget 'Forgot password?'
-                const Text(
+                Text(
                   'Forgot password?',
-                  style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.lightBlackColor,
-                  ),
+                  style: AppTextStyles.bold30(context),
                 ),
                 //SizedBox
                 const SizedBox(
                   height: 10,
                 ),
                 // Text widget 'Don’t worry!'
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     'Don’t worry! It’s happens. Please enter the email address associated with your account.',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.captionColor,
-                      //0xFF949D9E
-                    ),
+                    style: AppTextStyles.medium16(context)
+                        .copyWith(color: AppColors.captionColor),
                     textAlign: TextAlign.center,
                   ),
                 ),

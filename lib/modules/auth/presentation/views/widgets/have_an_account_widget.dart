@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
   const HaveAnAccountWidget({super.key});
@@ -10,31 +11,21 @@ class HaveAnAccountWidget extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          const TextSpan(
+          TextSpan(
               text: 'Already have an account?',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppColors.captionColor,
-              )),
-          const TextSpan(
+              style: AppTextStyles.semiBold20(context)
+                  .copyWith(color: AppColors.captionColor)),
+          TextSpan(
               text: ' ',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppColors.captionColor,
-              )),
+              style: AppTextStyles.semiBold20(context)
+                  .copyWith(color: AppColors.captionColor)),
           TextSpan(
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   Navigator.pop(context);
                 },
               text: 'Login',
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppColors.blackColor,
-              )),
+              style: AppTextStyles.semiBold20(context)),
         ],
       ),
       textAlign: TextAlign.center,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/services/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/widgets/dots_indicator.dart';
@@ -52,10 +53,7 @@ class PageViewItem extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
-                          color: AppColors.blackColor,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600),
+                      style: AppTextStyles.semiBold24(context),
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(
@@ -63,10 +61,7 @@ class PageViewItem extends StatelessWidget {
                     ),
                     Text(
                       subTitle,
-                      style: const TextStyle(
-                          color: AppColors.blackColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500),
+                      style: AppTextStyles.medium16(context),
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(
@@ -94,7 +89,6 @@ class PageViewItem extends StatelessWidget {
                                 Navigator.of(context)
                                     .pushReplacementNamed(LoginView.routeName);
                               } else {
-                                // int nextPage = currentPageIndex + 1;
                                 controller!.nextPage(
                                   duration: const Duration(milliseconds: 900),
                                   curve: Curves.easeInOut,
@@ -126,9 +120,9 @@ class PageViewItem extends StatelessWidget {
                     Navigator.of(context)
                         .pushReplacementNamed(LoginView.routeName);
                   },
-                  child: const Text(
+                  child: Text(
                     'Skip',
-                    style: TextStyle(color: AppColors.whiteColor),
+                    style: AppTextStyles.medium20(context),
                   ),
                 ),
               ),
