@@ -4,7 +4,8 @@ import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/custtom_check_box.dart';
 
 class TermsAndCondition extends StatefulWidget {
-  const TermsAndCondition({super.key});
+  const TermsAndCondition({super.key, required this.onChanged});
+  final ValueChanged<bool>onChanged;
 
   @override
   State<TermsAndCondition> createState() => _TermsAndConditionState();
@@ -21,6 +22,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
           onChecked: (value) {
             setState(() {
               isTermsAccepted = value;
+              widget.onChanged(value);
             });
           },
         ),

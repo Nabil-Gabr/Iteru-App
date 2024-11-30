@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/constants/constant.dart';
+import 'package:iteru_app/core/helpers/functions/show_error_bar.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
@@ -19,6 +20,7 @@ class SignupViewBody extends StatefulWidget {
 class _SignupViewBodyState extends State<SignupViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  late bool isTermsAccepted=false;
 
   late String userName, userEmail, userPassword, userPhone;
   @override
@@ -113,7 +115,11 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   ),
 
                   //TermsAndCondition widget
-                  const TermsAndCondition(),
+                  TermsAndCondition(
+                    onChanged: (value) {
+                      isTermsAccepted = value;
+                    },
+                  ),
                 ],
               ),
             ),
@@ -138,6 +144,11 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
+                        if (isTermsAccepted) {
+                          
+                        }else{
+                          showErrorBar(context, 'You must agree to the terms and conditions.');
+                        }
                       } else {
                         setState(() {
                           autovalidateMode = AutovalidateMode.always;
