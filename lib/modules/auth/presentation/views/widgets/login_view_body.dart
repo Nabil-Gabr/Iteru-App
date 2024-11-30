@@ -23,7 +23,6 @@ class LoginViewBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             //logo App
             Image.asset(
               Assets.imagesWhatsAppImage,
@@ -35,10 +34,8 @@ class LoginViewBody extends StatelessWidget {
             ),
 
             //Welcome back
-            Text(
-              'Welcome back! Please enter your details.',
-              style: AppTextStyles.semiBold20(context)
-            ),
+            Text('Welcome back! Please enter your details.',
+                style: AppTextStyles.semiBold20(context)),
 
             //SizedBox
             const SizedBox(
@@ -60,7 +57,7 @@ class LoginViewBody extends StatelessWidget {
             const CusttomTextFormField(
               textInputType: TextInputType.emailAddress,
               hintText: 'Password',
-              suffixIcon: Icons.visibility,
+              suffixIcon: Icon(Icons.visibility),
             ),
 
             //SizedBox
@@ -129,7 +126,7 @@ class LoginViewBody extends StatelessWidget {
               image: Assets.imagesFaceBookLogo,
             ),
 
-            //SizedBox 
+            //SizedBox
             const SizedBox(
               height: 26,
             ),

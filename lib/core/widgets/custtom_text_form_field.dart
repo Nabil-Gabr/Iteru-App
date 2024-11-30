@@ -3,14 +3,22 @@ import 'package:iteru_app/core/utils/app_colors.dart';
 
 class CusttomTextFormField extends StatelessWidget {
   const CusttomTextFormField(
-      {super.key, this.textInputType, required this.hintText, this.suffixIcon});
+      {super.key, this.textInputType, required this.hintText, this.suffixIcon, this.onSaved});
   final TextInputType? textInputType;
   final String hintText;
-  final IconData? suffixIcon;
+  final Widget? suffixIcon;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved:onSaved ,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'هذا الحقل مطلوب';
+        }
+        return null;
+      },
       //1-keyboardType
       keyboardType: textInputType,
 
@@ -37,10 +45,7 @@ class CusttomTextFormField extends StatelessWidget {
             color: AppColors.captionColor),
 
         //2:6-suffixIcon
-        suffixIcon: Icon(
-          suffixIcon,
-          color: const Color(0xFFC9CECF),
-        ),
+        suffixIcon: suffixIcon,
       ),
     );
   }
