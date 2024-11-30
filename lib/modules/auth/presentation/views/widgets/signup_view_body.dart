@@ -5,6 +5,7 @@ import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
+import 'package:iteru_app/core/widgets/password_text_field.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/have_an_account_widget.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/terms_and_condition.dart';
 
@@ -58,9 +59,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   ),
 
                   //text field 'Name or surname'
-                   CusttomTextFormField(
+                  CusttomTextFormField(
                     onSaved: (value) {
-                      userName=value!;
+                      userName = value!;
                     },
                     textInputType: TextInputType.emailAddress,
                     hintText: 'Name or surname',
@@ -72,9 +73,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   ),
 
                   //text field 'e-mail'
-                   CusttomTextFormField(
+                  CusttomTextFormField(
                     onSaved: (value) {
-                      userEmail=value!;
+                      userEmail = value!;
                     },
                     textInputType: TextInputType.emailAddress,
                     hintText: 'e-mail',
@@ -86,13 +87,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   ),
 
                   //text field 'Password'
-                   CusttomTextFormField(
+                  PasswordTextField(
                     onSaved: (value) {
-                      userPassword=value!;
+                      userPassword = value!;
                     },
-                    textInputType: TextInputType.emailAddress,
-                    hintText: 'Password',
-                    suffixIcon: const Icon(Icons.visibility),
                   ),
 
                   //SizedBox
@@ -101,9 +99,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   ),
 
                   //text field 'Password'
-                   CusttomTextFormField(
+                  CusttomTextFormField(
                     onSaved: (value) {
-                      userPassword=value!;
+                      userPassword = value!;
                     },
                     textInputType: TextInputType.phone,
                     hintText: 'Phone number',
@@ -140,9 +138,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                      }else{
+                      } else {
                         setState(() {
-                          autovalidateMode=AutovalidateMode.always;
+                          autovalidateMode = AutovalidateMode.always;
                         });
                       }
                     },
