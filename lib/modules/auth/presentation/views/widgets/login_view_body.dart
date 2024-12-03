@@ -11,6 +11,7 @@ import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.d
 import 'package:iteru_app/modules/auth/presentation/views/widgets/custtom_button_social.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/dont_have_account_widget.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/or_divider_widget.dart';
+import 'package:iteru_app/modules/home/presentation/view/main_view.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -96,6 +97,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
+                    Navigator.of(context).pushNamed(MainView.routeName);
                   }
                 },
               ),

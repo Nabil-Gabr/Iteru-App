@@ -4,6 +4,7 @@ import 'package:iteru_app/modules/auth/presentation/views/code_validation_view.d
 import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
+import 'package:iteru_app/modules/home/presentation/view/main_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
 
@@ -42,6 +43,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case CodeValidationView.routeName:
       return MaterialPageRoute(
         builder: (context) => const CodeValidationView(),
+      );
+
+    case MainView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const MainView(),
       );
 
     default:

@@ -18,6 +18,10 @@ class Assets {
   /// assets/images/background_PageViewItemOne_onobarding.svg
   static const String imagesBackgroundPageViewItemOneOnobarding = "assets/images/background_PageViewItemOne_onobarding.svg";
 
+  /// Assets for imagesChatbot
+  /// assets/images/chatbot.svg
+  static const String imagesChatbot = "assets/images/chatbot.svg";
+
   /// Assets for imagesCheck
   /// assets/images/Check.svg
   static const String imagesCheck = "assets/images/Check.svg";
@@ -30,9 +34,21 @@ class Assets {
   /// assets/images/google_logo.svg
   static const String imagesGoogleLogo = "assets/images/google_logo.svg";
 
+  /// Assets for imagesHomeicon
+  /// assets/images/homeicon.svg
+  static const String imagesHomeicon = "assets/images/homeicon.svg";
+
+  /// Assets for imagesProfile
+  /// assets/images/profile.svg
+  static const String imagesProfile = "assets/images/profile.svg";
+
   /// Assets for imagesPyramids
   /// assets/images/Pyramids.jpg
   static const String imagesPyramids = "assets/images/Pyramids.jpg";
+
+  /// Assets for imagesSearch
+  /// assets/images/search.svg
+  static const String imagesSearch = "assets/images/search.svg";
 
   /// Assets for imagesWhatsAppImage
   /// assets/images/whats_app_image.png
