@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 
 class ActiveItem extends StatelessWidget {
-  const ActiveItem({super.key, required this.text, required this.image});
+  const ActiveItem({super.key, required this.text, required this.icon, });
 
   final String text;
-  final String image;
+  // final String image;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,20 +16,24 @@ class ActiveItem extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: Container(
             height: 2,
-            color: Colors.black,
+            color: AppColors.primaryColor,
           ),
         ),
         const Expanded(child: SizedBox()),
-        Container(
-          color: Colors.transparent,
-          child: SvgPicture.asset(image),
-        ),
+         Icon(icon,size: 28,color: AppColors.primaryColor,),
+        // Container(
+        //   color: Colors.transparent,
+        //   child: SvgPicture.asset(image),
+        // ),
         const SizedBox(
           height: 4,
         ),
-        Text(text),
+        Text(
+          text,
+          style: const TextStyle(fontWeight: FontWeight.w700,color: AppColors.primaryColor),
+        ),
         const SizedBox(
-          height: 12,
+          height: 4,
         ),
       ],
     );

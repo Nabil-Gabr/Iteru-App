@@ -1,30 +1,38 @@
-import 'package:iteru_app/core/utils/app_images.dart';
-
+import 'package:flutter/material.dart';
 class BottomNavigationBarEntity {
-  final String activeImage, inActiveImage;
+  // final String activeImage, inActiveImage;
+  final IconData activeIcon, inActiveIcon;
   final String name;
 
   BottomNavigationBarEntity(
-      {required this.activeImage,
-      required this.inActiveImage,
+      {required this.activeIcon,
+      required this.inActiveIcon,
       required this.name});
 }
 
 List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
       BottomNavigationBarEntity(
-          activeImage: Assets.imagesHomeicon,
-          inActiveImage: Assets.imagesHomeicon,
+          activeIcon: Icons.home_rounded,
+          inActiveIcon: Icons.home_outlined,
+          // activeImage: Assets.imagesHomeicon,
+          // inActiveImage: Assets.imagesHomeicon,
           name: 'Home'),
       BottomNavigationBarEntity(
-          activeImage: Assets.imagesChatbot,
-          inActiveImage: Assets.imagesChatbot,
+          activeIcon: Icons.chat_rounded,
+          inActiveIcon: Icons.chat_outlined,
+          // activeImage: Assets.imagesChatbot,
+          // inActiveImage: Assets.imagesChatbot,
           name: 'Chatbot'),
       BottomNavigationBarEntity(
-          activeImage: Assets.imagesSearch,
-          inActiveImage: Assets.imagesSearch,
+          activeIcon: Icons.search_rounded,
+          inActiveIcon: Icons.search_outlined,
+          // activeImage: Assets.imagesSearch,
+          // inActiveImage: Assets.imagesSearch,
           name: 'Search'),
       BottomNavigationBarEntity(
-          activeImage: Assets.imagesProfile,
-          inActiveImage: Assets.imagesProfile,
+          activeIcon: Icons.account_circle_rounded,
+          inActiveIcon: Icons.account_circle_outlined,
+          // activeImage: Assets.imagesProfile,
+          // inActiveImage: Assets.imagesProfile,
           name: 'Profile'),
     ];
