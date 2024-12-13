@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:iteru_app/core/errors/failure.dart';
-import 'package:iteru_app/core/services/api_auth_service.dart';
+import 'package:iteru_app/core/services/api/api_auth_service.dart';
 import 'package:iteru_app/modules/auth/data/models/user_model.dart';
 import 'package:iteru_app/modules/auth/domain/entity/user_entity.dart';
 import 'package:iteru_app/modules/auth/domain/repos/auth_repo.dart';
@@ -36,7 +36,6 @@ class AuthRepoImpl extends AuthRepo {
       required String userEmail,
       required String userPassword,
       required String userPhone}) {
-    // TODO: implement createUserWithEmailAndPassword
     throw UnimplementedError();
   }
 }
