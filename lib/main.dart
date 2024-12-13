@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/helpers/functions/on_generate_route.dart';
+import 'package:iteru_app/core/services/custom_bloc_observer.dart';
+import 'package:iteru_app/core/services/get_it_service.dart';
 import 'package:iteru_app/core/services/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/layouts/layouts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   await SharedPrefs.init();
+   Bloc.observer=CustomBlocObserver();
+  setupGetIt();
   runApp(const IteruApp());
 }
 

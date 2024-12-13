@@ -4,8 +4,13 @@ import 'package:iteru_app/modules/auth/domain/entity/user_entity.dart';
 
 abstract class AuthRepo {
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
-      {required userEmail,
-      required userPassword,
-      required userName,
-      required userPhone});
+      {required String userName,
+      required String userEmail,
+      required String userPassword,
+      required String userPhone});
+
+   //login method
+  Future<Either<Failure, UserEntity>> loginUserWithEmailAndPassword(
+      {required String userEmail, required String userPassowrd});
+
 }

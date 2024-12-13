@@ -4,11 +4,13 @@ import 'package:iteru_app/core/utils/app_colors.dart';
 class CusttomTextFormField extends StatelessWidget {
   const CusttomTextFormField(
       {super.key,
+      this.obscureText = false,
       this.textInputType,
       required this.hintText,
-      this.suffixIcon,
       this.onSaved,
-      this.obscureText = false});
+      this.suffixIcon,
+      
+      });
   final TextInputType? textInputType;
   final String hintText;
   final Widget? suffixIcon;

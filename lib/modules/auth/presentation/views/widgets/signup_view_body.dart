@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/helpers/functions/show_error_bar.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
@@ -7,6 +8,7 @@ import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
 import 'package:iteru_app/core/widgets/password_text_field.dart';
+import 'package:iteru_app/modules/auth/presentation/manager/signup_cubits/signup_cubit.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/have_an_account_widget.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/terms_and_condition.dart';
 
@@ -20,9 +22,12 @@ class SignupViewBody extends StatefulWidget {
 class _SignupViewBodyState extends State<SignupViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  late bool isTermsAccepted=false;
+  late bool isTermsAccepted = false;
 
-  late String userName, userEmail, userPassword, userPhone;
+  late String userName, userEmail, userPassword,userPhone;
+  
+   
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -65,7 +70,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     onSaved: (value) {
                       userName = value!;
                     },
-                    textInputType: TextInputType.emailAddress,
+                    // textInputType: TextInputType.emailAddress,
                     hintText: 'Name or surname',
                   ),
 
@@ -79,7 +84,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     onSaved: (value) {
                       userEmail = value!;
                     },
-                    textInputType: TextInputType.emailAddress,
+                    // textInputType: TextInputType.emailAddress,
                     hintText: 'e-mail',
                   ),
 
@@ -100,12 +105,12 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     height: 16,
                   ),
 
-                  //text field 'Password'
+                  //text field 'Phone number'
                   CusttomTextFormField(
                     onSaved: (value) {
-                      userPassword = value!;
+                      userPhone = value!;
                     },
-                    textInputType: TextInputType.phone,
+                    // textInputType: TextInputType.phone,
                     hintText: 'Phone number',
                   ),
 
@@ -145,9 +150,16 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
                         if (isTermsAccepted) {
-                          
-                        }else{
-                          showErrorBar(context, 'You must agree to the terms and conditions.');
+                          context
+                              .read<SignupCubit>()
+                              .createUserWithEmailAndPassword(
+                                userName: userName,
+                                userEmail: userEmail,
+                                userPassword: userPassword,
+                                userPhone: userPhone,                              );
+                        } else {
+                          showErrorBar(context,
+                              'You must agree to the terms and conditions.');
                         }
                       } else {
                         setState(() {

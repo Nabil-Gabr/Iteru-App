@@ -20,7 +20,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
     return CusttomTextFormField(
       obscureText: obscureText,
       onSaved: widget.onSaved,
-      textInputType: TextInputType.emailAddress,
+      // textInputType: TextInputType.emailAddress,
       hintText: 'Password',
       suffixIcon: GestureDetector(
           onTap: () {
