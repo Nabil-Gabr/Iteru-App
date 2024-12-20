@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/helpers/functions/show_error_bar.dart';
 import 'package:iteru_app/modules/auth/presentation/manager/signup_cubits/signup_cubit.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/signup_view_body.dart';
+import 'package:iteru_app/modules/home/presentation/view/main_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignupViewBodyBlocConsumer extends StatelessWidget {
@@ -16,6 +17,7 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is SignupSuccess) {
           showErrorBar(context, 'Success');
+          Navigator.of(context).pushNamed(MainView.routeName);
         }
         if (state is SignupFailure) {
           showErrorBar(context, state.message);

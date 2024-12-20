@@ -21,7 +21,7 @@ class SignupCubit extends Cubit<SignupState> {
         userName: userName,
         userEmail: userEmail,
         userPassword: userPassword,
-        userPhone: userPhone);
+        userPhone: userPhone,);
 
     result.fold((failure) => emit(SignupFailure(message: failure.errMessag)),
         (userEntity) => emit(SignupSuccess(userEntity: userEntity)));

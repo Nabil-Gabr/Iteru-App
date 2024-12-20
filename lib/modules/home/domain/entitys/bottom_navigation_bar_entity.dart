@@ -24,11 +24,11 @@ List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
           // inActiveImage: Assets.imagesChatbot,
           name: 'Chatbot'),
       BottomNavigationBarEntity(
-          activeIcon: Icons.search_rounded,
-          inActiveIcon: Icons.search_outlined,
+          activeIcon: Icons.pin_drop,
+          inActiveIcon: Icons.pin_drop,
           // activeImage: Assets.imagesSearch,
           // inActiveImage: Assets.imagesSearch,
-          name: 'Search'),
+          name: 'Maps'),
       BottomNavigationBarEntity(
           activeIcon: Icons.account_circle_rounded,
           inActiveIcon: Icons.account_circle_outlined,
