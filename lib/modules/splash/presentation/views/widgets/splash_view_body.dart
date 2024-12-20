@@ -34,7 +34,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        bool isOnboardingViewSeen = SharedPrefs.getBool(kIsOnboardingViewSeen);
+        bool isOnboardingViewSeen = CacheHelpe.getData(key: kIsOnboardingViewSeen) ?? false;
         if (isOnboardingViewSeen) {
           Navigator.pushReplacementNamed(context, LoginView.routeName);
         } else {

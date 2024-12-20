@@ -79,14 +79,17 @@ class PageViewItem extends StatelessWidget {
                       children: [
                         Expanded(
                           child: CusttomButton(
-                            text: currentPageIndex == 2 ? 'Get Started' : 'Next',
+                            text:
+                                currentPageIndex == 2 ? 'Get Started' : 'Next',
                             backgroundColor:
                                 AppColors.primaryColor.withOpacity(.8),
                             textColor: AppColors.whiteColor,
                             onPressed: () {
                               if (currentPageIndex == 2) {
-                                SharedPrefs.setBool(
-                                    kIsOnboardingViewSeen, true);
+                                CacheHelpe.saveData(
+                                  key: kIsOnboardingViewSeen,
+                                  value: true,
+                                );
                                 Navigator.of(context)
                                     .pushReplacementNamed(LoginView.routeName);
                               } else {
@@ -117,7 +120,10 @@ class PageViewItem extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 50),
                 child: GestureDetector(
                   onTap: () {
-                    SharedPrefs.setBool(kIsOnboardingViewSeen, true);
+                    CacheHelpe.saveData(
+                      key: kIsOnboardingViewSeen,
+                      value: true,
+                    );
                     Navigator.of(context)
                         .pushReplacementNamed(LoginView.routeName);
                   },

@@ -35,7 +35,7 @@ class CodeValidationViewBody extends StatelessWidget {
                   height: 26,
                 ),
                 // text widget 'Code validation'
-                 Text(
+                Text(
                   'Code validation',
                   style: AppTextStyles.bold30(context),
                 ),
@@ -82,7 +82,7 @@ class CodeValidationViewBody extends StatelessWidget {
                   textColor: AppColors.lightBlackColor,
                   text: 'Check the code',
                   onPressed: () {
-                    SharedPrefs.removeShared(kIsOnboardingViewSeen);
+                    CacheHelpe.removeData(key: kIsOnboardingViewSeen);
                     Navigator.of(context)
                         .pushReplacementNamed(OnboardingView.routeName);
                   },

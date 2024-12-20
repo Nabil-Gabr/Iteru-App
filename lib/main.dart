@@ -10,7 +10,7 @@ import 'package:iteru_app/layouts/layouts.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  await SharedPrefs.init();
+  await CacheHelpe.init();
    Bloc.observer=CustomBlocObserver();
   setupGetIt();
   runApp(const IteruApp());
