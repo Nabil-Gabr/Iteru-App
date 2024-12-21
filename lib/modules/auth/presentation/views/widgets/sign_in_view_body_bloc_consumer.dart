@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/helpers/functions/show_error_bar.dart';
@@ -16,6 +18,7 @@ class SignInViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state is SignInSuccess) {
+          log("Sign In View Body BlocConsumer==${state.toString()}");
           ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Success')));
         Navigator.of(context).pushNamed(MainView.routeName);

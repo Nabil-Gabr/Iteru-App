@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/helpers/functions/show_error_bar.dart';
@@ -16,6 +18,7 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
         if (state is SignupSuccess) {
+          log("Sign Up View Body BlocConsumer==${state.toString()}");
           showErrorBar(context, 'Success');
           Navigator.of(context).pushNamed(MainView.routeName);
         }

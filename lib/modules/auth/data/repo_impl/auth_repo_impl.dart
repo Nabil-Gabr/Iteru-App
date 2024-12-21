@@ -4,7 +4,9 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:iteru_app/core/errors/failure.dart';
 import 'package:iteru_app/core/services/api/api_auth_service.dart';
+import 'package:iteru_app/modules/auth/data/models/forgot_password_model.dart';
 import 'package:iteru_app/modules/auth/data/models/user_model.dart';
+import 'package:iteru_app/modules/auth/domain/entity/forgot_password_entity.dart';
 import 'package:iteru_app/modules/auth/domain/entity/user_entity.dart';
 import 'package:iteru_app/modules/auth/domain/repos/auth_repo.dart';
 
@@ -70,6 +72,28 @@ class AuthRepoImpl extends AuthRepo {
         return left(ServerFailuer(errMessag: e.toString()));
       }
       // return left(ServerFailuer('e.toString()'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ForgotPasswordEntity>> forgotPassword(
+      {required String userEmail}) async {
+    try {
+      var respone = await apiAuthService.post(
+        url: "http://10.0.2.2:3000/api/auth/forget-password",
+        body: {
+          "email": userEmail,
+        },
+      );
+
+      return right(ForgotPasswordModel.fromJson(respone));
+    } catch (e) {
+      if (e is DioException) {
+        log("Exception in AuthRepoImpl  forgotPassword==$e");
+        return left(ServerFailuer.fromDioExeption(e));
+      } else {
+        return left(ServerFailuer(errMessag: e.toString()));
+      }
     }
   }
 }

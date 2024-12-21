@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/modules/auth/domain/entity/user_entity.dart';
 import 'package:iteru_app/modules/auth/domain/repos/auth_repo.dart';
 
 part 'sign_in_state.dart';
@@ -26,7 +27,7 @@ class SignInCubit extends Cubit<SignInState> {
       //2-emit SignInFailure
       (failuer) => emit(SignInFailutr(errorMessage: failuer.errMessag)),
       //3-emit SignInSuccess
-      (userEntity) => emit(SignInSuccess()),
+      (userEntity) => emit(SignInSuccess(userEntity: userEntity)),
     );
     // try {
     //   emit(SignInLoading());

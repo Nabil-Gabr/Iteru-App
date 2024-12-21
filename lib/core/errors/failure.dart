@@ -45,10 +45,16 @@ class ServerFailuer extends Failure {
   }
   factory ServerFailuer.fromResponse(int statusCode, dynamic response) {
     if (statusCode == 400) {
+      //statusCode 400  ----> sign up view
       return ServerFailuer(errMessag: "Email already exists");
     } else if (statusCode == 401) {
+      //statusCode 401  ----> sign in view
       return ServerFailuer(errMessag: 'Wrong password');
-    } else if (statusCode == 500) {
+    }else if (statusCode == 404) {
+      //statusCode 404  ----> forgot Password view
+      return ServerFailuer(errMessag: 'User not found');
+    }
+     else if (statusCode == 500) {
       return ServerFailuer(
           errMessag: "There Was an Error In the Server,please try again");
     } else {
