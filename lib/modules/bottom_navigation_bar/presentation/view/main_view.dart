@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/modules/home/presentation/view/widgets/custom_bottom_navigation_bar.dart';
-import 'package:iteru_app/modules/home/presentation/view/widgets/main_view_body.dart';
+import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/widgets/custom_bottom_navigation_bar.dart';
+import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/widgets/main_view_body.dart';
 
 //1-MainView
 class MainView extends StatefulWidget {

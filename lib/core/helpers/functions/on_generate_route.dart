@@ -5,7 +5,7 @@ import 'package:iteru_app/modules/auth/presentation/views/create_new_password_vi
 import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
-import 'package:iteru_app/modules/home/presentation/view/main_view.dart';
+import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/main_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
 

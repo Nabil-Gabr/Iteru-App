@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/helpers/functions/show_error_bar.dart';
 
 import 'package:iteru_app/modules/auth/presentation/views/widgets/login_view_body.dart';
-import 'package:iteru_app/modules/home/presentation/view/main_view.dart';
+import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/main_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../manager/sign_in_cubits/sign_in_cubit.dart';

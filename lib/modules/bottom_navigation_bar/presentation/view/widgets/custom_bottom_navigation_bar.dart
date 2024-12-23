@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/modules/home/domain/entitys/bottom_navigation_bar_entity.dart';
-import 'package:iteru_app/modules/home/presentation/view/widgets/naivation_bar_item.dart';
+import 'package:iteru_app/modules/bottom_navigation_bar/domain/entitys/bottom_navigation_bar_entity.dart';
+import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/widgets/naivation_bar_item.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key, required this.onItemTapped});
