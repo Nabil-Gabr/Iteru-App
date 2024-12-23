@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/constants/constant.dart';
-import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custom_text_button.dart';
+import 'package:iteru_app/modules/auth/presentation/views/create_new_password_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/widgets/pin_code_text_field_widget.dart';
-import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 
 class CodeValidationViewBody extends StatelessWidget {
   const CodeValidationViewBody({super.key});
@@ -82,9 +81,9 @@ class CodeValidationViewBody extends StatelessWidget {
                   textColor: AppColors.lightBlackColor,
                   text: 'Check the code',
                   onPressed: () {
-                    CacheHelpe.removeData(key: kIsOnboardingViewSeen);
+                    // CacheHelpe.removeData(key: kIsOnboardingViewSeen);
                     Navigator.of(context)
-                        .pushReplacementNamed(OnboardingView.routeName);
+                        .pushNamed(CreateNewPasswordView.routeName);
                   },
                 ),
                 //SizedBox

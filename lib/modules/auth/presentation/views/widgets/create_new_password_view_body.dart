@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
-import 'package:iteru_app/modules/auth/presentation/manager/forgot_password_cubit/forgot_password_cubit.dart';
+import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 
-class ForgotPasswordViewBody extends StatefulWidget {
-  const ForgotPasswordViewBody({super.key});
+class CreateNewPasswordViewBody extends StatefulWidget {
+  const CreateNewPasswordViewBody({super.key});
 
   @override
-  State<ForgotPasswordViewBody> createState() => _ForgotPasswordViewBodyState();
+  State<CreateNewPasswordViewBody> createState() =>
+      _CreateNewPasswordViewBodyState();
 }
 
-class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
+class _CreateNewPasswordViewBodyState extends State<CreateNewPasswordViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  late String userEmail;
+  late String userNewPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                   ),
                   //Text Widget 'Forgot password?'
                   Text(
-                    'Forgot password?',
+                    'New password',
                     style: AppTextStyles.bold30(context),
                   ),
                   //SizedBox
@@ -59,7 +60,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      'Don’t worry! It’s happens. Please enter the email address associated with your account.',
+                      'Create a new password to log in.',
                       style: AppTextStyles.medium18(context)
                           .copyWith(color: AppColors.captionColor),
                       textAlign: TextAlign.center,
@@ -72,10 +73,10 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                   //text field widget
                   CusttomTextFormField(
                     onSaved: (value) {
-                      userEmail = value!;
+                      userNewPassword = value!;
                     },
                     textInputType: TextInputType.emailAddress,
-                    hintText: 'Insert email address',
+                    hintText: 'Insert new password',
                   ),
                 ],
               ),
@@ -97,14 +98,13 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                   CusttomButton(
                     backgroundColor: AppColors.primaryColor,
                     textColor: AppColors.lightBlackColor,
-                    text: 'Forgot password',
+                    text: 'Create a new password',
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        
-                        context
-                            .read<ForgotPasswordCubit>()
-                            .forgotPassword(email: userEmail);
+                        CacheHelpe.removeData(key: kIsOnboardingViewSeen);
+                    Navigator.of(context)
+                        .pushReplacementNamed(OnboardingView.routeName);
                       }
                     },
                   ),
