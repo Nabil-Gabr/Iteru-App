@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:iteru_app/modules/home/presentation/view/widgets/header_section.dart';
+import 'package:iteru_app/modules/home/presentation/view/widgets/tourism_types_list_view.dart';
+
+class TorismTypeSection extends StatelessWidget {
+  const TorismTypeSection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        HeaderSection(
+          title: "Tourism Types",
+          textButton: 'View all',
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        TourismTypesListView()
+      ],
+    );
+  }
+}

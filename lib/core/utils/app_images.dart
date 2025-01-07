@@ -38,6 +38,14 @@ class Assets {
   /// assets/images/homeicon.svg
   static const String imagesHomeicon = "assets/images/homeicon.svg";
 
+  /// Assets for imagesIconLocation
+  /// assets/images/icon_location.svg
+  static const String imagesIconLocation = "assets/images/icon_location.svg";
+
+  /// Assets for imagesImageTestMohamed
+  /// assets/images/image_test_mohamed.png
+  static const String imagesImageTestMohamed = "assets/images/image_test_mohamed.png";
+
   /// Assets for imagesProfile
   /// assets/images/profile.svg
   static const String imagesProfile = "assets/images/profile.svg";
