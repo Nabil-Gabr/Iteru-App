@@ -6,8 +6,12 @@ import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.d
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
 import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/main_view.dart';
+import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
+import 'package:iteru_app/modules/museum/presentation/view/museum_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
+import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_view.dart';
 import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
+import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -54,6 +58,26 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case MainView.routeName:
       return MaterialPageRoute(
         builder: (context) => const MainView(),
+      );
+    
+    case MuseumView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const MuseumView(),
+      );
+    
+    case TourismTypesView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const TourismTypesView(),
+      );
+    
+    case PopularPlacesView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const PopularPlacesView(),
+      );
+    
+    case HotelView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const HotelView(),
       );
 
     default:

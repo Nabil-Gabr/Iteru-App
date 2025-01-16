@@ -42,6 +42,10 @@ class Assets {
   /// assets/images/icon_location.svg
   static const String imagesIconLocation = "assets/images/icon_location.svg";
 
+  /// Assets for imagesIconStar
+  /// assets/images/icon_star.svg
+  static const String imagesIconStar = "assets/images/icon_star.svg";
+
   /// Assets for imagesImageTestMohamed
   /// assets/images/image_test_mohamed.png
   static const String imagesImageTestMohamed = "assets/images/image_test_mohamed.png";
