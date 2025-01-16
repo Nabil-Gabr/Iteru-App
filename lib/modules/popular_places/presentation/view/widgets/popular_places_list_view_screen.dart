@@ -3,8 +3,8 @@ import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/popular_places_list_view_item.dart';
 
-class PopularPlacesListViewTwo extends StatelessWidget {
-  const PopularPlacesListViewTwo({super.key});
+class PopularPlacesListViewScreen extends StatelessWidget {
+  const PopularPlacesListViewScreen({super.key});
 
   static const List<MuseumItemEntity> items = [
     MuseumItemEntity(

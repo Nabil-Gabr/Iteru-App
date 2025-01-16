@@ -3,8 +3,8 @@ import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/museum_list_view_item.dart';
 
-class MuseumListViewTwo extends StatelessWidget {
-  const MuseumListViewTwo({super.key});
+class MuseumListViewScreen extends StatelessWidget {
+  const MuseumListViewScreen({super.key});
 
   static const List<MuseumItemEntity> items = [
     MuseumItemEntity(

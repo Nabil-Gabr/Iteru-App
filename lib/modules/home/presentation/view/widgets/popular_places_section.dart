@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/header_section.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/popular_places_list_view.dart';
+import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_view.dart';
 
 class PopularPlacesSection extends StatelessWidget {
   const PopularPlacesSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         HeaderSection(
           title: "Popular Places",
           textButton: 'View all',
+          onTap: () {
+            Navigator.of(context).pushNamed(PopularPlacesView.routeName);
+          },
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
-        PopularPlacesListView(),
+        const PopularPlacesListView(),
       ],
     );
   }

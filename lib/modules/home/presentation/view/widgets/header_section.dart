@@ -4,10 +4,11 @@ class HeaderSection extends StatelessWidget {
   const HeaderSection({
     super.key,
     required this.title,
-    required this.textButton,
+    required this.textButton, this.onTap,
   });
   final String title;
   final String textButton;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +20,22 @@ class HeaderSection extends StatelessWidget {
           style: const TextStyle(
               fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
         ),
-        Container(
-          height: 26,
-          width: 72,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(23),
-              border: Border.all(color: const Color(0xffFCCB00))),
-          child: Text(
-            textButton,
-            style: const TextStyle(
-                color: Color(0xffFCCB00),
-                fontSize: 14,
-                fontWeight: FontWeight.w400),
+        GestureDetector(
+          onTap: onTap,
+          child: Container(
+            height: 26,
+            width: 72,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(23),
+                border: Border.all(color: const Color(0xffFCCB00))),
+            child: Text(
+              textButton,
+              style: const TextStyle(
+                  color: Color(0xffFCCB00),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400),
+            ),
           ),
         )
       ],
