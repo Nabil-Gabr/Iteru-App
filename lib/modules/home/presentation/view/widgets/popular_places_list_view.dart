@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/popular_places_list_view_item.dart';
-import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_view.dart';
 
 class PopularPlacesListView extends StatelessWidget {
   const PopularPlacesListView({super.key});
@@ -29,9 +28,7 @@ class PopularPlacesListView extends StatelessWidget {
         children: items.map(
           (e) {
             return GestureDetector(
-              onTap: () {
-                    Navigator.of(context).pushNamed(PopularPlacesView.routeName);
-                  },
+              onTap: () {},
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(end: 16),
                 child: SizedBox(

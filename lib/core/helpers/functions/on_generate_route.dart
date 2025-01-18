@@ -7,6 +7,7 @@ import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
 import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/main_view.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
+import 'package:iteru_app/modules/museum/presentation/view/museum_details_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_view.dart';
@@ -78,6 +79,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case HotelView.routeName:
       return MaterialPageRoute(
         builder: (context) => const HotelView(),
+      );
+    
+    case MuseumDetailsView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const MuseumDetailsView(),
       );
 
     default:

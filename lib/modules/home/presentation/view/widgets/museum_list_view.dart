@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/museum_list_view_item.dart';
-import 'package:iteru_app/modules/museum/presentation/view/museum_view.dart';
 
 class MuseumListView extends StatelessWidget {
   const MuseumListView({
@@ -31,13 +30,12 @@ class MuseumListView extends StatelessWidget {
       child: Row(
         children: items
             .map((e) => GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pushNamed(MuseumView.routeName);
-                  },
+                  onTap: () {},
                   child: Padding(
                     padding: const EdgeInsetsDirectional.only(end: 16),
                     child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.7, // 80% من عرض الشاشة
+                      width: MediaQuery.of(context).size.width *
+                          0.7, // 80% من عرض الشاشة
                       child: MuseumListViewItem(
                         museumItemEntity: e,
                       ),

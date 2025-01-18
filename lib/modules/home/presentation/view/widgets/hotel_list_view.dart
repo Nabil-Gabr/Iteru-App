@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/hotel_list_view_item.dart';
-import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
 
 class HotelListView extends StatelessWidget {
   const HotelListView({super.key});
@@ -20,9 +19,7 @@ class HotelListView extends StatelessWidget {
       child: Row(
         children: hotelItemList.map((e) {
           return GestureDetector(
-            onTap: () {
-              Navigator.of(context).pushNamed(HotelView.routeName);
-            },
+            onTap: () {},
             child: Padding(
               padding: const EdgeInsets.only(right: 16),
               child: SizedBox(
