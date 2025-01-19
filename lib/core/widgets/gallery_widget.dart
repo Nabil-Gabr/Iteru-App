@@ -13,6 +13,7 @@ class GalleryWidget extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: MasonryGridViewWidget(
+          
           item: 10,
           itemBuilder: (context, index) {
             return (index % 2 == 0)

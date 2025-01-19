@@ -12,6 +12,8 @@ class MasonryGridViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MasonryGridView.count(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemCount: item,
       crossAxisCount: 2,
       mainAxisSpacing: 8,

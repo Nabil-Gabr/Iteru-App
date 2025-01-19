@@ -29,19 +29,16 @@ class MuseumListView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: items
-            .map((e) => GestureDetector(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.only(end: 16),
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width *
-                          0.7, // 80% من عرض الشاشة
-                      child: MuseumListViewItem(
-                        museumItemEntity: e,
-                      ),
-                    ),
-                  ),
-                ))
+            .map((e) => Padding(
+              padding: const EdgeInsetsDirectional.only(end: 16),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width *
+                    0.7, // 80% من عرض الشاشة
+                child: MuseumListViewItem(
+                  museumItemEntity: e,
+                ),
+              ),
+            ))
             .toList(),
       ),
     );

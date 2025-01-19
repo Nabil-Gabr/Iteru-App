@@ -50,10 +50,10 @@ class _ScreenDetailsActionState extends State<ScreenDetailsAction> {
           height: 16,
         ),
         selectedIndex == 0
-            ? const Expanded(child: OverViewWidget())
+            ? const OverViewWidget()
             : selectedIndex == 1
-                ? const Expanded(child: GalleryWidget())
-                : const Expanded(child: BookingWidget()),
+                ? const GalleryWidget()
+                :const  BookingWidget(),
       ],
     );
   }

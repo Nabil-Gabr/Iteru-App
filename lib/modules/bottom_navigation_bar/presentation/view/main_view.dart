@@ -1,33 +1,31 @@
-import 'package:flutter/material.dart';
-import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/widgets/custom_bottom_navigation_bar.dart';
-import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/widgets/main_view_body.dart';
 
-//1-MainView
-class MainView extends StatefulWidget {
-  const MainView({super.key});
 
-  //routeName
-  static const String routeName = 'MainView';
+// //1-MainView
+// class MainView extends StatefulWidget {
+//   const MainView({super.key});
 
-  @override
-  State<MainView> createState() => _MainViewState();
-}
+//   //routeName
+//   static const String routeName = 'MainView';
 
-class _MainViewState extends State<MainView> {
-  int currentViewIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(
-        onItemTapped: (index) {
-          currentViewIndex = index;
+//   @override
+//   State<MainView> createState() => _MainViewState();
+// }
 
-          setState(() {});
-        },
-      ),
-      body: MainViewBody(
-        currentViewIndex: currentViewIndex,
-      ),
-    );
-  }
-}
+// class _MainViewState extends State<MainView> {
+//   int currentViewIndex = 0;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       bottomNavigationBar: CustomBottomNavigationBar(
+//         onItemTapped: (index) {
+//           currentViewIndex = index;
+
+//           setState(() {});
+//         },
+//       ),
+//       body: MainViewBody(
+//         currentViewIndex: currentViewIndex,
+//       ),
+//     );
+//   }
+// }

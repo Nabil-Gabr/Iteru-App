@@ -5,7 +5,7 @@ import 'package:iteru_app/core/services/custom_bloc_observer.dart';
 import 'package:iteru_app/core/services/get_it_service.dart';
 import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
-import 'package:iteru_app/modules/bottom_navigation_bar/presentation/view/main_view.dart';
+import 'package:iteru_app/modules/home/presentation/view/home_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +32,7 @@ class IteruApp extends StatelessWidget {
       onGenerateRoute: onGenerateRoute,
 
       //initialRoute
-      initialRoute: MainView.routeName,
+      initialRoute: HomeView.routeName,
     );
   }
 }
