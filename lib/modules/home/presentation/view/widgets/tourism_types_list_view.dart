@@ -23,17 +23,14 @@ class TourismTypesListView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: tourismTypeItemList.map((e) {
-          return GestureDetector(
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(end: 16),
-              child: SizedBox(
-                width: MediaQuery.sizeOf(context).width * .36,
-                child: AspectRatio(
-                  aspectRatio: 143 / 91,
-                  child: TourismTypeListViewItem(
-                    tourismTypeEntity: e,
-                  ),
+          return Padding(
+            padding: const EdgeInsetsDirectional.only(end: 16),
+            child: SizedBox(
+              width: MediaQuery.sizeOf(context).width * .36,
+              child: AspectRatio(
+                aspectRatio: 143 / 91,
+                child: TourismTypeListViewItem(
+                  tourismTypeEntity: e,
                 ),
               ),
             ),

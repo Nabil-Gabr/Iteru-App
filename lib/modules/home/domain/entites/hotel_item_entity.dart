@@ -1,5 +1,13 @@
 class HotelItemEntity {
-  final String title ;
+  final String image;
+  final String location;
+  final String title;
+  final String subTitle;
 
-  HotelItemEntity({required this.title}); 
+  const HotelItemEntity({
+    required this.image,
+    required this.location,
+    required this.title,
+    required this.subTitle,
+  });
 }

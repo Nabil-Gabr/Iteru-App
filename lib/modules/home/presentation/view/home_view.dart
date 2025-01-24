@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/modules/home/presentation/view/widgets/custom_drawer.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/home_view_body.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
   
-  static const String routeName ='HomeView';
+
+  static const String routeName = 'HomeView';
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  GlobalKey<ScaffoldState> scaffoldState = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.whiteColor,
-      ),
-      body: const SafeArea(child: HomeViewBody()),
+      key: scaffoldState,
+      drawer: const CustomDrawer(),
+      body: SafeArea(
+          child: HomeViewBody(
+        scaffoldKey: scaffoldState,
+      )),
     );
   }
 }

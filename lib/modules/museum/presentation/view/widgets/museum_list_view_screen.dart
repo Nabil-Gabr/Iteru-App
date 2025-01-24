@@ -8,26 +8,32 @@ class MuseumListViewScreen extends StatelessWidget {
 
   static const List<MuseumItemEntity> items = [
     MuseumItemEntity(
+        price: '10',
         image: Assets.imagesPyramids,
         title: 'The Egyptian museum in Cairo',
         location: 'Cairo, Egypt'),
     MuseumItemEntity(
+      price: '10',
         image: Assets.imagesPyramids,
         title: 'The Egyptian museum in Cairo22',
         location: 'Cairo, Egypt22'),
     MuseumItemEntity(
+      price: '10',
         image: Assets.imagesImageTestMohamed,
         title: 'The Egyptian museum in Cairo ',
         location: 'Cairo, Egypt33'),
     MuseumItemEntity(
+      price: '10',
         image: Assets.imagesPyramids,
         title: 'The Egyptian museum in Cairo',
         location: 'Cairo, Egypt'),
     MuseumItemEntity(
+      price: '10',
         image: Assets.imagesPyramids,
         title: 'The Egyptian museum in Cairo22',
         location: 'Cairo, Egypt22'),
     MuseumItemEntity(
+      price: '10',
         image: Assets.imagesPyramids,
         title: 'The Egyptian museum in Cairo ',
         location: 'Cairo, Egypt33'),

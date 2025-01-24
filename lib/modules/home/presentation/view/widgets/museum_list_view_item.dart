@@ -15,9 +15,9 @@ class MuseumListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(MuseumDetailsView.routeName,arguments: museumItemEntity);
+        Navigator.of(context).pushNamed(MuseumDetailsView.routeName,
+            arguments: museumItemEntity);
       },
-
       child: AspectRatio(
         aspectRatio: 265 / 84,
         child: Container(
@@ -44,11 +44,11 @@ class MuseumListViewItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'museumItemEntity.title museumItemEntity.title',
+                      Text(
+                        museumItemEntity.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400),
                       ),
                       Expanded(
@@ -78,11 +78,11 @@ class MuseumListViewItem extends StatelessWidget {
                               width: 4,
                             ),
                             //4
-                            const Text(
-                              r"$11.5",
+                            Text(
+                              "\$${museumItemEntity.price}",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w400),
                             )
                           ],
