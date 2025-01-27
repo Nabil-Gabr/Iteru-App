@@ -8,7 +8,19 @@ class PopularPlacesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        
+          surfaceTintColor: null,
+          
+          elevation: 0,
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: const Text(
+            "Popular Places",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          ),
+        
+      ),
       body: const Padding(
         padding:  EdgeInsets.symmetric(horizontal: 16.0),
         child:  PopularPlacesViewBody(),

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/core/widgets/booking_widget.dart';
+import 'package:iteru_app/core/widgets/rating_widget.dart';
 import 'package:iteru_app/core/widgets/gallery_widget.dart';
 import 'package:iteru_app/core/widgets/naivgation_button.dart';
 import 'package:iteru_app/core/widgets/over_view_widget.dart';
+import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 
 class ScreenDetailsAction extends StatefulWidget {
   const ScreenDetailsAction({
     super.key,
+    required this.museumItemEntity,
   });
+  final MuseumItemEntity museumItemEntity;
 
   @override
   State<ScreenDetailsAction> createState() => _ScreenDetailsActionState();
@@ -20,7 +23,7 @@ class _ScreenDetailsActionState extends State<ScreenDetailsAction> {
     List item = [
       'Overview',
       'Gallery',
-      'Booking',
+      'Rating',
     ];
     return Column(
       children: [
@@ -50,10 +53,17 @@ class _ScreenDetailsActionState extends State<ScreenDetailsAction> {
           height: 16,
         ),
         selectedIndex == 0
-            ? const OverViewWidget()
+            ? OverViewWidget(
+                textOverView: widget.museumItemEntity.overViewText,
+              )
             : selectedIndex == 1
-                ? const GalleryWidget()
-                :const  BookingWidget(),
+                ? GalleryWidget(
+                    imageGalleryItems:
+                        widget.museumItemEntity.illustrativeImages,
+                    itemCount:
+                        widget.museumItemEntity.illustrativeImages.length,
+                  )
+                : const RatingWidget(),
       ],
     );
   }

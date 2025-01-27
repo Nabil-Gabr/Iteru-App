@@ -17,7 +17,7 @@ class ImageDetailsWidget extends StatelessWidget {
               const BorderRadius.only(bottomLeft: Radius.circular(70)),
           child: Image.asset(
             image,
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           )),
     );
   }

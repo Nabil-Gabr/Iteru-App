@@ -14,6 +14,7 @@ import 'package:iteru_app/modules/hotels/presenation/views/hotel_details_view.da
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_details_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_view.dart';
+import 'package:iteru_app/modules/museum/presentation/view/museum_rating_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_details_view.dart';
 import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_view.dart';
@@ -122,6 +123,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => HotelDetailsView(
           hotelItemEntity: hotelItemEntity,
         ),
+      );
+    
+    case MuseumRatingView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const MuseumRatingView(),
       );
 
     default:

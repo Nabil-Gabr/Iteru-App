@@ -18,6 +18,11 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldState,
+      floatingActionButton:  FloatingActionButton(
+        backgroundColor: const Color(0xffFF8400),
+    onPressed: () {  },
+    child: const Icon(Icons.chat_rounded,color: Colors.white,),
+  ),
       drawer: const CustomDrawer(),
       body: SafeArea(
           child: HomeViewBody(

@@ -32,7 +32,7 @@ class MuseumListViewItem extends StatelessWidget {
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.asset(
-                        museumItemEntity.image,
+                        museumItemEntity.coverImage,
                         fit: BoxFit.cover,
                       ))),
               const SizedBox(
@@ -54,6 +54,7 @@ class MuseumListViewItem extends StatelessWidget {
                       Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Row(
                               children: [

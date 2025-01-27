@@ -10,22 +10,46 @@ class MuseumListView extends StatelessWidget {
 
   static const List<MuseumItemEntity> items = [
     MuseumItemEntity(
-      image: Assets.imagesPyramids,
-      title: 'The Egyptian museum in Cairo01',
+      coverImage: Assets.imagesPyramids,
+      title: 'The Egyptian museum in Cairo',
       location: 'Cairo, Egypt',
       price: '10',
+      overViewText: 'OverView',
+      illustrativeImages: [
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+      ],
     ),
     MuseumItemEntity(
-      image: Assets.imagesPyramids,
-      title: 'The Egyptian museum in Cairo02',
-      location: 'Cairo, Egypt22',
-      price: '20',
+      coverImage: Assets.imagesPyramids,
+      title: 'The Egyptian museum in Cairo',
+      location: 'Cairo, Egypt',
+      price: '10',
+      overViewText: 'OverView',
+      illustrativeImages: [
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+      ],
     ),
     MuseumItemEntity(
-      image: Assets.imagesPyramids,
-      title: 'The Egyptian museum in Cairo03',
-      location: 'Cairo, Egypt33',
-      price: '30',
+      coverImage: Assets.imagesPyramids,
+      title: 'The Egyptian museum in Cairo',
+      location: 'Cairo, Egypt',
+      price: '10',
+      overViewText: 'OverView',
+      illustrativeImages: [
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+        Assets.imagesImageTestMohamed,
+      ],
     ),
   ];
 

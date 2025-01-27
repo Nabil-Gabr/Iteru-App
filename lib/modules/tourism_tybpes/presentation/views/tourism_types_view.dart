@@ -10,6 +10,7 @@ class TourismTypesView extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           surfaceTintColor: null,
+          
           elevation: 0,
           backgroundColor: Colors.white,
           centerTitle: true,

@@ -15,7 +15,7 @@ class MuseumDetailsViewBody extends StatelessWidget {
           child: Column(
             children: [
               //1:Image
-              ImageDetailsWidget(image: museumItemEntity.image),
+              ImageDetailsWidget(image: museumItemEntity.coverImage),
               //2:SizedBox 16
               const SizedBox(
                 height: 16,
@@ -24,8 +24,8 @@ class MuseumDetailsViewBody extends StatelessWidget {
             ],
           ),
         ),
-        const SliverToBoxAdapter(
-          child: ScreenDetailsAction(),
+         SliverToBoxAdapter(
+          child: ScreenDetailsAction(museumItemEntity: museumItemEntity,),
         )
       ],
     );

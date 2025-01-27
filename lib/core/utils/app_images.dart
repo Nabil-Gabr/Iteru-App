@@ -50,17 +50,17 @@ class Assets {
   /// assets/images/image_test_mohamed.png
   static const String imagesImageTestMohamed = "assets/images/image_test_mohamed.png";
 
-  /// Assets for imagesProfile
-  /// assets/images/profile.svg
-  static const String imagesProfile = "assets/images/profile.svg";
-
   /// Assets for imagesPyramids
   /// assets/images/Pyramids.jpg
   static const String imagesPyramids = "assets/images/Pyramids.jpg";
 
-  /// Assets for imagesSearch
-  /// assets/images/search.svg
-  static const String imagesSearch = "assets/images/search.svg";
+  /// Assets for imagesTestprosent
+  /// assets/images/testprosent.png
+  static const String imagesTestprosent = "assets/images/testprosent.png";
+
+  /// Assets for imagesTheEgyptianMuseumInCairo
+  /// assets/images/the_egyptian_museum_in_cairo.png
+  static const String imagesTheEgyptianMuseumInCairo = "assets/images/the_egyptian_museum_in_cairo.png";
 
   /// Assets for imagesWhatsAppImage
   /// assets/images/whats_app_image.png

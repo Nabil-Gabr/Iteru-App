@@ -20,11 +20,14 @@ class CustomAppBar extends StatelessWidget {
           const SizedBox(height: 20,),
           Expanded(
             child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              alignment: Alignment.centerLeft,
               height: 28,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(23)),
                 border: Border.fromBorderSide(BorderSide(width: 1.5,color: Color(0xff4F200D)))
               ),
+              child: const Icon(Icons.search),
             ),
           ),
           const SizedBox(height: 20,),
