@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/core/widgets/rating_section.dart';
+import 'package:iteru_app/core/widgets/average_rating_to_item.dart';
 
 class GuestReviewsWidget extends StatelessWidget {
   const GuestReviewsWidget({
@@ -52,7 +52,7 @@ class GuestReviewsWidget extends StatelessWidget {
             )
           ],
         ),
-        const RatingSection()
+        const AverageRatingToItem()
       ],
     );
   }

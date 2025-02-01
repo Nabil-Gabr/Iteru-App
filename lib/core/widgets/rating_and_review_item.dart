@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/entities/rating_and_review_entity.dart';
 
 class RatingAndReviewItem extends StatelessWidget {
   const RatingAndReviewItem({
     super.key,
+    required this.ratingAndReviewEntity,
   });
+  final RatingAndReviewEntity ratingAndReviewEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -16,39 +18,41 @@ class RatingAndReviewItem extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              //1
               SizedBox(
                 width: 50,
                 height: 50,
                 child: ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(50)),
                     child: Image.asset(
-                      Assets.imagesTestprosent,
+                      ratingAndReviewEntity.imageUser,
                       fit: BoxFit.cover,
                     )),
               ),
               const SizedBox(
                 width: 8,
               ),
-              const Expanded(
+              //2
+              Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Ahmed Mohamed',
-                      style: TextStyle(
+                      ratingAndReviewEntity.nameUser,
+                      style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                           color: Colors.black),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Text(
-                      'Musume no Tomodachi is a surprisingly poignant and complex story about relationships, loneliness, and the search for connection. It delves into the  ',
+                      ratingAndReviewEntity.comment,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Color(0xffA19E98),
                           fontSize: 10,
                           fontWeight: FontWeight.w400),
@@ -62,9 +66,10 @@ class RatingAndReviewItem extends StatelessWidget {
         const SizedBox(
           width: 8,
         ),
+        //3
         Expanded(
           child: RatingBarIndicator(
-            rating: 2.75,
+            rating: ratingAndReviewEntity.rating,
             itemBuilder: (context, index) => const Icon(
               Icons.star,
               color: Colors.amber,

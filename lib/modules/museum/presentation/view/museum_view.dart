@@ -9,6 +9,7 @@ class MuseumView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //1:AppBar
       appBar: AppBar(
         surfaceTintColor: null,
         elevation: 0,
@@ -19,6 +20,7 @@ class MuseumView extends StatelessWidget {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
       ),
+      //2:Body
       body: const MuseumViewBody(),
     );
   }

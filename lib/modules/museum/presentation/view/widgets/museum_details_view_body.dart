@@ -20,12 +20,14 @@ class MuseumDetailsViewBody extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              //3:ScreenDetailsAction
             ],
           ),
         ),
-         SliverToBoxAdapter(
-          child: ScreenDetailsAction(museumItemEntity: museumItemEntity,),
+        //3:ScreenDetailsAction
+        SliverToBoxAdapter(
+          child: ScreenDetailsAction(
+            museumItemEntity: museumItemEntity,
+          ),
         )
       ],
     );

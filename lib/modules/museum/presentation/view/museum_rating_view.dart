@@ -9,7 +9,11 @@ class MuseumRatingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      //1:AppBar
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
+      //2:Body
       body: Padding(
         padding: const EdgeInsets.all(kHorizintalPadding),
         child: Column(
@@ -43,7 +47,7 @@ class MuseumRatingView extends StatelessWidget {
               decoration: const InputDecoration(
                 //2:1-background text feild
                 filled: true,
-                fillColor: Color(0xFFF9FAFA),
+                fillColor: Colors.white,
 
                 //2:3-enabledBorder
                 enabledBorder: OutlineInputBorder(
@@ -58,7 +62,7 @@ class MuseumRatingView extends StatelessWidget {
                 ),
 
                 //2:5-hintText
-                hintText: 'hintText',
+                hintText: 'Describe your experince',
                 hintStyle: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,

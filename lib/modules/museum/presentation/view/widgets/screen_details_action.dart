@@ -38,7 +38,6 @@ class _ScreenDetailsActionState extends State<ScreenDetailsAction> {
                 onTap: () {
                   setState(() {
                     selectedIndex = index;
-                    // widget.onItemTapped(index);
                   });
                 },
                 child: NaivgationButton(

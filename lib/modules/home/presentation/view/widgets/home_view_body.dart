@@ -16,13 +16,13 @@ class HomeViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
       child: CustomScrollView(
         slivers: [
-          //Section 1
+          //1: CustomAppBar
           SliverToBoxAdapter(
             child: CustomAppBar(
               scaffoldKey: scaffoldKey,
             ),
           ),
-          //SizedBox 24
+          //SizedBox
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 24,

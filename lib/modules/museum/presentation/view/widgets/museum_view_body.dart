@@ -7,6 +7,7 @@ class MuseumViewBody extends StatelessWidget {
   const MuseumViewBody({super.key});
 
   static const List<MuseumItemEntity> items = [
+    //item 1
     MuseumItemEntity(
       coverImage: Assets.imagesPyramids,
       title: 'The Egyptian museum in Cairo',
@@ -21,6 +22,7 @@ class MuseumViewBody extends StatelessWidget {
         Assets.imagesImageTestMohamed,
       ],
     ),
+    //item 2
     MuseumItemEntity(
       coverImage: Assets.imagesPyramids,
       title: 'The Egyptian museum in Cairo',
@@ -35,6 +37,7 @@ class MuseumViewBody extends StatelessWidget {
         Assets.imagesImageTestMohamed,
       ],
     ),
+    //item 3
     MuseumItemEntity(
       coverImage: Assets.imagesPyramids,
       title: 'The Egyptian museum in Cairo',
@@ -49,6 +52,7 @@ class MuseumViewBody extends StatelessWidget {
         Assets.imagesImageTestMohamed,
       ],
     ),
+    //item 4
     MuseumItemEntity(
       coverImage: Assets.imagesPyramids,
       title: 'The Egyptian museum in Cairo',
@@ -63,6 +67,7 @@ class MuseumViewBody extends StatelessWidget {
         Assets.imagesPyramids,
       ],
     ),
+    //item 5
     MuseumItemEntity(
       coverImage: Assets.imagesPyramids,
       title: 'The Egyptian museum in Cairo',

@@ -9,7 +9,9 @@ class MuseumDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //1:AppBar
       appBar: AppBar(),
+      //2:Body
       body: MuseumDetailsViewBody(
         museumItemEntity: museumItemEntity,
       ),
