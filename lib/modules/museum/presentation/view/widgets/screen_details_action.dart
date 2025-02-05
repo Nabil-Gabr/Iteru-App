@@ -53,7 +53,7 @@ class _ScreenDetailsActionState extends State<ScreenDetailsAction> {
         ),
         selectedIndex == 0
             ? OverViewWidget(
-                textOverView: widget.museumItemEntity.overViewText,
+                museumItemEntity: widget.museumItemEntity,
               )
             : selectedIndex == 1
                 ? GalleryWidget(

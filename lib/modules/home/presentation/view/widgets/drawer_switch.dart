@@ -15,7 +15,7 @@ class _DrawerSwitchState extends State<DrawerSwitch> {
     return Switch(
       // This bool value toggles the switch.
       value: light,
-      activeColor: Colors.amber,
+      activeColor: const Color(0xffFF8400),
 
       onChanged: (bool value) {
         // This is called when the user toggles the switch.

@@ -13,12 +13,12 @@ class ActiveButton extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(bottom: 4),
       decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(width: 1.5,color: Colors.amber))
+        border: Border(bottom: BorderSide(width: 1.5,color: Color(0xffFF8400)))
       ),
       child: Text(
         text,
         style:
-            const TextStyle(fontWeight: FontWeight.w700, color: Colors.amber),
+            const TextStyle(fontWeight: FontWeight.w700, color: Color(0xffFF8400)),
       ),
     );
   }

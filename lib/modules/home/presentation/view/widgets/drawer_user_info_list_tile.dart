@@ -9,39 +9,42 @@ class DrawerUserInfoListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: const Color(0xffffffff),
-      elevation: 0,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 65,
-            height: 65,
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(65),
-                child: Image.asset(
-                  Assets.imagesPersonalPhoto,
-                  fit: BoxFit.cover,
-                )),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Nabil Gabr',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
-              Text(
-                'nabilgabr@gmail.com',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-              ),
-            ],
-          )
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Card(
+        color: const Color(0xffffffff),
+        elevation: 0,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 65,
+              height: 65,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(65),
+                  child: Image.asset(
+                    Assets.imagesPersonalPhoto,
+                    fit: BoxFit.cover,
+                  )),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Nabil Gabr',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  'nabilgabr@gmail.com',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

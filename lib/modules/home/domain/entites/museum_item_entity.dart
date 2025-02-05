@@ -1,16 +1,29 @@
 class MuseumItemEntity {
   final String coverImage;
-  final String title;
+  final String name;
   final String location;
-  final String price;
-  final String overViewText;
+  final String closingTime;
+  final String openingTime;
+  final String description;
+  final String foreignerPriceAdult;
+  final String foreignerPriceStudent;
+  final String egyptiansPriceAdult;
+  final String egyptiansPriceStudent;
+  final List<Map<String, String>> ourInsiderTips;
   final List<String> illustrativeImages;
 
-  const MuseumItemEntity(
-      {required this.overViewText,
-      required this.illustrativeImages,
-      required this.coverImage,
-      required this.title,
-      required this.location,
-      required this.price});
+  const MuseumItemEntity({
+    required this.ourInsiderTips,
+    required this.description,
+    required this.illustrativeImages,
+    required this.coverImage,
+    required this.name,
+    required this.location,
+    required this.closingTime,
+    required this.openingTime,
+    required this.egyptiansPriceAdult,
+    required this.egyptiansPriceStudent,
+    required this.foreignerPriceAdult,
+    required this.foreignerPriceStudent,
+  });
 }

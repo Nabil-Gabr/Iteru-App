@@ -20,7 +20,7 @@ class CustomDrawer extends StatelessWidget {
           //1-SizedBox==50
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 32,
+              height: 50,
             ),
           ),
           //2-DrawerUserInfoListTile

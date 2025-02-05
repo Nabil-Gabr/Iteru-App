@@ -45,7 +45,7 @@ class MuseumListViewItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        museumItemEntity.title,
+                        museumItemEntity.name,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
@@ -80,7 +80,7 @@ class MuseumListViewItem extends StatelessWidget {
                             ),
                             //4
                             Text(
-                              "\$${museumItemEntity.price}",
+                              "\$${museumItemEntity.foreignerPriceAdult}",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
