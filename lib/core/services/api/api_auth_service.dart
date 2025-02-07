@@ -5,7 +5,7 @@ class ApiAuthService {
 
   ApiAuthService({Dio? dioClient}) : dio = dioClient ?? Dio();
 
-  Future<Map<String, dynamic>> post({
+  Future<Map<String, dynamic>> post( {
     required String url,
     required dynamic body,
     String? token,
