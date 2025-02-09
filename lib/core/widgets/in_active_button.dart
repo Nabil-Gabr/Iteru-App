@@ -12,6 +12,7 @@ class InActiveButton extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.center,
+      style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Color(0xff777777)),
     );
   }
 }

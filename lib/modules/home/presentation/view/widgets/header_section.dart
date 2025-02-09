@@ -28,11 +28,11 @@ class HeaderSection extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(23),
-                border: Border.all(color: const Color(0xffFF8400))),
+                border: Border.all(color: const Color(0xffFCCB00))),
             child: Text(
               textButton,
               style: const TextStyle(
-                  color: Color(0xffFF8400),
+                  color: Color(0xffFCCB00),
                   fontSize: 14,
                   fontWeight: FontWeight.w400),
             ),

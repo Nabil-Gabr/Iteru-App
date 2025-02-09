@@ -16,8 +16,8 @@ class DescriptionSection extends StatelessWidget {
           'Description',
           style: TextStyle(
               color: Color(0xffFF8400),
-              fontSize: 16,
-              fontWeight: FontWeight.w400),
+              fontSize: 18,
+              fontWeight: FontWeight.w500),
         ),
         const SizedBox(
           height: 22,

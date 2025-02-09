@@ -18,7 +18,7 @@ class ActiveButton extends StatelessWidget {
       child: Text(
         text,
         style:
-            const TextStyle(fontWeight: FontWeight.w700, color: Color(0xffFF8400)),
+            const TextStyle(fontSize: 20,fontWeight: FontWeight.w500, color: Color(0xffFF8400)),
       ),
     );
   }

@@ -3,6 +3,121 @@ import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/size_config.dart';
 
 abstract class AppTextStyles {
+  //After Auth//
+  //ضفت ال text Styles بخصوص ال home page and museum detaild تحديدا ال overView 
+  // ولكن لم استعملها في هذهرالصفحات الي الان بسبب responsive fpont size الي حين ايجاد حل 
+  
+  //عدد التكرار =1
+  static TextStyle bold02(BuildContext context) {
+    return TextStyle(
+      //عدد تكرار اللون = 1
+      color: AppColors.whiteColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  //عدد التكرار =1
+  static TextStyle bold12(BuildContext context) {
+    return TextStyle(
+      //عدد تكرار اللون = 1
+      color: Colors.black45,
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  //عدد التكرار =4
+  static TextStyle regular14(BuildContext context) {
+    return TextStyle(
+      //عدد تكرار اللون = 2
+      color: Colors.black,
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  //عدد التكرار =1
+  static TextStyle bold14(BuildContext context) {
+    return TextStyle(
+      //عدد تكرار اللون = 1
+      color: Colors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  //عدد التكرار =4
+  static TextStyle medium16(BuildContext context) {
+    return TextStyle(
+      //عدد تكرار اللون = 4
+      color: AppColors.blackColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  //عدد التكرار =3
+  static TextStyle regular16(BuildContext context) {
+    return TextStyle(
+      //عدد تكرار اللون = 3
+      color: const Color(0xff333333),
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  //عدد التكرار =1
+  static TextStyle regular18(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xff777777),
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  //عدد التكرار =1
+  static TextStyle semiBold18(BuildContext context) {
+    return TextStyle(
+      color: AppColors.blackColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  //عدد التكرار =1
+  static TextStyle regular20(BuildContext context) {
+    return TextStyle(
+      //عدد تكرار اللون = 1
+      color: AppColors.whiteColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  //عدد التكرار =1
+  static TextStyle medium20(BuildContext context) {
+    return TextStyle(
+      //عدد تكرار اللون = 1
+      color: AppColors.whiteColor,
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      //   fontFamily: 'Montserrat',
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
 //fontSize = 15
   static TextStyle semiBold15(BuildContext context) {
     return TextStyle(
@@ -14,14 +129,6 @@ abstract class AppTextStyles {
   }
 
 //fontSize = 16
-  static TextStyle medium16(BuildContext context) {
-    return TextStyle(
-      color: AppColors.blackColor,
-      fontSize: getResponsiveFontSize(context, fontSize: 16),
-      //   fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w500,
-    );
-  }
 
   static TextStyle semiBold16(BuildContext context) {
     return TextStyle(
@@ -46,16 +153,6 @@ abstract class AppTextStyles {
     return TextStyle(
       color: AppColors.blackColor,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
-      //   fontFamily: 'Montserrat',
-      fontWeight: FontWeight.w500,
-    );
-  }
-
-//fontSize = 20
-  static TextStyle medium20(BuildContext context) {
-    return TextStyle(
-      color: AppColors.whiteColor,
-      fontSize: getResponsiveFontSize(context, fontSize: 20),
       //   fontFamily: 'Montserrat',
       fontWeight: FontWeight.w500,
     );

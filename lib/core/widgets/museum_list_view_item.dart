@@ -49,7 +49,7 @@ class MuseumListViewItem extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w400),
+                            fontSize: 16, fontWeight: FontWeight.w500,color: Colors.black),
                       ),
                       Expanded(
                         child: Row(
@@ -70,7 +70,9 @@ class MuseumListViewItem extends StatelessWidget {
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w400),
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xffFF8400)
+                                      ),
                                 ),
                               ],
                             ),
@@ -79,13 +81,13 @@ class MuseumListViewItem extends StatelessWidget {
                               width: 4,
                             ),
                             //4
-                            Text(
-                              "\$${museumItemEntity.foreignerPriceAdult}",
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w400),
-                            )
+                            // Text(
+                            //   "\$${museumItemEntity.foreignerPriceAdult}",
+                            //   maxLines: 1,
+                            //   overflow: TextOverflow.ellipsis,
+                            //   style: const TextStyle(
+                            //       fontSize: 14, fontWeight: FontWeight.w400),
+                            // )
                           ],
                         ),
                       )

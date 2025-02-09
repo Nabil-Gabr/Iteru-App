@@ -33,9 +33,9 @@ class TourismTypeListViewItem extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               decoration: BoxDecoration(
-                color: const Color(0xffF6F1E9).withOpacity(0.5),
+                color:  Colors.white.withOpacity(.7),
                 
               ),
               child: Text(
