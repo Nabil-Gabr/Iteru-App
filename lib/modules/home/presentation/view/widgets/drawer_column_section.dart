@@ -1,5 +1,7 @@
 //3:MyWidgetColumn
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/Theme/theme_cubit.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/drawer_item_list_tile.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/drawer_item_switch.dart';
@@ -9,37 +11,39 @@ class DrawerColumnSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
       children: [
-        DrawerItemListTile(
+        const DrawerItemListTile(
           image: Assets.imagesIconEditProfile,
           title: 'Edit profile',
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
-        DrawerItemListTile(
+        const DrawerItemListTile(
           image: Assets.imagesIconLanguage,
           title: 'Language',
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
-        DrawerItemSwitch(
-          image: Assets.imagesIconNotification,
-          title: 'Notification',
-        ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
-        DrawerItemSwitch(
-          image: Assets.imagesIconDarkMode,
-          title: 'Dark Mode',
+        BlocBuilder<ThemeCubit, ThemeMode>(
+          builder: (context, themeMode) {
+            return  DrawerItemSwitch(
+              image: Assets.imagesIconDarkMode,
+              title: 'Dark Mode',
+              themeMode: themeMode,
+
+            );
+          },
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
-        DrawerItemListTile(
+        const DrawerItemListTile(
           image: Assets.imagesIconSupport,
           title: 'Support',
         ),

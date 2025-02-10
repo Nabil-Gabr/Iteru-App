@@ -13,6 +13,13 @@ class MuseumListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 🔹 تحديد اللون بناءً على الثيم الحالي
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Color containerColor = isDarkMode ? const Color(0xff252836) : const Color(0xffF6F1E9);
+
+     // 🔹 تغيير لون النص بناءً على الوضع الحالي
+    final Color textColor = isDarkMode ? Colors.white : Colors.black;
+
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed(MuseumDetailsView.routeName,
@@ -22,9 +29,9 @@ class MuseumListViewItem extends StatelessWidget {
         aspectRatio: 265 / 84,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-          decoration: const BoxDecoration(
-            color: Color(0xffF6F1E9),
-            borderRadius: BorderRadius.all(Radius.circular(12)),
+          decoration:  BoxDecoration(
+            color: containerColor, // 🔹 تغيير اللون بناءً على الثيم,
+            borderRadius: const BorderRadius.all(Radius.circular(12)),
           ),
           child: Row(
             children: [
@@ -48,8 +55,8 @@ class MuseumListViewItem extends StatelessWidget {
                         museumItemEntity.name,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w500,color: Colors.black),
+                        style:  TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w500,color: textColor),
                       ),
                       Expanded(
                         child: Row(

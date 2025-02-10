@@ -6,9 +6,11 @@ class DrawerItemSwitch extends StatelessWidget {
   const DrawerItemSwitch({
     super.key,
     required this.image,
-    required this.title,
+    required this.title, required this.themeMode,
   });
   final String image, title;
+  //ThemeMode
+  final ThemeMode themeMode;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class DrawerItemSwitch extends StatelessWidget {
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
         ),
       ),
-      trailing: const DrawerSwitch(),
+      trailing:  DrawerSwitch(themeMode: themeMode,),
     );
   }
 }
