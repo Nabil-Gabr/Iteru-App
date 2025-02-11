@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class DrawerItemListTile extends StatelessWidget {
   const DrawerItemListTile({
@@ -18,7 +19,7 @@ class DrawerItemListTile extends StatelessWidget {
         fit: BoxFit.scaleDown,
         child: Text(
           title,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+          style: AppTextStyles.medium20n(context),
         ),
       ),
       trailing: const Icon(Icons.arrow_forward_ios_rounded),

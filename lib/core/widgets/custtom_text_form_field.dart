@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class CusttomTextFormField extends StatelessWidget {
   const CusttomTextFormField(
@@ -19,6 +20,10 @@ class CusttomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 🔹 تحديد اللون بناءً على الثيم الحالي
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Color textFieldColor =
+        isDarkMode ?  AppColors.darkModeSecounder :const Color(0xFFF9FAFA) ;
     return TextFormField(
       obscureText: obscureText,
       onSaved: onSaved,
@@ -35,7 +40,7 @@ class CusttomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         //2:1-background text feild
         filled: true,
-        fillColor: const Color(0xFFF9FAFA),
+        fillColor: textFieldColor,
 
         //2:2-border
         border: buildBorder(),
@@ -48,10 +53,7 @@ class CusttomTextFormField extends StatelessWidget {
 
         //2:5-hintText
         hintText: hintText,
-        hintStyle: const TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.w700,
-            color: AppColors.captionColor),
+        hintStyle: AppTextStyles.medium20(context).copyWith(color: AppColors.captionColor),
 
         //2:6-suffixIcon
         suffixIcon: suffixIcon,

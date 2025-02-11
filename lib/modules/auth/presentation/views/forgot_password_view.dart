@@ -13,12 +13,16 @@ class ForgotPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 🔹 تحديد اللون بناءً على الثيم الحالي
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Color appBarColor =
+        isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor;
     return BlocProvider(
       create: (context) => ForgotPasswordCubit(getIt<AuthRepo>()),
       child: Scaffold(
         //AppBar
         appBar: AppBar(
-          backgroundColor: AppColors.whiteColor,
+          backgroundColor: appBarColor,
         ),
         body: const ForgotPasswordViewBodyBlocConsumer(),
       ),

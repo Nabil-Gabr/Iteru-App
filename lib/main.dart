@@ -5,7 +5,8 @@ import 'package:iteru_app/core/helpers/functions/on_generate_route.dart';
 import 'package:iteru_app/core/services/custom_bloc_observer.dart';
 import 'package:iteru_app/core/services/get_it_service.dart';
 import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
-import 'package:iteru_app/modules/home/presentation/view/home_view.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +36,7 @@ class IteruApp extends StatelessWidget {
             ),
             darkTheme: ThemeData(
               brightness: Brightness.dark,
-            scaffoldBackgroundColor: const Color(0xff1F1D2B), // خلفية Dark Mode
+            scaffoldBackgroundColor: AppColors.darkModePrimary, // خلفية Dark Mode
             ),
 
             // debugShowCheckedModeBanner = false
@@ -45,7 +46,7 @@ class IteruApp extends StatelessWidget {
             onGenerateRoute: onGenerateRoute,
 
             //initialRoute
-            initialRoute: HomeView.routeName,
+            initialRoute: SplashView.routeName,
           );
         },
       ),

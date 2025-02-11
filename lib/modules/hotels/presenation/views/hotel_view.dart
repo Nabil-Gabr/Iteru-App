@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/widgets/hotel_view_body.dart';
 
 class HotelView extends StatelessWidget {
@@ -7,13 +8,14 @@ class HotelView extends StatelessWidget {
   static const String routeName = 'HotelView';
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         
           surfaceTintColor: null,
           
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor,
           centerTitle: true,
           title: const Text(
             "Hotels",

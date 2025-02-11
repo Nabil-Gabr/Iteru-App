@@ -28,6 +28,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
 
   @override
   Widget build(BuildContext context) {
+    // 🔹 تحديد اللون بناءً على الثيم الحالي
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Color textColor =
+        isDarkMode ? AppColors.captionColor : const Color(0xff000000);
     return SingleChildScrollView(
       child: Padding(
         //Padding horizontal screen
@@ -85,7 +89,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               //Button Forgot your password
               CustomTextButton(
                 text: 'Forgot your password?',
-                textColor: AppColors.blackColor,
+                textColor: textColor,
                 onTap: () {
                   Navigator.of(context).pushNamed(ForgotPasswordView.routeName);
                 },

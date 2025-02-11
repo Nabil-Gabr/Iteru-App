@@ -6,5 +6,7 @@ abstract class AppColors {
   static const Color blackColor = Color(0xFF000000);
   static const Color lightBlackColor = Color(0xFF1A1D2E);
   static const Color captionColor = Color.fromARGB(255, 184, 189, 189);
+  static const Color darkModePrimary=Color(0xff1F1D2B);
+  static const Color darkModeSecounder=Color(0xff252836);
   
 }

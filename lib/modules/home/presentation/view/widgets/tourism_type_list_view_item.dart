@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/domain/entites/tourism_type_item_entity.dart';
 import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_details_view.dart';
 
@@ -42,11 +43,7 @@ class TourismTypeListViewItem extends StatelessWidget {
                 tourismTypeEntity.title,
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: AppTextStyles.medium20(context),
               ),
             ),
           ),

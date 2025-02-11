@@ -60,7 +60,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       'Don’t worry! It’s happens. Please enter the email address associated with your account.',
-                      style: AppTextStyles.medium18(context)
+                      style: AppTextStyles.medium20n(context)
                           .copyWith(color: AppColors.captionColor),
                       textAlign: TextAlign.center,
                     ),

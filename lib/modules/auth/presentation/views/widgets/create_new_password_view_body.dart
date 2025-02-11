@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
-import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 
 class CreateNewPasswordViewBody extends StatefulWidget {
   const CreateNewPasswordViewBody({super.key});
@@ -61,7 +59,7 @@ class _CreateNewPasswordViewBodyState extends State<CreateNewPasswordViewBody> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       'Create a new password to log in.',
-                      style: AppTextStyles.medium18(context)
+                      style: AppTextStyles.medium20n(context)
                           .copyWith(color: AppColors.captionColor),
                       textAlign: TextAlign.center,
                     ),
@@ -102,9 +100,7 @@ class _CreateNewPasswordViewBodyState extends State<CreateNewPasswordViewBody> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        CacheHelpe.removeData(key: kIsOnboardingViewSeen);
-                    Navigator.of(context)
-                        .pushReplacementNamed(OnboardingView.routeName);
+                        
                       }
                     },
                   ),

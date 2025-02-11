@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
@@ -19,11 +20,7 @@ class CustomTextButton extends StatelessWidget {
           alignment: alignment,
           child: Text(
             text,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: textColor,
-            ),
+            style: AppTextStyles.semiBold18n(context).copyWith(color: textColor),
           )),
     );
   }

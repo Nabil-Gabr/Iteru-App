@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_details_view.dart';
 
@@ -16,9 +17,7 @@ class MuseumListViewItem extends StatelessWidget {
     // 🔹 تحديد اللون بناءً على الثيم الحالي
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final Color containerColor = isDarkMode ? const Color(0xff252836) : const Color(0xffF6F1E9);
-
-     // 🔹 تغيير لون النص بناءً على الوضع الحالي
-    final Color textColor = isDarkMode ? Colors.white : Colors.black;
+    
 
     return GestureDetector(
       onTap: () {
@@ -55,8 +54,7 @@ class MuseumListViewItem extends StatelessWidget {
                         museumItemEntity.name,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style:  TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w500,color: textColor),
+                        style:  AppTextStyles.medium20(context),
                       ),
                       Expanded(
                         child: Row(
@@ -75,11 +73,7 @@ class MuseumListViewItem extends StatelessWidget {
                                   museumItemEntity.location,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xffFF8400)
-                                      ),
+                                  style: AppTextStyles.regular18(context).copyWith(color:const  Color(0xffFF8400)),
                                 ),
                               ],
                             ),

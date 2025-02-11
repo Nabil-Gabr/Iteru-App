@@ -14,7 +14,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   late PageController pageController;
   //currentPageIndex
   int currentPageIndex = 0;
-  
+
   //initState
   @override
   void initState() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 
 class OpeningHoursRow extends StatelessWidget {
   const OpeningHoursRow({
@@ -10,6 +11,7 @@ class OpeningHoursRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Row(
       children: [
         const Icon(
@@ -45,8 +47,8 @@ class OpeningHoursRow extends StatelessWidget {
                 ),
                 TextSpan(
                   text: openingTime,
-                  style: const TextStyle(
-                      color: Color(0xff333333),
+                  style:  TextStyle(
+                      color: isDarkMode ? AppColors.whiteColor :  const Color(0xff333333),
                       fontSize: 16,
                       fontWeight: FontWeight.w400),
                 ),
@@ -65,8 +67,8 @@ class OpeningHoursRow extends StatelessWidget {
                 ),
                 TextSpan(
                   text: closingTime,
-                  style: const TextStyle(
-                      color: Color(0xff333333),
+                  style:  TextStyle(
+                      color: isDarkMode ? AppColors.whiteColor :  const Color(0xff333333),
                       fontSize: 16,
                       fontWeight: FontWeight.w400),
                 ),

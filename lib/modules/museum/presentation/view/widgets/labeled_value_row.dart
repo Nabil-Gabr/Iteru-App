@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 
 class LabeledValueRow extends StatelessWidget {
   const LabeledValueRow({
@@ -13,6 +14,7 @@ class LabeledValueRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Row(
       children: [
         widget,
@@ -34,8 +36,8 @@ class LabeledValueRow extends StatelessWidget {
               ),
               TextSpan(
                 text: value,
-                style: const TextStyle(
-                    color: Color(0xff333333),
+                style:  TextStyle(
+                    color: isDarkMode ? AppColors.whiteColor :  const Color(0xff333333),
                     fontSize: 16,
                     fontWeight: FontWeight.w400),
               ),

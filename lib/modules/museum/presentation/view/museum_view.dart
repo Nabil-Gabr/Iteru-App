@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/modules/museum/presentation/view/widgets/museum_view_body.dart';
 
 class MuseumView extends StatelessWidget {
@@ -8,12 +9,15 @@ class MuseumView extends StatelessWidget {
   static const String routeName = 'MuseumView';
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
+        
     return Scaffold(
       //1:AppBar
       appBar: AppBar(
         surfaceTintColor: null,
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor,
         centerTitle: true,
         title: const Text(
           "Museum",

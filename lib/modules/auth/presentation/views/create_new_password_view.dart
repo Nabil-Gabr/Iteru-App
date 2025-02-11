@@ -7,9 +7,12 @@ class CreateNewPasswordView extends StatelessWidget {
   static const String routeName = 'CreateNewPasswordView';
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Color appBarColor =
+        isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.whiteColor,
+        backgroundColor: appBarColor,
       ),
       body: const SafeArea(child: CreateNewPasswordViewBody()),
     );

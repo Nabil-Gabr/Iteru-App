@@ -40,7 +40,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                     text: ' ',),
                 TextSpan(
                   text: 'Terms of Serivce and Privacy Policy',
-                  style: AppTextStyles.semiBold15(context).copyWith(color: AppColors.primaryColor))
+                  style: AppTextStyles.semiBold18n(context).copyWith(color: AppColors.primaryColor))
               ],
             ),
             textAlign: TextAlign.left,

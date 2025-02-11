@@ -24,6 +24,11 @@ class PageViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 🔹 تحديد اللون بناءً على الثيم الحالي
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Color containerColor = isDarkMode
+        ? AppColors.darkModeSecounder
+        : AppColors.whiteColor.withOpacity(.7);
     return SizedBox(
       width: MediaQuery.sizeOf(context).width,
       height: MediaQuery.sizeOf(context).height,
@@ -47,22 +52,22 @@ class PageViewItem extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                    color: AppColors.whiteColor.withOpacity(.7),
+                    color: containerColor,
                     borderRadius: const BorderRadius.all(Radius.circular(12))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       title,
-                      style: AppTextStyles.semiBold24(context),
+                      style: AppTextStyles.semiBold28(context),
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(
-                      height: 24,
+                      height: 12,
                     ),
                     Text(
                       subTitle,
-                      style: AppTextStyles.bold16(context),
+                      style: AppTextStyles.medium20n(context),
                       textAlign: TextAlign.start,
                     ),
                     const SizedBox(
@@ -129,7 +134,7 @@ class PageViewItem extends StatelessWidget {
                   },
                   child: Text(
                     'Skip',
-                    style: AppTextStyles.medium20(context),
+                    style: AppTextStyles.medium24(context),
                   ),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class CusttomButton extends StatelessWidget {
   const CusttomButton(
@@ -25,8 +26,7 @@ class CusttomButton extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             text,
-            style: TextStyle(
-                color: textColor, fontSize: 18, fontWeight: FontWeight.w700),
+            style: AppTextStyles.bold22(context).copyWith(color: textColor),
           )),
     );
   }

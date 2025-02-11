@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/domain/entites/popular_places_item_entity.dart';
 import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_details_view.dart';
 
@@ -53,10 +54,7 @@ class PopularPlacesListViewItem extends StatelessWidget {
                             popularPlacesItemEntity.title,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
-                            style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black),
+                            style: AppTextStyles.medium20(context),
                           ),
                         ),
                         Expanded(
@@ -70,10 +68,7 @@ class PopularPlacesListViewItem extends StatelessWidget {
                             Text(
                               popularPlacesItemEntity.rating,
                               // ignore: prefer_const_constructors
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.black),
+                              style: AppTextStyles.regular18(context),
                             ),
                           ],
                         )),
@@ -90,10 +85,7 @@ class PopularPlacesListViewItem extends StatelessWidget {
                         ),
                         Text(
                           popularPlacesItemEntity.location,
-                          style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black),
+                          style: AppTextStyles.regular18(context),
                         )
                       ],
                     )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({
@@ -17,8 +18,7 @@ class HeaderSection extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
+          style: AppTextStyles.semiBold22(context)
         ),
         GestureDetector(
           onTap: onTap,
@@ -31,10 +31,7 @@ class HeaderSection extends StatelessWidget {
                 border: Border.all(color: const Color(0xffFCCB00))),
             child: Text(
               textButton,
-              style: const TextStyle(
-                  color: Color(0xffFCCB00),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400),
+              style: AppTextStyles.regular18(context).copyWith(color: const Color(0xffFCCB00)),
             ),
           ),
         )

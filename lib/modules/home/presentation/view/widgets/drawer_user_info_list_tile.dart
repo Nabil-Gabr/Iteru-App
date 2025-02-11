@@ -1,6 +1,7 @@
 //2:UserInfoListTile
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class DrawerUserInfoListTile extends StatelessWidget {
   const DrawerUserInfoListTile({
@@ -9,10 +10,13 @@ class DrawerUserInfoListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 🔹 تحديد اللون بناءً على الثيم الحالي
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Color containerColor = isDarkMode ? const Color(0xff252836) : const Color(0xffF6F1E9);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Card(
-        color: const Color(0xffffffff),
+        color: containerColor,
         elevation: 0,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,16 +34,16 @@ class DrawerUserInfoListTile extends StatelessWidget {
             const SizedBox(
               width: 20,
             ),
-            const Column(
+             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Nabil Gabr',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  style: AppTextStyles.medium20n(context),
                 ),
                 Text(
                   'nabilgabr@gmail.com',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                  style: AppTextStyles.regular18(context),
                 ),
               ],
             )

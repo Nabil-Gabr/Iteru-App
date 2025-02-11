@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/drawer_switch.dart';
 
 class DrawerItemSwitch extends StatelessWidget {
@@ -21,7 +22,7 @@ class DrawerItemSwitch extends StatelessWidget {
         fit: BoxFit.scaleDown,
         child: Text(
           title,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+          style: AppTextStyles.medium20n(context),
         ),
       ),
       trailing:  DrawerSwitch(themeMode: themeMode,),

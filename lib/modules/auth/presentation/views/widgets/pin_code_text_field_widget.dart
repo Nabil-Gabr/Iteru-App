@@ -21,7 +21,7 @@ class PinCodeTextFieldWidget extends StatelessWidget {
         length: 4,
         cursorHeight: 19,
         enableActiveFill: true,
-        textStyle: AppTextStyles.semiBold24(context),
+        textStyle: AppTextStyles.semiBold28(context),
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         pinTheme: PinTheme(
           shape: PinCodeFieldShape.box,

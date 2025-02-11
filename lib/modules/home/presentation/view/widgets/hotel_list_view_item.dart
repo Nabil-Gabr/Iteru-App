@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_details_view.dart';
 
@@ -56,11 +57,7 @@ class HotelListViewItem extends StatelessWidget {
                     const SizedBox(width: 4),
                     Text(
                       hotelItemEntity.location,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                      ),
+                      style: AppTextStyles.bold16n(context),
                     ),
                   ],
                 ),
@@ -84,26 +81,12 @@ class HotelListViewItem extends StatelessWidget {
                   children: [
                     Text(
                       hotelItemEntity.title,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        shadows: [
-                          Shadow(
-                            color: Colors.black45,
-                            blurRadius: 4,
-                            offset: Offset(1, 2),
-                          ),
-                        ],
-                      ),
+                      style: AppTextStyles.bold18(context),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       hotelItemEntity.subTitle,
-                      style: const TextStyle(
-                        fontSize: 10,
-                        color: Colors.white70,
-                      ),
+                      style: AppTextStyles.bold14(context),
                     ),
                   ],
                 ),
