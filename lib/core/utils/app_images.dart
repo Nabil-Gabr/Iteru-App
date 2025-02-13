@@ -18,6 +18,10 @@ class Assets {
   /// assets/images/background_PageViewItemOne_onobarding.svg
   static const String imagesBackgroundPageViewItemOneOnobarding = "assets/images/background_PageViewItemOne_onobarding.svg";
 
+  /// Assets for imagesCairoTower
+  /// assets/images/cairo_tower.jpg
+  static const String imagesCairoTower = "assets/images/cairo_tower.jpg";
+
   /// Assets for imagesChatbot
   /// assets/images/chatbot.svg
   static const String imagesChatbot = "assets/images/chatbot.svg";
@@ -25,6 +29,10 @@ class Assets {
   /// Assets for imagesCheck
   /// assets/images/Check.svg
   static const String imagesCheck = "assets/images/Check.svg";
+
+  /// Assets for imagesEgyptianMuseum
+  /// assets/images/egyptian_museum.png
+  static const String imagesEgyptianMuseum = "assets/images/egyptian_museum.png";
 
   /// Assets for imagesFaceBookLogo
   /// assets/images/faceBook_logo.svg
@@ -37,6 +45,10 @@ class Assets {
   /// Assets for imagesHomeicon
   /// assets/images/homeicon.svg
   static const String imagesHomeicon = "assets/images/homeicon.svg";
+
+  /// Assets for imagesHotAiBalloonSuit
+  /// assets/images/hot_ai_balloon_suit.jpg
+  static const String imagesHotAiBalloonSuit = "assets/images/hot_ai_balloon_suit.jpg";
 
   /// Assets for imagesIconAboutUs
   /// assets/images/icon_about_us.svg
@@ -86,6 +98,18 @@ class Assets {
   /// assets/images/image_test_mohamed.png
   static const String imagesImageTestMohamed = "assets/images/image_test_mohamed.png";
 
+  /// Assets for imagesKhanElKhalili
+  /// assets/images/khan_el-Khalili.jpg
+  static const String imagesKhanElKhalili = "assets/images/khan_el-Khalili.jpg";
+
+  /// Assets for imagesNationalMuseumOfCivilization
+  /// assets/images/national_museum_of_civilization.jpg
+  static const String imagesNationalMuseumOfCivilization = "assets/images/national_museum_of_civilization.jpg";
+
+  /// Assets for imagesNationalMuseumOfCivilization880
+  /// assets/images/national_museum_of_civilization_880.jpg
+  static const String imagesNationalMuseumOfCivilization880 = "assets/images/national_museum_of_civilization_880.jpg";
+
   /// Assets for imagesPersonalPhoto
   /// assets/images/personal_photo.jpeg
   static const String imagesPersonalPhoto = "assets/images/personal_photo.jpeg";
@@ -93,6 +117,10 @@ class Assets {
   /// Assets for imagesPyramids
   /// assets/images/Pyramids.jpg
   static const String imagesPyramids = "assets/images/Pyramids.jpg";
+
+  /// Assets for imagesSoundAndLightShow
+  /// assets/images/sound_and_light_show.jpg
+  static const String imagesSoundAndLightShow = "assets/images/sound_and_light_show.jpg";
 
   /// Assets for imagesTestprosent
   /// assets/images/testprosent.png

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
-import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/museum/presentation/view/widgets/ticket_pricing_column.dart';
 
 class TicketsWidget extends StatelessWidget {
@@ -10,7 +9,7 @@ class TicketsWidget extends StatelessWidget {
     required this.museumItemEntity,
   });
 
-  final MuseumItemEntity museumItemEntity;
+  final dynamic museumItemEntity;
 
   @override
   Widget build(BuildContext context) {

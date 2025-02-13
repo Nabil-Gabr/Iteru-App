@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/domain/entites/popular_places_item_entity.dart';
@@ -14,6 +15,10 @@ class PopularPlacesListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final Color containerColor = isDarkMode
+        ? AppColors.darkModeSecounder.withOpacity(.7)
+        : AppColors.whiteColor.withOpacity(.7);
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed(PopularPlacesDetailsView.routeName,
@@ -36,7 +41,7 @@ class PopularPlacesListViewItem extends StatelessWidget {
             child: Container(
               height: 76,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(.7),
+                color: containerColor,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Padding(

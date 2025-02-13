@@ -21,9 +21,6 @@ class TourismTypesView extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ),
-        body: const Padding(
-          padding: EdgeInsets.all(16.0),
-          child: TourismViewody(),
-        ));
+        body: const TourismViewody());
   }
 }

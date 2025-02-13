@@ -6,12 +6,15 @@ import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.d
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
+import 'package:iteru_app/modules/home/domain/entites/most_visited_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/popular_places_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/tourism_type_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/home_view.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_details_view.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
+import 'package:iteru_app/modules/most_visited/presentation/view/most_visited_details_view.dart';
+import 'package:iteru_app/modules/most_visited/presentation/view/most_visited_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_details_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_rating_view.dart';
@@ -88,6 +91,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => const PopularPlacesView(),
       );
 
+    case MostVisitedView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const MostVisitedView(),
+      );
+
     case HotelView.routeName:
       return MaterialPageRoute(
         builder: (context) => const HotelView(),
@@ -99,6 +107,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => MuseumDetailsView(
           museumItemEntity: museumItemEntity,
         ),
+      );
+
+    case MostVisitedDetailsView.routeName:
+      final mostVisitedItemEntity = settings.arguments as MostVisitedItemEntity;
+      return MaterialPageRoute(
+        builder: (context) => MostVisitedDetailsView(mostVisitedItemEntity: mostVisitedItemEntity,),
       );
 
     case TourismTypesDetailsView.routeName:
