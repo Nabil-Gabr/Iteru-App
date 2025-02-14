@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/Theme/language_cubit.dart';
 import 'package:iteru_app/core/Theme/theme_cubit.dart';
 
 class DrawerSwitch extends StatefulWidget {
@@ -25,3 +26,30 @@ class _DrawerSwitchState extends State<DrawerSwitch> {
     );
   }
 }
+
+
+//1
+class DrawerSwitchLanguage extends StatefulWidget {
+  const DrawerSwitchLanguage({super.key});
+
+  @override
+  State<DrawerSwitchLanguage> createState() => _DrawerSwitchLanguageState();
+}
+
+class _DrawerSwitchLanguageState extends State<DrawerSwitchLanguage> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LanguageCubit, Locale>(
+      builder: (context, locale) {
+        return Switch(
+          value: locale.languageCode == 'ar',
+          activeColor: const Color(0xffFF8400),
+          onChanged: (value) {
+            context.read<LanguageCubit>().toggleLanguage();
+          },
+        );
+      },
+    );
+  }
+}
+

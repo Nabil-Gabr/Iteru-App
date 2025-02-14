@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
+import 'package:iteru_app/generated/l10n.dart';
 
 class DrawerUserInfoListTile extends StatelessWidget {
   const DrawerUserInfoListTile({
@@ -38,7 +39,7 @@ class DrawerUserInfoListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Nabil Gabr',
+                  S.of(context).user_name,
                   style: AppTextStyles.medium20n(context),
                 ),
                 Text(

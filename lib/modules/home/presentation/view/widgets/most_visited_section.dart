@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/generated/l10n.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/header_section.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/most_visited_list_view.dart';
 import 'package:iteru_app/modules/most_visited/presentation/view/most_visited_view.dart';
@@ -12,8 +13,8 @@ class MostVisitedSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         HeaderSection(
-          title: "Most Visited",
-          textButton: 'View all',
+          title: S.of(context).most_visited,
+          
           onTap: () {
             Navigator.of(context).pushNamed(MostVisitedView.routeName);
           },

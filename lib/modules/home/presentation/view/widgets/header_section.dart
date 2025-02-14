@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
+import 'package:iteru_app/generated/l10n.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({
     super.key,
-    required this.title,
-    required this.textButton, this.onTap,
+    required this.title, this.onTap,
   });
   final String title;
-  final String textButton;
   final void Function()? onTap;
 
   @override
@@ -30,7 +29,7 @@ class HeaderSection extends StatelessWidget {
                 borderRadius: BorderRadius.circular(23),
                 border: Border.all(color: const Color(0xffFCCB00))),
             child: Text(
-              textButton,
+              S.of(context).view_all,
               style: AppTextStyles.regular18(context).copyWith(color: const Color(0xffFCCB00)),
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/generated/l10n.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({
@@ -26,7 +27,7 @@ class SearchTextField extends StatelessWidget {
             focusedBorder: buildBorder(),
 
             //1:5-hintText
-            hintText: 'Search',
+            hintText: S.of(context).search,
             hintStyle: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w700,

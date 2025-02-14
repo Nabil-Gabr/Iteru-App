@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/generated/l10n.dart';
 import 'package:iteru_app/modules/home/domain/entites/drawer_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/drawer_column_section.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/drawer_item.dart';
@@ -65,9 +66,9 @@ class CustomDrawer extends StatelessWidget {
                     Navigator.of(context)
                         .pushReplacementNamed(OnboardingView.routeName);
                   },
-                  child: const DrawerItem(
+                  child:  DrawerItem(
                       drawerItemModel: DrawerItemEntity(
-                          title: 'Logout', image: Assets.imagesIconLogout)),
+                          title: S.of(context).logout, image: Assets.imagesIconLogout)),
                 ),
                 const SizedBox(
                   height: 28,
