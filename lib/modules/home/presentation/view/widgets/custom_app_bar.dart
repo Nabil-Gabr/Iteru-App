@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iteru_app/core/helpers/functions/switch_language.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/modules/chat/presentation/view/chat_view.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/search_text_field.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -46,10 +47,15 @@ class CustomAppBar extends StatelessWidget {
                 width: 8,
               ),
               //3: Notifications Icon
-              Icon(
-                Icons.notifications_none,
-                size: 34,
-                color: isDarkMode ? AppColors.whiteColor : const Color(0xFF4F200D),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed(ChatView.routeName);
+                },
+                child: Icon(
+                  Icons.notifications_none,
+                  size: 34,
+                  color: isDarkMode ? AppColors.whiteColor : const Color(0xFF4F200D),
+                ),
               ),
               const SizedBox(
                 width: 8,

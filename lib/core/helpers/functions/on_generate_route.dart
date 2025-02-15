@@ -5,6 +5,8 @@ import 'package:iteru_app/modules/auth/presentation/views/create_new_password_vi
 import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
+import 'package:iteru_app/modules/chat/presentation/view/chat_view.dart';
+import 'package:iteru_app/modules/chatbot_old/presentation/views/chat_view.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/most_visited_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
@@ -74,6 +76,16 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case HomeView.routeName:
       return MaterialPageRoute(
         builder: (context) => const HomeView(),
+      );
+    
+    case ChatViewOld.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const ChatViewOld(),
+      );
+    
+    case ChatView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const ChatView(),
       );
 
     case MuseumView.routeName:

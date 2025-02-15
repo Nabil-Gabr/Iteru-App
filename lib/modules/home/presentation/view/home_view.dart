@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/modules/chatbot_old/presentation/views/chat_view.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/custom_drawer.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/home_view_body.dart';
 
@@ -22,7 +23,9 @@ class _HomeViewState extends State<HomeView> {
         //1:chat button
         floatingActionButton: FloatingActionButton(
           backgroundColor: const Color(0xffFF8400),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(ChatViewOld.routeName);
+          },
           child: const Icon(
             Icons.chat_rounded,
             color: Colors.white,
