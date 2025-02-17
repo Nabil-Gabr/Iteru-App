@@ -4,11 +4,12 @@ import 'package:iteru_app/modules/museum/presentation/view/widgets/bullet_point_
 class TicketPricingColumn extends StatelessWidget {
   const TicketPricingColumn({
     super.key,
-    required this.priceAdult,
     required this.category,
-    required this.priceStudent,
+    required this.pricingMap,
   });
-  final String priceAdult, priceStudent, category;
+
+  final String category;
+  final Map<String, String> pricingMap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +26,24 @@ class TicketPricingColumn extends StatelessWidget {
         const SizedBox(
           height: 8,
         ),
-        BulletPointRow(
-          label: 'Adult',
-          value: priceAdult,
-        ),
-        const SizedBox(
-          height: 8,
-        ),
-        BulletPointRow(
-          label: 'Student',
-          value: priceStudent,
-        ),
+        // هنا يتم عرض كل القيم غير الفارغة فقط
+        ...pricingMap.entries
+            .where((entry) => entry.value.isNotEmpty)
+            .map((entry) => Column(
+                  children: [
+                    BulletPointRow(
+                      label: entry.key,
+                      value: entry.value,
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                  ],
+                ))
+            .toList(),
       ],
     );
   }
 }
+
+

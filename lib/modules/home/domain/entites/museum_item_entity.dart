@@ -1,5 +1,7 @@
 class MuseumItemEntity {
-  final String coverImage;
+  final String foreignerPriceChild;
+
+  final String coverPicture;
   final String name;
   final String location;
   final String closingTime;
@@ -9,14 +11,17 @@ class MuseumItemEntity {
   final String foreignerPriceStudent;
   final String egyptiansPriceAdult;
   final String egyptiansPriceStudent;
+  final String egyptianArabsPrice;
+  final String foreignersPrice;
   final List<Map<String, String>> ourInsiderTips;
   final List<String> illustrativeImages;
 
   const MuseumItemEntity({
+    required this.foreignerPriceChild,
     required this.ourInsiderTips,
     required this.description,
     required this.illustrativeImages,
-    required this.coverImage,
+    required this.coverPicture,
     required this.name,
     required this.location,
     required this.closingTime,
@@ -25,5 +30,8 @@ class MuseumItemEntity {
     required this.egyptiansPriceStudent,
     required this.foreignerPriceAdult,
     required this.foreignerPriceStudent,
+    required this.egyptianArabsPrice,
+    required this.foreignersPrice,
   });
 }
+

@@ -1,6 +1,6 @@
 abstract class DatabaseService {
-  //getData
-  Future<Map<String, dynamic>> getData({
+  // getData
+  Future<dynamic> getData({
     required String url,
     String? token,
   });

@@ -34,16 +34,22 @@ class TicketsWidget extends StatelessWidget {
         ),
         TicketPricingColumn(
           category: 'FOREIGNER:',
-          priceAdult: museumItemEntity.foreignerPriceAdult,
-          priceStudent: museumItemEntity.foreignerPriceStudent,
+          pricingMap: {
+            'Adult': museumItemEntity.foreignerPriceAdult,
+            'Student': museumItemEntity.foreignerPriceStudent,
+            'Child': museumItemEntity.foreignersPrice, // مثال
+          },
         ),
         const SizedBox(
           height: 16,
         ),
         TicketPricingColumn(
-          category: 'EGYPTIANS::',
-          priceAdult: museumItemEntity.egyptiansPriceAdult,
-          priceStudent: museumItemEntity.egyptiansPriceStudent,
+          category: 'EGYPTIANS:',
+          pricingMap: {
+            'Adult': museumItemEntity.egyptiansPriceAdult,
+            'Student': museumItemEntity.egyptiansPriceStudent,
+            'Arabs': museumItemEntity.egyptianArabsPrice, // مثال
+          },
         ),
       ],
     );

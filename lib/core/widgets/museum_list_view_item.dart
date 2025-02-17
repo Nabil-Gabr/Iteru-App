@@ -37,8 +37,8 @@ class MuseumListViewItem extends StatelessWidget {
               Expanded(
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        museumItemEntity.coverImage,
+                      child: Image.network(
+                        museumItemEntity.coverPicture,
                         fit: BoxFit.cover,
                       ))),
               const SizedBox(

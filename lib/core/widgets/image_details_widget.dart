@@ -18,7 +18,7 @@ class ImageDetailsWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(70)),
         image: DecorationImage(
-          image: AssetImage(
+          image: NetworkImage(
             image,
           ),
           fit: BoxFit.cover,

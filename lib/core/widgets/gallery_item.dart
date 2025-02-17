@@ -13,8 +13,8 @@ class GalleryItem extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
-          image: AssetImage(image),
-          fit: BoxFit.cover,
+          image: NetworkImage(image),
+          fit: BoxFit.fill,
         ),
       ),
     );

@@ -89,8 +89,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
 
     case MuseumView.routeName:
+    final   museumItemEntity = settings.arguments as List <MuseumItemEntity>;
       return MaterialPageRoute(
-        builder: (context) => const MuseumView(),
+        builder: (context) =>  MuseumView(museumItemEntity: museumItemEntity,),
       );
 
     case TourismTypesView.routeName:

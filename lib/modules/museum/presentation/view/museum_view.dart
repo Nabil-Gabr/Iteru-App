@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/museum/presentation/view/widgets/museum_view_body.dart';
 
 class MuseumView extends StatelessWidget {
-  const MuseumView({super.key});
+  const MuseumView({super.key, required this.museumItemEntity});
+  final List<MuseumItemEntity> museumItemEntity;
 
   //routeName
   static const String routeName = 'MuseumView';
@@ -25,7 +27,7 @@ class MuseumView extends StatelessWidget {
         ),
       ),
       //2:Body
-      body: const MuseumViewBody(),
+      body:  MuseumViewBody(museumItemEntity: museumItemEntity,),
     );
   }
 }
