@@ -11,7 +11,11 @@ class DescriptionSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomBackgroundContainer(
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start
+        
+        , children: [
+        
         const Text(
           'Description',
           style: TextStyle(

@@ -40,7 +40,7 @@ class TicketPricingColumn extends StatelessWidget {
                     ),
                   ],
                 ))
-            .toList(),
+            ,
       ],
     );
   }

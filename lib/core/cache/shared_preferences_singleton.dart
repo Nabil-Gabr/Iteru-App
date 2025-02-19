@@ -35,7 +35,6 @@ class CacheHelpe {
   static dynamic getData({required String key}) {
     return _instance.get(key);
   }
-
 //! remove data using specific key
 
   static Future<bool> removeData({required String key}) async {

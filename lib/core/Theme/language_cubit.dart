@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class LanguageCubit extends Cubit<Locale> {
   LanguageCubit() : super(const Locale('en'));
 
+
   void toggleLanguage() async {
     final prefs = await SharedPreferences.getInstance();
     if (state.languageCode == 'en') {
@@ -15,6 +16,7 @@ class LanguageCubit extends Cubit<Locale> {
       await prefs.setString('language', 'en');
     }
   }
+  
 
   void loadLanguage() async {
     final prefs = await SharedPreferences.getInstance();
