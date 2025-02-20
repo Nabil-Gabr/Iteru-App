@@ -48,6 +48,8 @@ dependencies:
   flutter_localizations:
         sdk: flutter
   cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
+  skeletonizer: ^1.4.3
 
 dev_dependencies:
   flutter_test:

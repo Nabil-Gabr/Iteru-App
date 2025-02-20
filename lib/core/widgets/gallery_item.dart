@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class GalleryItem extends StatelessWidget {
@@ -9,13 +10,12 @@ class GalleryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        image: DecorationImage(
-          image: NetworkImage(image),
-          fit: BoxFit.fill,
-        ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: CachedNetworkImage(
+        fit: BoxFit.cover,
+        imageUrl: image,
+        errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
     );
   }

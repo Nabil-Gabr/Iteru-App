@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
@@ -16,8 +17,8 @@ class MuseumListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     // 🔹 تحديد اللون بناءً على الثيم الحالي
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final Color containerColor = isDarkMode ? const Color(0xff252836) : const Color(0xffF6F1E9);
-    
+    final Color containerColor =
+        isDarkMode ? const Color(0xff252836) : const Color(0xffF6F1E9);
 
     return GestureDetector(
       onTap: () {
@@ -28,7 +29,7 @@ class MuseumListViewItem extends StatelessWidget {
         aspectRatio: 265 / 84,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
             color: containerColor, // 🔹 تغيير اللون بناءً على الثيم,
             borderRadius: const BorderRadius.all(Radius.circular(12)),
           ),
@@ -37,9 +38,11 @@ class MuseumListViewItem extends StatelessWidget {
               Expanded(
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.network(
-                        museumItemEntity.coverPicture,
-                        fit: BoxFit.cover,
+                      child: CachedNetworkImage(
+                        fit: BoxFit.fill,
+                        imageUrl: museumItemEntity.coverPicture,
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ))),
               const SizedBox(
                 width: 8,
@@ -54,7 +57,7 @@ class MuseumListViewItem extends StatelessWidget {
                         museumItemEntity.name,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style:  AppTextStyles.medium20(context),
+                        style: AppTextStyles.medium20(context),
                       ),
                       Expanded(
                         child: Row(
@@ -73,7 +76,8 @@ class MuseumListViewItem extends StatelessWidget {
                                   museumItemEntity.location,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
-                                  style: AppTextStyles.regular18(context).copyWith(color:const  Color(0xffFF8400)),
+                                  style: AppTextStyles.regular18(context)
+                                      .copyWith(color: const Color(0xffFF8400)),
                                 ),
                               ],
                             ),
