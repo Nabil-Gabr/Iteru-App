@@ -40,13 +40,14 @@ dependencies:
   dartz: ^0.10.1
   font_awesome_flutter: ^10.8.0
   dio: ^5.7.0
-  flutter_bloc: ^8.1.6
+  flutter_bloc: ^9.0.0
   get_it: ^8.0.2
   modal_progress_hud_nsn: ^0.5.1
   flutter_staggered_grid_view: ^0.7.0
   flutter_rating_bar: ^4.0.1
   flutter_localizations:
         sdk: flutter
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
