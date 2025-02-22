@@ -50,6 +50,8 @@ dependencies:
   cached_network_image: ^3.4.1
   shimmer: ^3.0.0
   skeletonizer: ^1.4.3
+  carousel_slider: ^5.0.0
+  
 
 dev_dependencies:
   flutter_test:

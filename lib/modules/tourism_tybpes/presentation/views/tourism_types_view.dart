@@ -4,6 +4,7 @@ import 'package:iteru_app/modules/tourism_tybpes/presentation/views/widgest/tour
 
 class TourismTypesView extends StatelessWidget {
   const TourismTypesView({super.key});
+  
   //routeName
   static const String routeName = 'TourismTypesView';
   @override

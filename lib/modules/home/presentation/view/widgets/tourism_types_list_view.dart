@@ -10,11 +10,11 @@ class TourismTypesListView extends StatelessWidget {
 
   static const List<TourismTypeItemEntity> tourismTypeItemList = [
     TourismTypeItemEntity(
-        title: 'Cultural Tourism', image: Assets.imagesImageTestMohamed),
+        title: 'Religious tourism', image: Assets.imagesReligiousTourism),
     TourismTypeItemEntity(
-        title: 'Religious tourism', image: Assets.imagesImageTestMohamed),
+        title: 'Recreational tourism', image: Assets.imagesRecreationalTourism),
     TourismTypeItemEntity(
-        title: 'Nature', image: Assets.imagesImageTestMohamed),
+        title: 'Cultural Tourism', image: Assets.imagesCulturalTourism),
   ];
 
   @override

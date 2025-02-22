@@ -10,12 +10,13 @@ class TourismGridView extends StatelessWidget {
   });
 
   static const List<TourismTypeItemEntity> tourismTypeItemList = [
-    TourismTypeItemEntity(image: Assets.imagesImageTestMohamed, title: 'Cultural tourism'),
-    TourismTypeItemEntity(image: Assets.imagesImageTestMohamed, title: 'Religious tourism'),
-    TourismTypeItemEntity(image: Assets.imagesImageTestMohamed, title: 'Recreational tourism'),
-    TourismTypeItemEntity(image: Assets.imagesImageTestMohamed, title: 'title'),
-    TourismTypeItemEntity(image: Assets.imagesImageTestMohamed, title: 'title'),
-    TourismTypeItemEntity(image: Assets.imagesImageTestMohamed, title: 'title'),
+    TourismTypeItemEntity(
+        title: 'Religious tourism', image: Assets.imagesReligiousTourism),
+    TourismTypeItemEntity(
+        title: 'Recreational tourism', image: Assets.imagesRecreationalTourism),
+    TourismTypeItemEntity(
+        title: 'Cultural Tourism', image: Assets.imagesCulturalTourism),
+    
   ];
 
   @override

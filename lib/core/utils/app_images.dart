@@ -30,6 +30,14 @@ class Assets {
   /// assets/images/Check.svg
   static const String imagesCheck = "assets/images/Check.svg";
 
+  /// Assets for imagesCroppedAlexandria
+  /// assets/images/cropped-alexandria.webp
+  static const String imagesCroppedAlexandria = "assets/images/cropped-alexandria.webp";
+
+  /// Assets for imagesCulturalTourism
+  /// assets/images/cultural_tourism.png
+  static const String imagesCulturalTourism = "assets/images/cultural_tourism.png";
+
   /// Assets for imagesEgyptianMuseum
   /// assets/images/egyptian_museum.png
   static const String imagesEgyptianMuseum = "assets/images/egyptian_museum.png";
@@ -117,6 +125,14 @@ class Assets {
   /// Assets for imagesPyramids
   /// assets/images/Pyramids.jpg
   static const String imagesPyramids = "assets/images/Pyramids.jpg";
+
+  /// Assets for imagesRecreationalTourism
+  /// assets/images/recreational_tourism.png
+  static const String imagesRecreationalTourism = "assets/images/recreational_tourism.png";
+
+  /// Assets for imagesReligiousTourism
+  /// assets/images/religious_tourism.png
+  static const String imagesReligiousTourism = "assets/images/religious_tourism.png";
 
   /// Assets for imagesSoundAndLightShow
   /// assets/images/sound_and_light_show.jpg

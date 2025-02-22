@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ImageDetailsWidget extends StatelessWidget {
@@ -12,15 +13,12 @@ class ImageDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
       height: MediaQuery.sizeOf(context).height * .4,
       width: MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(70)),
         image: DecorationImage(
-          image: NetworkImage(
-            image,
-          ),
+          image: CachedNetworkImageProvider(image),
           fit: BoxFit.cover,
         ),
       ),
@@ -46,7 +44,10 @@ class ImageDetailsWidget extends StatelessWidget {
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400),
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400),
               ),
             ),
 
