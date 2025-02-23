@@ -51,6 +51,7 @@ dependencies:
   shimmer: ^3.0.0
   skeletonizer: ^1.4.3
   carousel_slider: ^5.0.0
+  chat_bubbles: ^1.6.0
   
 
 dev_dependencies:

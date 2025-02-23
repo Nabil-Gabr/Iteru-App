@@ -6,7 +6,6 @@ import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.d
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
 import 'package:iteru_app/modules/chat/presentation/view/chat_view.dart';
-import 'package:iteru_app/modules/chatbot_old/presentation/views/chat_view.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/most_visited_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
@@ -77,21 +76,18 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const HomeView(),
       );
-    
-    case ChatViewOld.routeName:
-      return MaterialPageRoute(
-        builder: (context) => const ChatViewOld(),
-      );
-    
+
     case ChatView.routeName:
       return MaterialPageRoute(
         builder: (context) => const ChatView(),
       );
 
     case MuseumView.routeName:
-    final   museumItemEntity = settings.arguments as List <MuseumItemEntity>;
+      final museumItemEntity = settings.arguments as List<MuseumItemEntity>;
       return MaterialPageRoute(
-        builder: (context) =>  MuseumView(museumItemEntity: museumItemEntity,),
+        builder: (context) => MuseumView(
+          museumItemEntity: museumItemEntity,
+        ),
       );
 
     case TourismTypesView.routeName:
@@ -125,7 +121,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case MostVisitedDetailsView.routeName:
       final mostVisitedItemEntity = settings.arguments as MostVisitedItemEntity;
       return MaterialPageRoute(
-        builder: (context) => MostVisitedDetailsView(mostVisitedItemEntity: mostVisitedItemEntity,),
+        builder: (context) => MostVisitedDetailsView(
+          mostVisitedItemEntity: mostVisitedItemEntity,
+        ),
       );
 
     case TourismTypesDetailsView.routeName:
@@ -151,7 +149,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
           hotelItemEntity: hotelItemEntity,
         ),
       );
-    
+
     case MuseumRatingView.routeName:
       return MaterialPageRoute(
         builder: (context) => const MuseumRatingView(),

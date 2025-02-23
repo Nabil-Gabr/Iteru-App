@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 
 class ArrowBackButton extends StatelessWidget {
   final void Function() onPressed;
   const ArrowBackButton({
-    super.key, required this.onPressed,
+    super.key,
+    required this.onPressed,
   });
 
   @override
@@ -14,7 +16,7 @@ class ArrowBackButton extends StatelessWidget {
         onPressed: onPressed,
         icon: const Icon(
           Icons.arrow_back_ios_new,
-          color: Colors.black,
+          color: AppColors.primaryColor,
         ));
   }
 }

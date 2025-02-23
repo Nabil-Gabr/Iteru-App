@@ -3,12 +3,11 @@ import 'package:iteru_app/modules/chat/presentation/view/widgets/chat_view_body.
 
 class ChatView extends StatelessWidget {
   const ChatView({super.key});
-  static const String routeName='ChatView';
+  static const String routeName = 'ChatView';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: const ChatViewBody(),
+    return const Scaffold(
+      body: SafeArea(child: ChatViewBody()),
     );
   }
 }

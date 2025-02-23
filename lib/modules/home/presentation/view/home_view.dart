@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/repos/museum_repo/museum_repo.dart';
 import 'package:iteru_app/core/services/get_it_service.dart';
-import 'package:iteru_app/modules/chatbot_old/presentation/views/chat_view.dart';
+import 'package:iteru_app/modules/chat/presentation/view/chat_view.dart';
 import 'package:iteru_app/modules/home/presentation/manager/museum/museum_cubit.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/custom_drawer.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/home_view_body.dart';
@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
           floatingActionButton: FloatingActionButton(
             backgroundColor: const Color(0xffFF8400),
             onPressed: () {
-              Navigator.of(context).pushNamed(ChatViewOld.routeName);
+              Navigator.of(context).pushNamed(ChatView.routeName);
             },
             child: const Icon(
               Icons.chat_rounded,
