@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/generated/l10n.dart';
 import 'package:iteru_app/modules/tourism_tybpes/presentation/views/widgest/tourism_view_body.dart';
 
 class TourismTypesView extends StatelessWidget {
@@ -17,9 +18,9 @@ class TourismTypesView extends StatelessWidget {
           elevation: 0,
           backgroundColor: isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor,
           centerTitle: true,
-          title: const Text(
-            "Tourism Types",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          title: Text(
+            S.of(context).tourism_types,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ),
         body: const TourismViewody());

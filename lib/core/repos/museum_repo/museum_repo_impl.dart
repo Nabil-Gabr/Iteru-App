@@ -16,7 +16,7 @@ class MuseumRepoImpl extends MuseumRepo {
   Future<Either<Failure, List<MuseumItemEntity>>> getMuseum() async {
     try {
       //1
-      var result = await apiDatabaseService.getData(url: 'http://10.0.2.2:5000/api/museums');
+      var result = await apiDatabaseService.getData(url: 'http://192.168.1.13:5000/api/museums');
 if (result is Map<String, dynamic> && result.containsKey('data')) {
   var data = result['data'];
   if (data is List) {

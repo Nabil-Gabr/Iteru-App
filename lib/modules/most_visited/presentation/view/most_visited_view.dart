@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/generated/l10n.dart';
 import 'package:iteru_app/modules/most_visited/presentation/view/widgets/most_visited_view_body.dart';
 
 class MostVisitedView extends StatelessWidget {
@@ -16,9 +17,9 @@ class MostVisitedView extends StatelessWidget {
         backgroundColor:
             isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor,
         centerTitle: true,
-        title: const Text(
-          "Most Visited",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        title:  Text(
+          S.of(context).most_visited,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
       ),
       body: const Padding(

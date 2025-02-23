@@ -27,10 +27,10 @@ class HeaderSection extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(23),
-                border: Border.all(color: const Color(0xffFCCB00))),
+                border: Border.all(color: const Color(0xffFF8400),)),
             child: Text(
               S.of(context).view_all,
-              style: AppTextStyles.regular18(context).copyWith(color: const Color(0xffFCCB00)),
+              style: AppTextStyles.regular18(context).copyWith(color: const Color(0xffFF8400)),
             ),
           ),
         )

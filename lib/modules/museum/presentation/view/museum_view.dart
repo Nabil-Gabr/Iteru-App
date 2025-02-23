@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/generated/l10n.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/museum/presentation/view/widgets/museum_view_body.dart';
 
@@ -21,9 +22,9 @@ class MuseumView extends StatelessWidget {
         elevation: 0,
         backgroundColor: isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor,
         centerTitle: true,
-        title: const Text(
-          "Museum",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        title:  Text(
+          S.of(context).museum,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
       ),
       //2:Body
