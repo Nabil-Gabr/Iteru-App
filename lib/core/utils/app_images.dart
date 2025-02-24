@@ -118,9 +118,21 @@ class Assets {
   /// assets/images/national_museum_of_civilization_880.jpg
   static const String imagesNationalMuseumOfCivilization880 = "assets/images/national_museum_of_civilization_880.jpg";
 
+  /// Assets for imagesPersonalOne
+  /// assets/images/personal_one.jpeg
+  static const String imagesPersonalOne = "assets/images/personal_one.jpeg";
+
   /// Assets for imagesPersonalPhoto
   /// assets/images/personal_photo.jpeg
   static const String imagesPersonalPhoto = "assets/images/personal_photo.jpeg";
+
+  /// Assets for imagesPersonalThree
+  /// assets/images/personal_three.jpeg
+  static const String imagesPersonalThree = "assets/images/personal_three.jpeg";
+
+  /// Assets for imagesPersonalTwo
+  /// assets/images/personal_two.jpeg
+  static const String imagesPersonalTwo = "assets/images/personal_two.jpeg";
 
   /// Assets for imagesPyramids
   /// assets/images/Pyramids.jpg

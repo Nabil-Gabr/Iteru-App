@@ -107,8 +107,8 @@ class _MuseumRatingViewBodyState extends State<MuseumRatingViewBody> {
                     if (rating != 0.0) {
                       RatingAndReviewEntity ratingAndReviewEntity =
                           RatingAndReviewEntity(
-                              nameUser: "Nabil",
-                              imageUser: Assets.imagesPersonalPhoto,
+                              nameUser: "Connor David",
+                              imageUser: Assets.imagesPersonalTwo,
                               comment: comment.text,
                               rating: rating);
                       context
@@ -118,7 +118,7 @@ class _MuseumRatingViewBodyState extends State<MuseumRatingViewBody> {
                       AnimatedSnackBar.material(
                         "please add rating",
                         type: AnimatedSnackBarType.warning,
-                        duration: Duration(seconds: 2),
+                        duration: const Duration(seconds: 2),
                       ).show(context);
                     }
                   },

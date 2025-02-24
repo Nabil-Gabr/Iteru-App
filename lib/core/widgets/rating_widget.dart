@@ -55,9 +55,6 @@ class _RatingWidgetState extends State<RatingWidget> {
               children: [
                 GuestReviewsWidget(),
                 Divider(),
-                SizedBox(
-                  height: 16,
-                ),
                 RatingAndReviewListView(),
               ],
             )

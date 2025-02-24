@@ -32,8 +32,8 @@ class GuestReviewsWidget extends StatelessWidget {
                 addRatingCubit.averagerating.toString(),
                 style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 11,
-                    fontWeight: FontWeight.w400),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(
