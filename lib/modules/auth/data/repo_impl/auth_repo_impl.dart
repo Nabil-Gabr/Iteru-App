@@ -20,7 +20,7 @@ class AuthRepoImpl extends AuthRepo {
     try {
       // Call the API
       var user = await apiAuthService.post(
-        url: "http://10.0.2.2:3000/api/auth/login",
+        url: "http://192.168.1.13:5000/api/auth/login",
         body: {
           "email": userEmail,
           "password": userPassowrd,
@@ -56,12 +56,14 @@ class AuthRepoImpl extends AuthRepo {
       required String userPhone}) async {
     try {
       var response = await apiAuthService
-          .post(url: "http://10.0.2.2:3000/api/auth/register", body: {
+          .post(url: "http://192.168.1.13:5000/api/auth/register", body: {
         "name": userName,
         "email": userEmail,
         "password": userPassword,
         "phone": userPhone
       });
+
+      log("auth_repo_impl.dart ${response.toString()}");
 
       return right(UserModel.fromJson(response));
     } catch (e) {

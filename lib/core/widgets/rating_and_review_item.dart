@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:iteru_app/core/entities/rating_and_review_entity.dart';
+import 'package:iteru_app/core/utils/app_text_styles.dart';
 
 class RatingAndReviewItem extends StatelessWidget {
   const RatingAndReviewItem({
@@ -40,10 +41,7 @@ class RatingAndReviewItem extends StatelessWidget {
                   children: [
                     Text(
                       ratingAndReviewEntity.nameUser,
-                      style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
+                      style: AppTextStyles.semiBold22(context),
                     ),
                     const SizedBox(
                       height: 4,
@@ -54,7 +52,7 @@ class RatingAndReviewItem extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                           color: Color(0xffA19E98),
-                          fontSize: 10,
+                          fontSize: 14,
                           fontWeight: FontWeight.w400),
                     ),
                   ],

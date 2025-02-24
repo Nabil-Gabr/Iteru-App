@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/addrating/add_rating_cubit.dart';
 import 'package:iteru_app/core/widgets/average_rating_to_item.dart';
 
+// تم التعديل
 class GuestReviewsWidget extends StatelessWidget {
   const GuestReviewsWidget({
     super.key,
@@ -8,7 +11,8 @@ class GuestReviewsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     
+    var addRatingCubit = context.watch<AddRatingCubit>();
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -24,9 +28,9 @@ class GuestReviewsWidget extends StatelessWidget {
                       topLeft: Radius.circular(8),
                       topRight: Radius.circular(8),
                       bottomRight: Radius.circular(8))),
-              child:  const Text(
-                "2.75",
-                style:  TextStyle(
+              child: Text(
+                addRatingCubit.averagerating.toString(),
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 11,
                     fontWeight: FontWeight.w400),
@@ -44,15 +48,17 @@ class GuestReviewsWidget extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       color: Color(0xffFFC107)),
                 ),
-                Text(
-                  "see all 40 reviews",
-                  style: TextStyle(fontSize: 10, color: Color(0xffA19E98)),
-                ),
+                // Text(
+                //   "see all 40 reviews",
+                //   style: TextStyle(fontSize: 10, color: Color(0xffA19E98)),
+                // ),
               ],
             )
           ],
         ),
-        const AverageRatingToItem()
+        AverageRatingToItem(
+          rating: addRatingCubit.averagerating,
+        )
       ],
     );
   }

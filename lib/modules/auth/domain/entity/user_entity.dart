@@ -3,6 +3,12 @@ class UserEntity {
   final String token;
 
   UserEntity({required this.userData, required this.token});
+
+  @override
+  String toString() {
+    return 'UserEntity(userData: ${userData.toString()}, token: $token)';
+  }
+
 }
 
 class UserData {
@@ -26,5 +32,10 @@ class UserData {
       userPassword: json['password'] ?? '',
       userPhone: json['phone'] ?? '',
     );
+  }
+
+  @override
+  String toString() {
+    return 'UserData(name: $userName, email: $userEmail, phone: $userPhone)';
   }
 }

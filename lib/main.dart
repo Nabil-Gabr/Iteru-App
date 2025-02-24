@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:iteru_app/core/Theme/language_cubit.dart';
 import 'package:iteru_app/core/Theme/theme_cubit.dart';
+import 'package:iteru_app/core/addrating/add_rating_cubit.dart';
 import 'package:iteru_app/core/helpers/functions/on_generate_route.dart';
 import 'package:iteru_app/core/services/custom_bloc_observer.dart';
 import 'package:iteru_app/core/services/get_it_service.dart';
@@ -25,6 +26,7 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => ThemeCubit()),
         BlocProvider(create: (context) => languageCubit),
+        BlocProvider(create: (context)=>AddRatingCubit())
       ],
       child: const IteruApp(),
     ),

@@ -16,4 +16,9 @@ class UserModel extends UserEntity {
       token: json['token'] ?? '',
     );
   }
+
+  @override
+  String toString() {
+    return 'UserModel(userData: ${userData.toString()}, token: $token)';
+  }
 }

@@ -63,6 +63,8 @@ class CustomDrawer extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     CacheHelpe.removeData(key: kIsOnboardingViewSeen);
+                    // CacheHelpe.removeData(key: 'id');
+                    // CacheHelpe.removeData(key: 'token');
                     Navigator.of(context)
                         .pushReplacementNamed(OnboardingView.routeName);
                   },

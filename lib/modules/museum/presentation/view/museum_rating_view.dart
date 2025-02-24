@@ -1,79 +1,133 @@
+import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:iteru_app/core/addrating/add_rating_cubit.dart';
 import 'package:iteru_app/core/constants/constant.dart';
-import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/core/entities/rating_and_review_entity.dart';
+import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/widgets/custom_button_rating.dart';
+import 'package:iteru_app/core/widgets/custom_text_form_filed_rating.dart';
 
 class MuseumRatingView extends StatelessWidget {
   const MuseumRatingView({super.key});
   static const String routeName = 'MuseumRatingView';
+// تم التعديل
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //1:AppBar
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-      ),
-      //2:Body
-      body: Padding(
-        padding: const EdgeInsets.all(kHorizintalPadding),
+        appBar: AppBar(
+          title: const Text(
+            "Give Feedback",
+            style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87),
+          ),
+          elevation: 0,
+          centerTitle: true,
+        ),
+        body: const MuseumRatingViewBody());
+  }
+}
+
+/// تم التعديل
+class MuseumRatingViewBody extends StatefulWidget {
+  const MuseumRatingViewBody({super.key});
+
+  @override
+  State<MuseumRatingViewBody> createState() => _MuseumRatingViewBodyState();
+}
+
+class _MuseumRatingViewBodyState extends State<MuseumRatingViewBody> {
+  final TextEditingController comment = TextEditingController();
+  double rating = 0;
+  @override
+  Widget build(BuildContext context) {
+    
+    return Padding(
+      padding: const EdgeInsets.all(kHorizintalPadding),
+      child: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 100,
+            const Text(
+              "How was your experience?",
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black87),
             ),
-            Align(
-              alignment: Alignment.center,
-              child: RatingBar.builder(
-                initialRating: 0,
-                minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemPadding: const EdgeInsets.symmetric(horizontal: 8.0),
-                itemBuilder: (context, _) => const Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                onRatingUpdate: (rating) {
-                  print(rating);
-                },
+            const SizedBox(
+              height: 10,
+            ),
+            RatingBar.builder(
+              initialRating: 0,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemBuilder: (context, _) => const Icon(
+                Icons.star,
+                color: Colors.amber,
               ),
+              onRatingUpdate: (rating) {
+                setState(() {
+                  this.rating = rating;
+                });
+              },
             ),
             const SizedBox(
               height: 30,
             ),
-            TextFormField(
-              //2-decoration
-              decoration: const InputDecoration(
-                //2:1-background text feild
-                filled: true,
-                fillColor: Colors.white,
-
-                //2:3-enabledBorder
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                  borderSide: BorderSide(color: Colors.grey, width: 1),
-                ),
-
-                //2:4-focusedBorder
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                  borderSide: BorderSide(color: Colors.amber, width: 1),
-                ),
-
-                //2:5-hintText
-                hintText: 'Describe your experince',
-                hintStyle: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.captionColor),
-              ),
+            const Text(
+              "Describe your experince",
+              style: TextStyle(fontSize: 16, color: Colors.black87),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            CustomTextFormFiledRating(
+              textEditingController: comment,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            BlocConsumer<AddRatingCubit, AddRatingState>(
+              listener: (context, state) {
+                if (state is AddRatingSuccess) {
+                  Navigator.of(
+                    context,
+                  ).pop();
+                }
+              },
+              builder: (context, state) {
+                return CustomButtonRating(
+                  onPresses: () {
+                    if (rating != 0.0) {
+                      RatingAndReviewEntity ratingAndReviewEntity =
+                          RatingAndReviewEntity(
+                              nameUser: "Nabil",
+                              imageUser: Assets.imagesPersonalPhoto,
+                              comment: comment.text,
+                              rating: rating);
+                      context
+                          .read<AddRatingCubit>()
+                          .addRating(ratingAndReviewEntity);
+                    } else {
+                      AnimatedSnackBar.material(
+                        "please add rating",
+                        type: AnimatedSnackBarType.warning,
+                        duration: Duration(seconds: 2),
+                      ).show(context);
+                    }
+                  },
+                );
+              },
             )
           ],
         ),
       ),
     );
   }
-
-  
 }
