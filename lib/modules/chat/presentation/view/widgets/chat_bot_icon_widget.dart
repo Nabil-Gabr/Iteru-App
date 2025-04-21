@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 
@@ -15,8 +14,8 @@ class ChatBotIconWidget extends StatelessWidget {
     return CircleAvatar(
       backgroundColor: AppColors.whiteColor,
       radius: redius,
-      child: SvgPicture.asset(
-        Assets.imagesChatbot,
+      child: Image.asset(
+        Assets.imagesIconBot,
         fit: BoxFit.fill,
       ),
     );

@@ -20,7 +20,7 @@ class AuthRepoImpl extends AuthRepo {
     try {
       // Call the API
       var user = await apiAuthService.post(
-        url: "http://192.168.1.13:5000/api/auth/login",
+        url: "https://iteru-clone-e8l9.vercel.app/api/auth/login",
         body: {
           "email": userEmail,
           "password": userPassowrd,
@@ -56,7 +56,7 @@ class AuthRepoImpl extends AuthRepo {
       required String userPhone}) async {
     try {
       var response = await apiAuthService
-          .post(url: "http://192.168.1.13:5000/api/auth/register", body: {
+          .post(url: "https://iteru-clone-e8l9.vercel.app/api/auth/register", body: {
         "name": userName,
         "email": userEmail,
         "password": userPassword,
@@ -82,7 +82,7 @@ class AuthRepoImpl extends AuthRepo {
       {required String userEmail}) async {
     try {
       var respone = await apiAuthService.post(
-        url: "http://10.0.2.2:3000/api/auth/forget-password",
+        url: "http://192.168.1.13:5000/api/auth/forget-password",
         body: {
           "email": userEmail,
         },

@@ -107,8 +107,8 @@ class _MuseumRatingViewBodyState extends State<MuseumRatingViewBody> {
                     if (rating != 0.0) {
                       RatingAndReviewEntity ratingAndReviewEntity =
                           RatingAndReviewEntity(
-                              nameUser: "Connor David",
-                              imageUser: Assets.imagesPersonalTwo,
+                              nameUser: "James Alex",
+                              imageUser: Assets.imagesPersonalOne,
                               comment: comment.text,
                               rating: rating);
                       context

@@ -8,24 +8,20 @@ class HotelListView extends StatelessWidget {
   static const List<HotelItemEntity> hotelItemList = [
     HotelItemEntity(
         title: "Explore Cairo",
-        image: Assets.imagesImageTestMohamed,
+        image: Assets.imagesCairo,
         location: 'Cairo',
         subTitle: 'Discover amazing Hotels'),
     HotelItemEntity(
         title: "Explore Alexsandria",
-        image: Assets.imagesImageTestMohamed,
+        image: Assets.imagesAlexandria,
         location: 'Alexsandria',
         subTitle: 'Discover amazing Hotels'),
     HotelItemEntity(
         title: "Explore Luxor",
-        image: Assets.imagesImageTestMohamed,
+        image: Assets.imagesHurghada,
         location: 'Luxor',
         subTitle: 'Discover amazing Hotels'),
-    HotelItemEntity(
-        title: "Explore Mynia",
-        image: Assets.imagesImageTestMohamed,
-        location: 'Mynia',
-        subTitle: 'Discover amazing Hotels'),
+    
   ];
   @override
   Widget build(BuildContext context) {

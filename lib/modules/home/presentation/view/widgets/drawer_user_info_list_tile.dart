@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
-import 'package:iteru_app/generated/l10n.dart';
 
 class DrawerUserInfoListTile extends StatelessWidget {
   const DrawerUserInfoListTile({
@@ -28,7 +27,7 @@ class DrawerUserInfoListTile extends StatelessWidget {
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(65),
                   child: Image.asset(
-                    Assets.imagesPersonalPhoto,
+                    Assets.imagesPersonalOne,
                     fit: BoxFit.cover,
                   )),
             ),
@@ -39,11 +38,11 @@ class DrawerUserInfoListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  S.of(context).user_name,
+                  "James Alex",
                   style: AppTextStyles.medium20n(context),
                 ),
                 Text(
-                  'nabilgabr@gmail.com',
+                  'james71@gmail.com',
                   style: AppTextStyles.regular18(context),
                 ),
               ],

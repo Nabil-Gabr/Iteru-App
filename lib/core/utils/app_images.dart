@@ -2,6 +2,10 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesAlexandria
+  /// assets/images/Alexandria.png
+  static const String imagesAlexandria = "assets/images/Alexandria.png";
+
   /// Assets for imagesBackgroundOnboardingScreenOne
   /// assets/images/background_onboarding_screen_one.jpg
   static const String imagesBackgroundOnboardingScreenOne = "assets/images/background_onboarding_screen_one.jpg";
@@ -17,6 +21,10 @@ class Assets {
   /// Assets for imagesBackgroundPageViewItemOneOnobarding
   /// assets/images/background_PageViewItemOne_onobarding.svg
   static const String imagesBackgroundPageViewItemOneOnobarding = "assets/images/background_PageViewItemOne_onobarding.svg";
+
+  /// Assets for imagesCairo
+  /// assets/images/Cairo.png
+  static const String imagesCairo = "assets/images/Cairo.png";
 
   /// Assets for imagesCairoTower
   /// assets/images/cairo_tower.jpg
@@ -58,9 +66,17 @@ class Assets {
   /// assets/images/hot_ai_balloon_suit.jpg
   static const String imagesHotAiBalloonSuit = "assets/images/hot_ai_balloon_suit.jpg";
 
+  /// Assets for imagesHurghada
+  /// assets/images/Hurghada.png
+  static const String imagesHurghada = "assets/images/Hurghada.png";
+
   /// Assets for imagesIconAboutUs
   /// assets/images/icon_about_us.svg
   static const String imagesIconAboutUs = "assets/images/icon_about_us.svg";
+
+  /// Assets for imagesIconBot
+  /// assets/images/icon_bot.png
+  static const String imagesIconBot = "assets/images/icon_bot.png";
 
   /// Assets for imagesIconDarkMode
   /// assets/images/icon_dark_mode.svg

@@ -79,10 +79,10 @@ class HotelListViewItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      hotelItemEntity.title,
-                      style: AppTextStyles.bold18(context),
-                    ),
+                    // Text(
+                    //   hotelItemEntity.title,
+                    //   style: AppTextStyles.bold18(context),
+                    // ),
                     const SizedBox(height: 4),
                     Text(
                       hotelItemEntity.subTitle,

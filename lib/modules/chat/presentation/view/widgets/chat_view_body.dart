@@ -1,7 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:iteru_app/modules/chat/data/models/message_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
+import 'package:iteru_app/modules/chat/presentation/manager/cubit/send_message_cubit.dart';
 import 'package:iteru_app/modules/chat/presentation/view/widgets/chat_bot_app_bar.dart';
 import 'package:iteru_app/modules/chat/presentation/view/widgets/custom_text_field_chat_bot.dart';
 import 'package:iteru_app/modules/chat/presentation/view/widgets/user_message.dart';
@@ -15,16 +17,10 @@ class ChatViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     late String message;
-    //messagesList
-    List<MessageModel> messagesList = [
-      MessageModel(message: 'message 1', id: 'id'),
-      MessageModel(message: 'message 2', id: 'id'),
-      MessageModel(message: 'message 3', id: '11'),
-      MessageModel(message: 'message 4', id: 'id'),
-      MessageModel(message: 'message 5', id: 'id'),
-      MessageModel(message: 'message 6', id: '23'),
-      MessageModel(message: 'message 7', id: 'id'),
-      MessageModel(message: 'message 8', id: 'id'),
+
+    List<MessageEntityTest> messagesList = [
+      MessageEntityTest(message: 'Hello can i help you?', id: '11'),
+      MessageEntityTest(message: 'I want to ask you about a place', id: 'id'),
     ];
     //ChatViewBody
     return Column(
@@ -52,9 +48,11 @@ class ChatViewBody extends StatelessWidget {
         CustomTextFieldChatBot(
           controller: controller,
           onSubmitted: (data) {
+            context.read<SendMessageCubit>().sendMessage(
+                token: CacheHelpe.getData(key: 'token'), message: data);
             message = data;
             messagesList.add(
-              MessageModel(message: data, id: 'id'),
+              MessageEntityTest(message: data, id: 'id'),
             );
             controller.clear();
             log(message);
@@ -63,4 +61,11 @@ class ChatViewBody extends StatelessWidget {
       ],
     );
   }
+}
+
+class MessageEntityTest {
+  final String message;
+  final String id;
+
+  MessageEntityTest({required this.message, required this.id});
 }

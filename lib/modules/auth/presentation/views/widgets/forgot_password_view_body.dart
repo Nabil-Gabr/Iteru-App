@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/constants/constant.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/core/widgets/custom_button.dart';
 import 'package:iteru_app/core/widgets/custtom_text_form_field.dart';
-import 'package:iteru_app/modules/auth/presentation/manager/forgot_password_cubit/forgot_password_cubit.dart';
+import 'package:iteru_app/modules/auth/presentation/views/code_validation_view.dart';
 
 class ForgotPasswordViewBody extends StatefulWidget {
   const ForgotPasswordViewBody({super.key});
@@ -99,13 +98,14 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                     textColor: AppColors.lightBlackColor,
                     text: 'Forgot password',
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
+                      Navigator.of(context).pushNamed(CodeValidationView.routeName);
+                      // if (formKey.currentState!.validate()) {
+                      //   formKey.currentState!.save();
                         
-                        context
-                            .read<ForgotPasswordCubit>()
-                            .forgotPassword(email: userEmail);
-                      }
+                      //   context
+                      //       .read<ForgotPasswordCubit>()
+                      //       .forgotPassword(email: userEmail);
+                      // }
                     },
                   ),
                   //SizedBox
