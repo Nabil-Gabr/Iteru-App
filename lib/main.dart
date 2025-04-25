@@ -10,6 +10,8 @@ import 'package:iteru_app/core/services/get_it_service.dart';
 import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/generated/l10n.dart';
+import 'package:iteru_app/modules/chat/domain/repo/send_message_repo.dart';
+import 'package:iteru_app/modules/chat/presentation/manager/cubit/send_message_cubit.dart';
 import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
 
 void main() async {
@@ -26,7 +28,8 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => ThemeCubit()),
         BlocProvider(create: (context) => languageCubit),
-        BlocProvider(create: (context)=>AddRatingCubit())
+        BlocProvider(create: (context)=>AddRatingCubit()),
+        BlocProvider(create: (context) => SendMessageCubit(getIt<SendMessageRepo>())),
       ],
       child: const IteruApp(),
     ),

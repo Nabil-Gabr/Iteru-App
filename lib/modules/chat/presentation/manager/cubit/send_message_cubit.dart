@@ -7,23 +7,33 @@ part 'send_message_state.dart';
 
 class SendMessageCubit extends Cubit<SendMessageState> {
   final SendMessageRepo sendMessageRepo;
-  SendMessageCubit(this.sendMessageRepo) : super(SendMessageInitial());
 
-  Future<void> sendMessage(
-      {required String token, required String message}) async {
-    //1-emit SignInLoading
-    emit(SendMessageLoading());
+  SendMessageCubit(this.sendMessageRepo)
+      : super(SendMessageState.initial());
 
-    //result<Ether< L , R >>
-    var result =
+  Future<void> sendMessage({
+    required String token,
+    required String message,
+  }) async {
+    // Show loading but keep current messages
+    emit(state.copyWith(isLoading: true));
+
+    final result =
         await sendMessageRepo.sendMessage(token: token, message: message);
 
-    //result fold
     result.fold(
-      //2-emit SignInFailure
-      (failuer) => emit(SendMessageFailure(errorMesage: failuer.errMessag)),
-      //3-emit SignInSuccess
-      (messageEntity) => emit(SendMessageSuccess(messageEntity: messageEntity)),
+      (failure) => emit(state.copyWith(
+        isLoading: false,
+        errorMessage: failure.errMessag,
+      )),
+      (newMessages) {
+        final allMessages = [...state.messages, ...newMessages];
+        emit(state.copyWith(
+          isLoading: false,
+          messages: allMessages,
+          errorMessage: null,
+        ));
+      },
     );
   }
 }

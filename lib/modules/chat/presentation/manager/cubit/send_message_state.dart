@@ -1,20 +1,29 @@
 part of 'send_message_cubit.dart';
 
 @immutable
-sealed class SendMessageState {}
+class SendMessageState {
+  final List<MessageEntity> messages;
+  final bool isLoading;
+  final String? errorMessage;
 
-final class SendMessageInitial extends SendMessageState {}
+  const SendMessageState({
+    required this.messages,
+    this.isLoading = false,
+    this.errorMessage,
+  });
 
-final class SendMessageLoading extends SendMessageState {}
+  factory SendMessageState.initial() => const SendMessageState(messages: []);
 
-final class SendMessageSuccess extends SendMessageState {
-  final List<MessageEntity> messageEntity;
-
-  SendMessageSuccess({required this.messageEntity});
+  SendMessageState copyWith({
+    List<MessageEntity>? messages,
+    bool? isLoading,
+    String? errorMessage,
+  }) {
+    return SendMessageState(
+      messages: messages ?? this.messages,
+      isLoading: isLoading ?? this.isLoading,
+      errorMessage: errorMessage,
+    );
+  }
 }
 
-final class SendMessageFailure extends SendMessageState {
-  final String errorMesage;
-
-  SendMessageFailure({required this.errorMesage});
-}

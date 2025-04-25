@@ -24,6 +24,7 @@ class SignInViewBodyBlocConsumer extends StatelessWidget {
           final decodedToken= JwtDecoder.decode(state.userEntity.token);
           CacheHelpe.saveData(key: 'token', value: state.userEntity.token);
           CacheHelpe.saveData(key: 'id', value: decodedToken["id"]);
+          print("==================token===========${CacheHelpe.getData(key: 'token')}");
           ScaffoldMessenger.of(context)
                 .showSnackBar(const SnackBar(content: Text('Success')));
         Navigator.of(context).pushNamed(HomeView.routeName);
