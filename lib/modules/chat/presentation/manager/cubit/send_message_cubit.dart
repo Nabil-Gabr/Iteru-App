@@ -7,9 +7,12 @@ part 'send_message_state.dart';
 
 class SendMessageCubit extends Cubit<SendMessageState> {
   final SendMessageRepo sendMessageRepo;
+  final ScrollController scrollController;
 
-  SendMessageCubit(this.sendMessageRepo)
-      : super(SendMessageState.initial());
+  SendMessageCubit({
+    required this.sendMessageRepo,
+    required this.scrollController,
+  }) : super(SendMessageState.initial());
 
   Future<void> sendMessage({
     required String token,
@@ -18,8 +21,7 @@ class SendMessageCubit extends Cubit<SendMessageState> {
     // Show loading but keep current messages
     emit(state.copyWith(isLoading: true));
 
-    final result =
-        await sendMessageRepo.sendMessage(token: token, message: message);
+    final result = await sendMessageRepo.sendMessage(token: token, message: message);
 
     result.fold(
       (failure) => emit(state.copyWith(
@@ -27,13 +29,20 @@ class SendMessageCubit extends Cubit<SendMessageState> {
         errorMessage: failure.errMessag,
       )),
       (newMessages) {
-        final allMessages = [...state.messages, ...newMessages];
         emit(state.copyWith(
           isLoading: false,
-          messages: allMessages,
+          messages: newMessages,
           errorMessage: null,
         ));
+        // Scroll to the bottom after receiving the new message
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent + 100,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeIn,
+        );
       },
     );
   }
 }
+
+

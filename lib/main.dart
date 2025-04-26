@@ -22,6 +22,8 @@ void main() async {
 
   final languageCubit = LanguageCubit();
   languageCubit.loadLanguage();
+  // Create the ScrollController here
+  final scrollController = ScrollController();
 
   runApp(
     MultiBlocProvider(
@@ -29,7 +31,12 @@ void main() async {
         BlocProvider(create: (context) => ThemeCubit()),
         BlocProvider(create: (context) => languageCubit),
         BlocProvider(create: (context)=>AddRatingCubit()),
-        BlocProvider(create: (context) => SendMessageCubit(getIt<SendMessageRepo>())),
+        BlocProvider(
+          create: (context) => SendMessageCubit(
+            sendMessageRepo: getIt<SendMessageRepo>(),
+            scrollController: scrollController,
+          ),
+        ),
       ],
       child: const IteruApp(),
     ),

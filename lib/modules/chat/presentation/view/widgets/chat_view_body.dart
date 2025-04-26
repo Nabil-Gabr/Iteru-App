@@ -12,55 +12,58 @@ import 'package:iteru_app/modules/chat/presentation/view/widgets/user_message.da
 class ChatViewBody extends StatelessWidget {
   final List<MessageEntity> messages;
   final bool isLoading;
-  const ChatViewBody(
-      {super.key, required this.messages, required this.isLoading});
-
-  // final _controller = ScrollController();
+  final ScrollController scrollController;
   static TextEditingController controller = TextEditingController();
+
+  ChatViewBody({
+    super.key,
+    required this.messages,
+    required this.isLoading,
+    required this.scrollController,
+  });
+
   @override
   Widget build(BuildContext context) {
-    //ChatViewBody
     return Column(
       children: [
         //1 App Bar
         const ChatBotAppBar(),
-        //SizedBox
-        const SizedBox(
-          height: 30,
-        ),
-        //2-ListView messages
+        const SizedBox(height: 30),
+        //2 ListView messages
         Expanded(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: ListView.builder(
-            itemCount:
-                isLoading ? messages.length * 2 + 1 : messages.length * 2,
-            itemBuilder: (context, index) {
-              if (isLoading && index == messages.length * 2) {
-                return const ChatBotTypingIndicator();
-              }
-              final realIndex = index ~/ 2;
-              final isUserMessage = index.isEven;
-              final message = messages[realIndex];
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: ListView.builder(
+              controller: scrollController,
+              itemCount: isLoading ? messages.length * 2 + 1 : messages.length * 2,
+              itemBuilder: (context, index) {
+                if (isLoading && index == messages.length * 2) {
+                  return const ChatBotTypingIndicator();
+                }
+                final realIndex = index ~/ 2;
+                final isUserMessage = index.isEven;
+                final message = messages[realIndex];
 
-              if (isUserMessage) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 8.0,bottom: 8),
-                  child: UserMessage(message: message.content),
-                );
-              } else {
-                return ChatBotMessage(message: message.aiReply);
-              }
-            },
+                if (isUserMessage) {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8),
+                    child: UserMessage(message: message.content),
+                  );
+                } else {
+                  return ChatBotMessage(message: message.aiReply);
+                }
+              },
+            ),
           ),
-        )),
-        //3- TextField
+        ),
+        //3 TextField
         CustomTextFieldChatBot(
           controller: controller,
           onSubmitted: (data) {
             context.read<SendMessageCubit>().sendMessage(
-                token: CacheHelpe.getData(key: 'token'), message: data);
-
+              token: CacheHelpe.getData(key: 'token'),
+              message: data,
+            );
             controller.clear();
           },
         ),
@@ -68,6 +71,8 @@ class ChatViewBody extends StatelessWidget {
     );
   }
 }
+
+
 
 class ChatBotTypingIndicator extends StatelessWidget {
   const ChatBotTypingIndicator({super.key});
