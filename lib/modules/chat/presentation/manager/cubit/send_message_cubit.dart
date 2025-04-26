@@ -15,34 +15,46 @@ class SendMessageCubit extends Cubit<SendMessageState> {
   }) : super(SendMessageState.initial());
 
   Future<void> sendMessage({
-    required String token,
-    required String message,
-  }) async {
-    // Show loading but keep current messages
-    emit(state.copyWith(isLoading: true));
+  required String token,
+  required String message,
+}) async {
+  // 1- أول ما المستخدم يبعث رسالة، نظهر اللودينج ونروح للـ Typing Indicator
+  emit(state.copyWith(isLoading: true));
 
-    final result = await sendMessageRepo.sendMessage(token: token, message: message);
+  await Future.delayed(Duration(milliseconds: 100)); // ننتظر Frame واحد بسيط عشان الـ ListView يتبني
+  scrollController.animateTo(
+    scrollController.position.maxScrollExtent + 100, 
+    duration: Duration(milliseconds: 300), 
+    curve: Curves.easeOut,
+  );
 
-    result.fold(
-      (failure) => emit(state.copyWith(
+  // 2- بعدين نبعت الـ Request
+  final result = await sendMessageRepo.sendMessage(token: token, message: message);
+
+  result.fold(
+    (failure) => emit(state.copyWith(
+      isLoading: false,
+      errorMessage: failure.errMessag,
+    )),
+    (newMessages) {
+      emit(state.copyWith(
         isLoading: false,
-        errorMessage: failure.errMessag,
-      )),
-      (newMessages) {
-        emit(state.copyWith(
-          isLoading: false,
-          messages: newMessages,
-          errorMessage: null,
-        ));
-        // Scroll to the bottom after receiving the new message
+        messages: newMessages,
+        errorMessage: null,
+      ));
+
+      // 3- وبعد وصول الرد ننزل برضه
+      Future.delayed(Duration(milliseconds: 100), () {
         scrollController.animateTo(
           scrollController.position.maxScrollExtent + 100,
           duration: Duration(milliseconds: 500),
-          curve: Curves.easeIn,
+          curve: Curves.easeOut,
         );
-      },
-    );
-  }
+      });
+    },
+  );
+}
+
 }
 
 
