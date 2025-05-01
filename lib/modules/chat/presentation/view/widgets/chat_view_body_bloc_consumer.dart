@@ -9,26 +9,35 @@ class ChatViewBodyBlocConsumer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the scrollController from the SendMessageCubit
     final scrollController = context.read<SendMessageCubit>().scrollController;
 
     return BlocConsumer<SendMessageCubit, SendMessageState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state.errorMessage != null) {
           showErrorBar(context, state.errorMessage!);
-        } else {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('Success')));
         }
+
+        if (state.isLoading ||
+            (state.messages.isNotEmpty && !state.isLoading)) {
+          // scroll
+        }
+
+        // ✅ هنا بقى هندير ال Scroll بناء على الحالة
+        await Future.delayed(
+            const Duration(milliseconds: 100)); // نسمح للـ UI إنه يتبني
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent + 100,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
       },
       builder: (context, state) {
         return ChatViewBody(
           messages: state.messages,
           isLoading: state.isLoading,
-          scrollController: scrollController,  // Pass the scrollController
+          scrollController: scrollController,
         );
       },
     );
   }
 }
-
