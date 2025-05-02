@@ -35,7 +35,8 @@ class ChatViewBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: ListView.builder(
               controller: scrollController,
-              itemCount: isLoading ? messages.length * 2 + 1 : messages.length * 2,
+              itemCount:
+                  isLoading ? messages.length * 2 + 1 : messages.length * 2,
               itemBuilder: (context, index) {
                 if (isLoading && index == messages.length * 2) {
                   return const ChatBotTypingIndicator();
@@ -49,8 +50,10 @@ class ChatViewBody extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8.0, bottom: 8),
                     child: UserMessage(message: message.content),
                   );
-                } else {
+                } else if (message.aiReply.isNotEmpty) {
                   return ChatBotMessage(message: message.aiReply);
+                } else {
+                  return const SizedBox(); // لو لسه مفيش رد
                 }
               },
             ),
@@ -61,9 +64,9 @@ class ChatViewBody extends StatelessWidget {
           controller: controller,
           onSubmitted: (data) {
             context.read<SendMessageCubit>().sendMessage(
-              token: CacheHelpe.getData(key: 'token'),
-              message: data,
-            );
+                  token: CacheHelpe.getData(key: 'token'),
+                  message: data,
+                );
             controller.clear();
           },
         ),
@@ -71,8 +74,6 @@ class ChatViewBody extends StatelessWidget {
     );
   }
 }
-
-
 
 class ChatBotTypingIndicator extends StatelessWidget {
   const ChatBotTypingIndicator({super.key});

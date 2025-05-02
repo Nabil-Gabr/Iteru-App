@@ -14,7 +14,7 @@ class UserMessage extends StatelessWidget {
     return BubbleSpecialThree(
       text: message,
       textStyle: const TextStyle(color: Colors.white, fontSize: 16),
-      color: AppColors.primaryColor,
+      color: AppColors.blackColor,
       tail: true,
       isSender: true,
     );

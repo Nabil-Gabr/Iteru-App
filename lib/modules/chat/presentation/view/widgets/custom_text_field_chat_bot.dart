@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 
 class CustomTextFieldChatBot extends StatelessWidget {
@@ -19,7 +20,9 @@ class CustomTextFieldChatBot extends StatelessWidget {
         decoration: InputDecoration(
             hintText: 'Send Message',
             suffixIcon: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                print('Cach=========================${CacheHelpe.getData(key: 'token')}');
+              },
               child: const Icon(
                 Icons.send,
                 color: AppColors.primaryColor,

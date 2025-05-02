@@ -15,24 +15,36 @@ class SendMessageCubit extends Cubit<SendMessageState> {
   }) : super(SendMessageState.initial());
 
   Future<void> sendMessage({
-    required String token,
-    required String message,
-  }) async {
-    emit(state.copyWith(isLoading: true));
+  required String token,
+  required String message,
+}) async {
+  final userMessage = MessageEntity(
+    id: UniqueKey().toString(),
+    userId: 'user',
+    content: message,
+    aiReply: '',
+    createdAt: DateTime.now(),
+  );
 
-    final result =
-        await sendMessageRepo.sendMessage(token: token, message: message);
+  final updatedMessages = List<MessageEntity>.from(state.messages)..add(userMessage);
 
-    result.fold(
-      (failure) => emit(state.copyWith(
-        isLoading: false,
-        errorMessage: failure.errMessag,
-      )),
-      (newMessages) => emit(state.copyWith(
+  emit(state.copyWith(messages: updatedMessages, isLoading: true));
+
+  final result = await sendMessageRepo.sendMessage(token: token, message: message);
+
+  result.fold(
+    (failure) => emit(state.copyWith(
+      isLoading: false,
+      errorMessage: failure.errMessag,
+    )),
+    (newMessages) {
+      emit(state.copyWith(
         isLoading: false,
         messages: newMessages,
         errorMessage: null,
-      )),
-    );
-  }
+      ));
+    },
+  );
+}
+
 }
