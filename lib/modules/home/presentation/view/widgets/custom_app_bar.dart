@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iteru_app/core/helpers/functions/switch_language.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/search_text_field.dart';
+import 'package:iteru_app/modules/recommendation/recommendation.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, required this.scaffoldKey});
@@ -63,11 +64,16 @@ class CustomAppBar extends StatelessWidget {
                 width: 8,
               ),
               //4:Location Location
-              Icon(
-                Icons.location_on_outlined,
-                size: 34,
-                color:
-                    isDarkMode ? AppColors.whiteColor : const Color(0xFF4F200D),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, RecommendationView.routeName);
+                },
+                child: Icon(
+                  Icons.location_on_outlined,
+                  size: 34,
+                  color:
+                      isDarkMode ? AppColors.whiteColor : const Color(0xFF4F200D),
+                ),
               )
             ],
           ),

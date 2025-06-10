@@ -1,6 +1,5 @@
 class MuseumItemEntity {
   final String foreignerPriceChild;
-
   final String coverPicture;
   final String name;
   final String location;
@@ -15,6 +14,12 @@ class MuseumItemEntity {
   final String foreignersPrice;
   final List<Map<String, String>> ourInsiderTips;
   final List<String> illustrativeImages;
+
+  // ✅ معلومات الطقس الجديدة
+  final String tempC;
+  final String condition;
+  final String windKph;
+  final String humidity;
 
   const MuseumItemEntity({
     required this.foreignerPriceChild,
@@ -32,6 +37,11 @@ class MuseumItemEntity {
     required this.foreignerPriceStudent,
     required this.egyptianArabsPrice,
     required this.foreignersPrice,
+    required this.tempC,
+    required this.condition,
+    required this.windKph,
+    required this.humidity,
   });
 }
+
 

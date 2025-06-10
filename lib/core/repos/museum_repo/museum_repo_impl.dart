@@ -16,7 +16,7 @@ class MuseumRepoImpl extends MuseumRepo {
   Future<Either<Failure, List<MuseumItemEntity>>> getMuseum() async {
     try {
       //1
-      var result = await apiDatabaseService.getData(url: 'https://iteru-clone-e8l9.vercel.app/api/museums');
+      var result = await apiDatabaseService.getData(url: 'https://iteru-clone-e8l9.vercel.app/api/museums-with-weather');
 if (result is Map<String, dynamic> && result.containsKey('data')) {
   var data = result['data'];
   if (data is List) {

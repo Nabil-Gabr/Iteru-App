@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "popular_places": MessageLookupByLibrary.simpleMessage("أماكن مشهورة"),
         "search": MessageLookupByLibrary.simpleMessage("بحث"),
         "support": MessageLookupByLibrary.simpleMessage("الدعم"),
-        "tourism_types": MessageLookupByLibrary.simpleMessage("أنواع السياحة"),
+        "monuments": MessageLookupByLibrary.simpleMessage("آثار"),
         "user_name": MessageLookupByLibrary.simpleMessage("نبيل جبر"),
         "view_all": MessageLookupByLibrary.simpleMessage("عرض الكل")
       };

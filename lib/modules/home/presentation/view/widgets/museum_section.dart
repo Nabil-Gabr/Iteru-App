@@ -16,6 +16,7 @@ class MuseumSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MuseumCubit, MuseumState>(
+      //
       builder: (context, state) {
         if (state is MuseumSuccess) {
           return Column(

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/repos/monument_repo/monument_repo.dart';
 import 'package:iteru_app/core/repos/museum_repo/museum_repo.dart';
 import 'package:iteru_app/core/services/get_it_service.dart';
 import 'package:iteru_app/modules/chat/presentation/view/chat_view.dart';
+import 'package:iteru_app/modules/home/presentation/manager/monument/monument_cubit.dart';
 import 'package:iteru_app/modules/home/presentation/manager/museum/museum_cubit.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/custom_drawer.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/home_view_body.dart';
@@ -25,6 +27,11 @@ class _HomeViewState extends State<HomeView> {
           create: (context) => MuseumCubit(
             getIt.get<MuseumRepo>(),
           )..getMuseum(),
+        ),
+        BlocProvider(
+          create: (context) => MonumentCubit(
+            getIt.get<MonumentRepo>(),
+          )..getMonument(),
         ),
         // BlocProvider(
         //   create: (context) => NewsetBooksCubit(

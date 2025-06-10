@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/generated/l10n.dart';
+import 'package:iteru_app/modules/home/domain/entites/monument_item_entity.dart';
 import 'package:iteru_app/modules/tourism_tybpes/presentation/views/widgest/tourism_view_body.dart';
 
 class TourismTypesView extends StatelessWidget {
-  const TourismTypesView({super.key});
+  const TourismTypesView({super.key, required this.monumentEntity,});
+  final List<MonumentEntity> monumentEntity;
   
   //routeName
   static const String routeName = 'TourismTypesView';
@@ -23,6 +25,6 @@ class TourismTypesView extends StatelessWidget {
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
         ),
-        body: const TourismViewody());
+        body:  TourismViewody(monumentEntity: monumentEntity,));
   }
 }

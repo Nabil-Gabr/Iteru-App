@@ -15,7 +15,7 @@ class ChatViewBody extends StatelessWidget {
   final ScrollController scrollController;
   static TextEditingController controller = TextEditingController();
 
-  ChatViewBody({
+  const ChatViewBody({
     super.key,
     required this.messages,
     required this.isLoading,

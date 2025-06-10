@@ -7,10 +7,10 @@ import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
 import 'package:iteru_app/modules/chat/presentation/view/chat_view.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
+import 'package:iteru_app/modules/home/domain/entites/monument_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/most_visited_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/popular_places_item_entity.dart';
-import 'package:iteru_app/modules/home/domain/entites/tourism_type_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/home_view.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_details_view.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
@@ -22,6 +22,9 @@ import 'package:iteru_app/modules/museum/presentation/view/museum_rating_view.da
 import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_details_view.dart';
 import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_view.dart';
+import 'package:iteru_app/modules/recommendation/domain/entity/recommentation_entity.dart';
+import 'package:iteru_app/modules/recommendation/presentation/view/recommendation_result_view.dart';
+import 'package:iteru_app/modules/recommendation/recommendation.dart';
 import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
 import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_details_view.dart';
 import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_view.dart';
@@ -36,6 +39,17 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case SplashView.routeName:
       return MaterialPageRoute(
         builder: (context) => const SplashView(),
+      );
+
+      case RecommendationView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const RecommendationView(),
+      );
+
+      case RecommendationResultView.routeName:
+      final results = settings.arguments as List<RecommentationEntity>;
+      return MaterialPageRoute(
+        builder: (context) =>  RecommendationResultView(results: results ,),
       );
 
     case OnboardingView.routeName:
@@ -91,8 +105,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
 
     case TourismTypesView.routeName:
+    final monumentEntity = settings.arguments as List<MonumentEntity>;
       return MaterialPageRoute(
-        builder: (context) => const TourismTypesView(),
+        builder: (context) =>  TourismTypesView(monumentEntity: monumentEntity,),
       );
 
     case PopularPlacesView.routeName:
@@ -127,10 +142,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
 
     case TourismTypesDetailsView.routeName:
-      final tourismTypeItemEntity = settings.arguments as TourismTypeItemEntity;
+      final monumentEntity = settings.arguments as MonumentEntity;
       return MaterialPageRoute(
         builder: (context) => TourismTypesDetailsView(
-            tourismTypeItemEntity: tourismTypeItemEntity),
+            monumentEntity: monumentEntity),
       );
 
     case PopularPlacesDetailsView.routeName:

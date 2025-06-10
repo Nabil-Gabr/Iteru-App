@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/core/utils/app_images.dart';
-import 'package:iteru_app/modules/home/domain/entites/tourism_type_item_entity.dart';
+import 'package:iteru_app/modules/home/domain/entites/monument_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/tourism_type_list_view_item.dart';
 
 class TourismTypesListView extends StatelessWidget {
   const TourismTypesListView({
-    super.key,
+    super.key, required this.monumentEntity, 
   });
 
-  static const List<TourismTypeItemEntity> tourismTypeItemList = [
-    TourismTypeItemEntity(
-        title: 'Religious tourism', image: Assets.imagesReligiousTourism),
-    TourismTypeItemEntity(
-        title: 'Recreational tourism', image: Assets.imagesRecreationalTourism),
-    TourismTypeItemEntity(
-        title: 'Cultural Tourism', image: Assets.imagesCulturalTourism),
-  ];
+  final List<MonumentEntity> monumentEntity;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: tourismTypeItemList.map((e) {
+        children: monumentEntity.map((e) {
           return Padding(
             padding: const EdgeInsetsDirectional.only(end: 16),
             child: SizedBox(
@@ -30,7 +22,7 @@ class TourismTypesListView extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 143 / 91,
                 child: TourismTypeListViewItem(
-                  tourismTypeEntity: e,
+                  monumentEntity: e,
                 ),
               ),
             ),

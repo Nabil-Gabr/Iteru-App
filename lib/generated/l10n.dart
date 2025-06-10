@@ -103,8 +103,8 @@ class S {
   /// `Tourism Types`
   String get tourism_types {
     return Intl.message(
-      'Tourism Types',
-      name: 'tourism_types',
+      'Monuments',
+      name: 'monuments',
       desc: '',
       args: [],
     );

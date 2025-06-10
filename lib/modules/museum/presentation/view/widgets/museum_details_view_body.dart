@@ -15,7 +15,14 @@ class MuseumDetailsViewBody extends StatelessWidget {
           child: Column(
             children: [
               //1:Image
-              ImageDetailsWidget(image: museumItemEntity.coverPicture,title: museumItemEntity.name,),
+              ImageDetailsWidget(
+                image: museumItemEntity.coverPicture,
+                title: museumItemEntity.name,
+                condition: museumItemEntity.condition,
+                tempC: museumItemEntity.tempC,
+                humidity: museumItemEntity.humidity,
+                windKph: museumItemEntity.windKph,
+              ),
               //2:SizedBox 16
               const SizedBox(
                 height: 16,

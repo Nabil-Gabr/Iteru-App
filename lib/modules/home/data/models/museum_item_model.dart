@@ -15,11 +15,18 @@ class MuseumItemModel extends MuseumItemEntity {
     required super.foreignerPriceAdult,
     required super.foreignerPriceStudent,
     required super.egyptianArabsPrice,
-    required super.foreignersPrice, required super.foreignerPriceChild,
+    required super.foreignersPrice,
+    required super.foreignerPriceChild,
+    required super.tempC,
+    required super.condition,
+    required super.windKph,
+    required super.humidity,
   });
 
   factory MuseumItemModel.fromJson(Map<String, dynamic> json) {
     final ticketPrices = json['ticket_prices'] ?? {};
+    final weather = json['weather'] ?? {};
+
     return MuseumItemModel(
       ourInsiderTips: (json['ourInsiderTips'] as List<dynamic>?)
               ?.map((e) => Map<String, String>.from(e as Map))
@@ -27,7 +34,6 @@ class MuseumItemModel extends MuseumItemEntity {
           [],
       description: json['description'] ?? '',
       foreignerPriceChild: ticketPrices['foreign_child'] ?? '',
-
       illustrativeImages: List<String>.from(json['images'] ?? []),
       coverPicture: json['coverPicture'] ?? '',
       name: json['name'] ?? '',
@@ -40,7 +46,14 @@ class MuseumItemModel extends MuseumItemEntity {
       foreignerPriceStudent: ticketPrices['foreign_student'] ?? '',
       egyptianArabsPrice: ticketPrices['egyptian_arabs'] ?? '',
       foreignersPrice: ticketPrices['foreigners'] ?? '',
+
+      // ✅ الطقس
+      tempC: "${weather['temp_c'] ?? 0}",
+    condition: weather['condition'] ?? '',
+    windKph: "${weather['wind_kph'] ?? 0}",
+    humidity: "${weather['humidity'] ?? 0}",
     );
   }
 }
+
 
