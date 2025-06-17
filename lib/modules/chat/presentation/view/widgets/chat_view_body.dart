@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
+import 'package:iteru_app/modules/chat/domain/entity/image_entity.dart';
 import 'package:iteru_app/modules/chat/domain/entity/message_entity.dart';
-import 'package:iteru_app/modules/chat/presentation/manager/cubit/send_message_cubit.dart';
+import 'package:iteru_app/modules/chat/presentation/manager/send_message/send_message_cubit.dart';
 import 'package:iteru_app/modules/chat/presentation/view/widgets/chat_bot_app_bar.dart';
-import 'package:iteru_app/modules/chat/presentation/view/widgets/chat_bot_icon_widget.dart';
 import 'package:iteru_app/modules/chat/presentation/view/widgets/chat_bot_message.dart';
+import 'package:iteru_app/modules/chat/presentation/view/widgets/chat_bot_typing_indicator.dart';
 import 'package:iteru_app/modules/chat/presentation/view/widgets/custom_text_field_chat_bot.dart';
 import 'package:iteru_app/modules/chat/presentation/view/widgets/user_message.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class ChatViewBody extends StatelessWidget {
   final List<MessageEntity> messages;
@@ -29,7 +33,7 @@ class ChatViewBody extends StatelessWidget {
         //1 App Bar
         const ChatBotAppBar(),
         const SizedBox(height: 30),
-        //2 ListView messages
+        // 2 ListView messages
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -41,24 +45,74 @@ class ChatViewBody extends StatelessWidget {
                 if (isLoading && index == messages.length * 2) {
                   return const ChatBotTypingIndicator();
                 }
+
                 final realIndex = index ~/ 2;
                 final isUserMessage = index.isEven;
                 final message = messages[realIndex];
 
                 if (isUserMessage) {
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8),
-                    child: UserMessage(message: message.content),
-                  );
-                } else if (message.aiReply.isNotEmpty) {
-                  return ChatBotMessage(message: message.aiReply);
+                  // لو الرسالة من النوع ImageEntity، نعرض الصورة
+                  if (message is ImageEntity) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: AppColors.blackColor,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
+                              ),
+                            ),
+                            padding: const EdgeInsets.all(
+                                4), // 👈 المسافة بين الصورة والإطار
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
+                                bottomLeft: Radius.circular(16),
+                              ),
+                              child: Image.file(
+                                File(message.imagePath),
+                                width: 250,
+                                height: 350,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    // رسالة نصية عادية من المستخدم
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 8),
+                      child: UserMessage(message: message.content),
+                    );
+                  }
                 } else {
-                  return const SizedBox(); // لو لسه مفيش رد
+                  // رسالة من الـ AI (رد)
+                  if (message is ImageEntity) {
+                    // لو فيه detectedClasses من الـ AI بعد إرسال صورة
+                    return message.detectedClasses.isNotEmpty
+                        ? ChatBotMessage(
+                            message: message.detectedClasses.join(', '),
+                          )
+                        : const SizedBox();
+                  } else if (message.aiReply.isNotEmpty) {
+                    return ChatBotMessage(message: message.aiReply);
+                  } else {
+                    return const SizedBox(); // لسه مفيش رد
+                  }
                 }
               },
             ),
           ),
         ),
+
         //3 TextField
         CustomTextFieldChatBot(
           controller: controller,
@@ -69,92 +123,24 @@ class ChatViewBody extends StatelessWidget {
                 );
             controller.clear();
           },
-        ),
-      ],
-    );
-  }
-}
+          prefixIcon: GestureDetector(
+            onTap: () async {
+              final picker = ImagePicker();
+              final pickedFile = await picker.pickImage(
+                source: ImageSource.gallery, // أو camera لو حبيت
+              );
 
-class ChatBotTypingIndicator extends StatelessWidget {
-  const ChatBotTypingIndicator({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const ChatBotIconWidget(redius: 20),
-        const SizedBox(width: 8),
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-          decoration: BoxDecoration(
-            color: const Color(0xFFE8E8EE),
-            borderRadius: BorderRadius.circular(20),
+              if (pickedFile != null) {
+                final imageFile = File(pickedFile.path);
+                context.read<SendMessageCubit>().sendImage(imageFile);
+              }
+            },
+            child: const Icon(
+              Icons.camera_alt,
+              color: AppColors.primaryColor,
+            ),
           ),
-          child: const TypingDots(),
         ),
-      ],
-    );
-  }
-}
-
-class TypingDots extends StatefulWidget {
-  const TypingDots({super.key});
-
-  @override
-  State<TypingDots> createState() => _TypingDotsState();
-}
-
-class _TypingDotsState extends State<TypingDots>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation1;
-  late Animation<double> _animation2;
-  late Animation<double> _animation3;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1200))
-      ..repeat();
-
-    _animation1 = Tween<double>(begin: 0.3, end: 1).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.0, 0.6, curve: Curves.easeInOut),
-    ));
-    _animation2 = Tween<double>(begin: 0.3, end: 1).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.2, 0.8, curve: Curves.easeInOut),
-    ));
-    _animation3 = Tween<double>(begin: 0.3, end: 1).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.4, 1.0, curve: Curves.easeInOut),
-    ));
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  Widget dot(Animation<double> animation) {
-    return FadeTransition(
-      opacity: animation,
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 2),
-        child: CircleAvatar(radius: 4, backgroundColor: Colors.grey),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        dot(_animation1),
-        dot(_animation2),
-        dot(_animation3),
       ],
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/helpers/functions/show_error_bar.dart';
-import 'package:iteru_app/modules/chat/presentation/manager/cubit/send_message_cubit.dart';
+import 'package:iteru_app/modules/chat/presentation/manager/send_message/send_message_cubit.dart';
 import 'package:iteru_app/modules/chat/presentation/view/widgets/chat_view_body.dart';
 
 class ChatViewBodyBlocConsumer extends StatelessWidget {

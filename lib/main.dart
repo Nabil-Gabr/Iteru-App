@@ -11,7 +11,7 @@ import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/generated/l10n.dart';
 import 'package:iteru_app/modules/chat/domain/repo/send_message_repo.dart';
-import 'package:iteru_app/modules/chat/presentation/manager/cubit/send_message_cubit.dart';
+import 'package:iteru_app/modules/chat/presentation/manager/send_message/send_message_cubit.dart';
 import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
 
 void main() async {
