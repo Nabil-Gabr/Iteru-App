@@ -6,14 +6,15 @@ import 'package:iteru_app/modules/auth/presentation/views/forgot_password_view.d
 import 'package:iteru_app/modules/auth/presentation/views/login_view.dart';
 import 'package:iteru_app/modules/auth/presentation/views/signup_view.dart';
 import 'package:iteru_app/modules/chat/presentation/view/chat_view.dart';
-import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/monument_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/most_visited_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/museum_item_entity.dart';
 import 'package:iteru_app/modules/home/domain/entites/popular_places_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/home_view.dart';
+import 'package:iteru_app/modules/hotels/domain/entity/hotel_entity.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_details_view.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
+import 'package:iteru_app/modules/hotels/presenation/views/widgets/hotel_view_all.dart';
 import 'package:iteru_app/modules/most_visited/presentation/view/most_visited_details_view.dart';
 import 'package:iteru_app/modules/most_visited/presentation/view/most_visited_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_details_view.dart';
@@ -158,16 +159,21 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
 
     case HotelDetailsView.routeName:
-      final hotelItemEntity = settings.arguments as HotelItemEntity;
+      final hotelItemEntity = settings.arguments as HotelEntity;
       return MaterialPageRoute(
         builder: (context) => HotelDetailsView(
-          hotelItemEntity: hotelItemEntity,
+          hotelEntity: hotelItemEntity,
         ),
       );
 
     case MuseumRatingView.routeName:
       return MaterialPageRoute(
         builder: (context) => const MuseumRatingView(),
+      );
+    
+    case HotelViewAll.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const HotelViewAll(),
       );
 
     default:

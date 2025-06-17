@@ -1,21 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
-import 'package:iteru_app/modules/hotels/presenation/views/hotel_details_view.dart';
+import 'package:iteru_app/modules/hotels/presenation/view_model/cubit/hotel_cubit.dart';
+import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
 
 class HotelListViewItem extends StatelessWidget {
   const HotelListViewItem({
     super.key,
     required this.hotelItemEntity,
   });
+
   final HotelItemEntity hotelItemEntity;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(HotelDetailsView.routeName,
-            arguments: hotelItemEntity);
+        if (hotelItemEntity.location == 'Cairo') {
+          // ✅ استدعاء الكيوبت لتحميل بيانات الفنادق في القاهرة
+          context.read<HotelCubit>().getHotelCairo();
+          
+          // ✅ الانتقال إلى صفحة عرض الفنادق
+          Navigator.of(context).pushNamed(HotelView.routeName);
+        } else {
+          // 🟡 في الوقت الحالي: ممكن تسيبها فاضية أو تحط SnackBar
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Support coming soon!")),
+          );
+        }
       },
       child: Container(
         decoration: BoxDecoration(
@@ -36,15 +49,6 @@ class HotelListViewItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(12),
-                  // gradient: LinearGradient(
-                  //   begin: Alignment.topLeft, // بداية التدرج
-                  //   end: Alignment.bottomRight, // نهاية التدرج
-                  //   colors: [
-                  //     Color(0xFF87CEFA), // Sky Blue (لون أزرق فاتح)
-                  //     Color(0xFFB0E0E6), // Powder Blue (لون أزرق باودر)
-                  //     Color(0xFFFFFFFF), // White (أبيض لمسة سماوية)
-                  //   ],
-                  // ),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -79,10 +83,6 @@ class HotelListViewItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Text(
-                    //   hotelItemEntity.title,
-                    //   style: AppTextStyles.bold18(context),
-                    // ),
                     const SizedBox(height: 4),
                     Text(
                       hotelItemEntity.subTitle,

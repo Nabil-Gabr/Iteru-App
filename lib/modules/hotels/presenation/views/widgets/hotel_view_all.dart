@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/services/get_it_service.dart';
+import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/core/widgets/masonry_grid_view_widget.dart';
+import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
+import 'package:iteru_app/modules/home/presentation/view/widgets/hotel_list_view_item.dart';
+import 'package:iteru_app/modules/hotels/domain/repo/hotel_repo.dart';
+import 'package:iteru_app/modules/hotels/presenation/view_model/cubit/hotel_cubit.dart';
+
+class HotelViewAll extends StatelessWidget {
+  const HotelViewAll({super.key});
+  static const String routeName = 'HotelViewAll';
+  static const List<HotelItemEntity> hotelItemList = [
+    HotelItemEntity(
+        title: "Explore Cairo",
+        image: Assets.imagesCairo,
+        location: 'Cairo',
+        subTitle: 'Discover amazing Hotels'),
+    HotelItemEntity(
+        title: "Explore Alexsandria",
+        image: Assets.imagesAlexandria,
+        location: 'Alexsandria',
+        subTitle: 'Discover amazing Hotels'),
+    HotelItemEntity(
+        title: "Explore Luxor",
+        image: Assets.imagesHurghada,
+        location: 'Luxor',
+        subTitle: 'Discover amazing Hotels'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => HotelCubit(getIt<HotelRepo>()),
+      child: Scaffold(
+        appBar: AppBar(),
+        body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: MasonryGridViewWidget(
+              item: hotelItemList.length,
+              itemBuilder: (context, index) {
+                return (index % 2 == 0)
+                    ? SizedBox(
+                        child: AspectRatio(
+                            aspectRatio: 172 / 202,
+                            child: HotelListViewItem(
+                                hotelItemEntity: hotelItemList[index])))
+                    : SizedBox(
+                        child: AspectRatio(
+                            aspectRatio: 172 / 252,
+                            child: HotelListViewItem(
+                                hotelItemEntity: hotelItemList[index])));
+              },
+            ))),
+      );
+  }
+}

@@ -9,6 +9,8 @@ import 'package:iteru_app/modules/auth/data/repo_impl/auth_repo_impl.dart';
 import 'package:iteru_app/modules/auth/domain/repos/auth_repo.dart';
 import 'package:iteru_app/modules/chat/data/repo_impl/send_message_repo_impl.dart';
 import 'package:iteru_app/modules/chat/domain/repo/send_message_repo.dart';
+import 'package:iteru_app/modules/hotels/data/repo/hotel_repo_impl.dart';
+import 'package:iteru_app/modules/hotels/domain/repo/hotel_repo.dart';
 import 'package:iteru_app/modules/recommendation/data/repo_impl/recommendation_repo_impl.dart';
 import 'package:iteru_app/modules/recommendation/domain/repo/recommendation_repo.dart';
 
@@ -32,4 +34,7 @@ void setupGetIt() {
 
   getIt.registerSingleton<RecommendationRepo>(
       RecommendationRepoImpl(databaseService: getIt<ApiDatabaseService>()));
+
+  getIt.registerSingleton<HotelRepo>(
+      HotelRepoImpl(apiDatabaseService: getIt<ApiDatabaseService>()));
 }
