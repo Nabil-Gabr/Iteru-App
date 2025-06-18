@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/services/get_it_service.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
+import 'package:iteru_app/modules/hotels/domain/repo/hotel_repo.dart';
 import 'package:iteru_app/modules/hotels/presenation/view_model/cubit/hotel_cubit.dart';
 import 'package:iteru_app/modules/hotels/presenation/views/hotel_view.dart';
 
@@ -17,19 +19,28 @@ class HotelListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (hotelItemEntity.location == 'Cairo') {
-          // ✅ استدعاء الكيوبت لتحميل بيانات الفنادق في القاهرة
-          context.read<HotelCubit>().getHotelCairo();
-          
-          // ✅ الانتقال إلى صفحة عرض الفنادق
-          Navigator.of(context).pushNamed(HotelView.routeName);
-        } else {
-          // 🟡 في الوقت الحالي: ممكن تسيبها فاضية أو تحط SnackBar
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Support coming soon!")),
-          );
-        }
-      },
+  final supportedCities = [
+    'Cairo', 'Luxor', 'Giza', 'Hurghada', 'Marsa Alam', 'Sharm El Sheikh', 'Aswan' ,'Alexandria'
+  ];
+
+  if (supportedCities.contains(hotelItemEntity.location)) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => BlocProvider(
+          create: (context) => HotelCubit(getIt<HotelRepo>())
+            ..getHotelsByCity(hotelItemEntity.location),
+          child: const HotelView(),
+        ),
+      ),
+    );
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Support coming soon!")),
+    );
+  }
+}
+,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),

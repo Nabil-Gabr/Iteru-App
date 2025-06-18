@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iteru_app/core/helpers/functions/switch_language.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/search_text_field.dart';
+import 'package:iteru_app/modules/notifications/view/notification_view.dart';
 import 'package:iteru_app/modules/recommendation/recommendation.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -51,7 +52,9 @@ class CustomAppBar extends StatelessWidget {
               ),
               //3: Notifications Icon
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, NotificationView.routeName);
+                },
                 child: Icon(
                   Icons.notifications_none,
                   size: 34,

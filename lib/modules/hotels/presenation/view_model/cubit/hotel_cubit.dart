@@ -9,16 +9,17 @@ part 'hotel_state.dart';
 
 class HotelCubit extends Cubit<HotelState> {
   HotelCubit(this.hotelRepo) : super(HotelInitial());
+
   final HotelRepo hotelRepo;
 
-  Future<void> getHotelCairo() async {
+  Future<void> getHotelsByCity(String city) async {
     emit(HotelLoading());
 
-    var result = await hotelRepo.getHotelCairo();
+    final result = await hotelRepo.getHotelsByCity(city);
 
     result.fold(
       (failure) => emit(HotelFailure(failure.errMessag)),
-      (hotel) => emit(HotelSuccess(hotel)),
+      (hotels) => emit(HotelSuccess(hotels)),
     );
   }
 }

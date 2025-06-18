@@ -20,6 +20,7 @@ import 'package:iteru_app/modules/most_visited/presentation/view/most_visited_vi
 import 'package:iteru_app/modules/museum/presentation/view/museum_details_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_view.dart';
 import 'package:iteru_app/modules/museum/presentation/view/museum_rating_view.dart';
+import 'package:iteru_app/modules/notifications/view/notification_view.dart';
 import 'package:iteru_app/modules/onboarding/presentation/views/onboarding_view.dart';
 import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_details_view.dart';
 import 'package:iteru_app/modules/popular_places/presentation/view/popular_places_view.dart';
@@ -174,6 +175,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case HotelViewAll.routeName:
       return MaterialPageRoute(
         builder: (context) => const HotelViewAll(),
+      );
+    
+    case NotificationView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const NotificationView(),
       );
 
     default:

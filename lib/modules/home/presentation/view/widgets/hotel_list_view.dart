@@ -12,15 +12,40 @@ class HotelListView extends StatelessWidget {
         location: 'Cairo',
         subTitle: 'Discover amazing Hotels'),
     HotelItemEntity(
-        title: "Explore Alexsandria",
-        image: Assets.imagesAlexandria,
-        location: 'Alexsandria',
-        subTitle: 'Discover amazing Hotels'),
-    HotelItemEntity(
         title: "Explore Luxor",
         image: Assets.imagesHurghada,
         location: 'Luxor',
         subTitle: 'Discover amazing Hotels'),
+    HotelItemEntity(
+        title: "Explore Giza",
+        image: Assets.imagesHurghada,
+        location: 'Giza',
+        subTitle: 'Discover amazing Hotels'),
+    HotelItemEntity(
+        title: "Explore Hurghada",
+        image: Assets.imagesHurghada,
+        location: 'Hurghada',
+        subTitle: 'Discover amazing Hurghada'),
+    HotelItemEntity(
+        title: "Explore Marsa Alam",
+        image: Assets.imagesHurghada,
+        location: 'Marsa Alam',
+        subTitle: 'Discover amazing Marsa Alam'),
+    HotelItemEntity(
+        title: "Explore Sharm El Sheikh",
+        image: Assets.imagesHurghada,
+        location: 'Sharm El Sheikh',
+        subTitle: 'Discover amazing Sharm El Sheikh'),
+    HotelItemEntity(
+        title: "Explore Aswan",
+        image: Assets.imagesHurghada,
+        location: 'Aswan',
+        subTitle: 'Discover amazing Aswan'),
+    HotelItemEntity(
+      title: "Explore Alexandria",
+      image: Assets.imagesAlexandria,
+      location: 'Alexandria',
+      subTitle: 'Discover amazing Alexandria'),
     
   ];
   @override
@@ -30,7 +55,7 @@ class HotelListView extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: hotelItemList.map((e) {
+        children: hotelItemList.take(3).map((e) {
           return Padding(
             padding: const EdgeInsets.only(right: 16),
             child: SizedBox(

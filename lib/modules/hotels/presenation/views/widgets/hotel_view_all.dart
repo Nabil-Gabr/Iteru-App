@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iteru_app/core/services/get_it_service.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
-import 'package:iteru_app/core/widgets/masonry_grid_view_widget.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/hotel_list_view_item.dart';
 import 'package:iteru_app/modules/hotels/domain/repo/hotel_repo.dart';
@@ -18,15 +18,40 @@ class HotelViewAll extends StatelessWidget {
         location: 'Cairo',
         subTitle: 'Discover amazing Hotels'),
     HotelItemEntity(
-        title: "Explore Alexsandria",
-        image: Assets.imagesAlexandria,
-        location: 'Alexsandria',
-        subTitle: 'Discover amazing Hotels'),
-    HotelItemEntity(
         title: "Explore Luxor",
         image: Assets.imagesHurghada,
         location: 'Luxor',
         subTitle: 'Discover amazing Hotels'),
+    HotelItemEntity(
+        title: "Explore Giza",
+        image: Assets.imagesHurghada,
+        location: 'Giza',
+        subTitle: 'Discover amazing Hotels'),
+    HotelItemEntity(
+        title: "Explore Hurghada",
+        image: Assets.imagesHurghada,
+        location: 'Hurghada',
+        subTitle: 'Discover amazing Hurghada'),
+    HotelItemEntity(
+        title: "Explore Marsa Alam",
+        image: Assets.imagesHurghada,
+        location: 'Marsa Alam',
+        subTitle: 'Discover amazing Marsa Alam'),
+    HotelItemEntity(
+        title: "Explore Sharm El Sheikh",
+        image: Assets.imagesHurghada,
+        location: 'Sharm El Sheikh',
+        subTitle: 'Discover amazing Sharm El Sheikh'),
+    HotelItemEntity(
+        title: "Explore Aswan",
+        image: Assets.imagesHurghada,
+        location: 'Aswan',
+        subTitle: 'Discover amazing Aswan'),
+    HotelItemEntity(
+      title: "Explore Alexandria",
+      image: Assets.imagesAlexandria,
+      location: 'Alexandria',
+      subTitle: 'Discover amazing Alexandria'),
   ];
 
   @override
@@ -37,9 +62,12 @@ class HotelViewAll extends StatelessWidget {
         appBar: AppBar(),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: MasonryGridViewWidget(
-              item: hotelItemList.length,
-              itemBuilder: (context, index) {
+            child: MasonryGridView.count(
+      itemCount: hotelItemList.length,
+      crossAxisCount: 2,
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+       itemBuilder: (context, index) {
                 return (index % 2 == 0)
                     ? SizedBox(
                         child: AspectRatio(
@@ -52,7 +80,7 @@ class HotelViewAll extends StatelessWidget {
                             child: HotelListViewItem(
                                 hotelItemEntity: hotelItemList[index])));
               },
-            ))),
+    ))),
       );
   }
 }
