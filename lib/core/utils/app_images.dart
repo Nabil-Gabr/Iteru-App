@@ -2,9 +2,17 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesAlexandriNew
+  /// assets/images/alexandri_new.jpg
+  static const String imagesAlexandriNew = "assets/images/alexandri_new.jpg";
+
   /// Assets for imagesAlexandria
   /// assets/images/Alexandria.png
   static const String imagesAlexandria = "assets/images/Alexandria.png";
+
+  /// Assets for imagesAswan
+  /// assets/images/aswan.jpeg
+  static const String imagesAswan = "assets/images/aswan.jpeg";
 
   /// Assets for imagesBackgroundOnboardingScreenOne
   /// assets/images/background_onboarding_screen_one.jpg
@@ -23,8 +31,8 @@ class Assets {
   static const String imagesBackgroundPageViewItemOneOnobarding = "assets/images/background_PageViewItemOne_onobarding.svg";
 
   /// Assets for imagesCairo
-  /// assets/images/Cairo.png
-  static const String imagesCairo = "assets/images/Cairo.png";
+  /// assets/images/Cairo.jpg
+  static const String imagesCairo = "assets/images/Cairo.jpg";
 
   /// Assets for imagesCairoTower
   /// assets/images/cairo_tower.jpg
@@ -54,6 +62,10 @@ class Assets {
   /// assets/images/faceBook_logo.svg
   static const String imagesFaceBookLogo = "assets/images/faceBook_logo.svg";
 
+  /// Assets for imagesGiza
+  /// assets/images/giza.jpg
+  static const String imagesGiza = "assets/images/giza.jpg";
+
   /// Assets for imagesGoogleLogo
   /// assets/images/google_logo.svg
   static const String imagesGoogleLogo = "assets/images/google_logo.svg";
@@ -67,8 +79,12 @@ class Assets {
   static const String imagesHotAiBalloonSuit = "assets/images/hot_ai_balloon_suit.jpg";
 
   /// Assets for imagesHurghada
-  /// assets/images/Hurghada.png
-  static const String imagesHurghada = "assets/images/Hurghada.png";
+  /// assets/images/Hurghada.jpeg
+  static const String imagesHurghada = "assets/images/Hurghada.jpeg";
+
+  /// Assets for imagesHurghadaNew
+  /// assets/images/hurghada_new.avif
+  static const String imagesHurghadaNew = "assets/images/hurghada_new.avif";
 
   /// Assets for imagesIconAboutUs
   /// assets/images/icon_about_us.svg
@@ -125,6 +141,14 @@ class Assets {
   /// Assets for imagesKhanElKhalili
   /// assets/images/khan_el-Khalili.jpg
   static const String imagesKhanElKhalili = "assets/images/khan_el-Khalili.jpg";
+
+  /// Assets for imagesLox
+  /// assets/images/lox.jpg
+  static const String imagesLox = "assets/images/lox.jpg";
+
+  /// Assets for imagesMarsaAlam
+  /// assets/images/marsa_alam.jpg
+  static const String imagesMarsaAlam = "assets/images/marsa_alam.jpg";
 
   /// Assets for imagesNationalMuseumOfCivilization
   /// assets/images/national_museum_of_civilization.jpg

@@ -19,12 +19,12 @@ class HotelViewAll extends StatelessWidget {
         subTitle: 'Discover amazing Hotels'),
     HotelItemEntity(
         title: "Explore Luxor",
-        image: Assets.imagesHurghada,
+        image: Assets.imagesLox,
         location: 'Luxor',
         subTitle: 'Discover amazing Hotels'),
     HotelItemEntity(
         title: "Explore Giza",
-        image: Assets.imagesHurghada,
+        image: Assets.imagesGiza,
         location: 'Giza',
         subTitle: 'Discover amazing Hotels'),
     HotelItemEntity(
@@ -34,22 +34,22 @@ class HotelViewAll extends StatelessWidget {
         subTitle: 'Discover amazing Hurghada'),
     HotelItemEntity(
         title: "Explore Marsa Alam",
-        image: Assets.imagesHurghada,
+        image: Assets.imagesMarsaAlam,
         location: 'Marsa Alam',
         subTitle: 'Discover amazing Marsa Alam'),
     HotelItemEntity(
         title: "Explore Sharm El Sheikh",
-        image: Assets.imagesHurghada,
+        image: Assets.imagesHurghadaNew,
         location: 'Sharm El Sheikh',
         subTitle: 'Discover amazing Sharm El Sheikh'),
     HotelItemEntity(
         title: "Explore Aswan",
-        image: Assets.imagesHurghada,
+        image: Assets.imagesAswan,
         location: 'Aswan',
         subTitle: 'Discover amazing Aswan'),
     HotelItemEntity(
       title: "Explore Alexandria",
-      image: Assets.imagesAlexandria,
+      image: Assets.imagesAlexandriNew,
       location: 'Alexandria',
       subTitle: 'Discover amazing Alexandria'),
   ];
