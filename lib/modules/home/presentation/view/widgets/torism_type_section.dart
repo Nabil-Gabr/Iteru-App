@@ -4,15 +4,12 @@ import 'package:iteru_app/core/widgets/shimmer_museum_card.dart';
 import 'package:iteru_app/generated/l10n.dart';
 import 'package:iteru_app/modules/home/presentation/manager/monument/monument_cubit.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/header_section.dart';
-import 'package:iteru_app/modules/home/presentation/view/widgets/museum_list_view.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/tourism_types_list_view.dart';
 import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_view.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TorismTypeSection extends StatelessWidget {
-  const TorismTypeSection({
-    super.key,
-  });
+  const TorismTypeSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,24 +17,47 @@ class TorismTypeSection extends StatelessWidget {
       builder: (context, state) {
         if (state is MonumentSuccess) {
           return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            HeaderSection(
-              title: S.of(context).tourism_types,
-              onTap: () {
-                Navigator.of(context).pushNamed(TourismTypesView.routeName,arguments: state.monumentItemEntity);
-              },
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-             TourismTypesListView(monumentEntity: state.monumentItemEntity.take(3).toList(),)
-          ],
-        );
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeaderSection(
+                title: S.of(context).tourism_types,
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    TourismTypesView.routeName,
+                    arguments: state.monumentItemEntity,
+                  );
+                },
+              ),
+              const SizedBox(height: 16),
+              TourismTypesListView(
+                monumentEntity: state.monumentItemEntity.take(3).toList(),
+              ),
+            ],
+          );
         } else if (state is MonumentFailure) {
-          return CustomErrorWidget(errMessage: state.errMessage);
+          return Column(
+            children: [
+              const Icon(Icons.error_outline, color: Colors.red, size: 48),
+              const SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  state.errMessage, // ✅ هنا بنعرض رسالة الخطأ الفعلية
+                  style: const TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                onPressed: () {
+                  context.read<MonumentCubit>().getMonument();
+                },
+                icon: const Icon(Icons.refresh),
+                label: const Text('Retry'),
+              ),
+            ],
+          );
         } else {
-          // 🔹 عرض Shimmer أثناء التحميل
           return Shimmer.fromColors(
             baseColor: Colors.white,
             highlightColor: Colors.grey.withOpacity(.6),
@@ -45,7 +65,7 @@ class TorismTypeSection extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: List.generate(
-                  3, // عدد العناصر الهيكلية المؤقتة
+                  3,
                   (index) => Padding(
                     padding: const EdgeInsetsDirectional.only(end: 16),
                     child: SizedBox(
@@ -62,3 +82,4 @@ class TorismTypeSection extends StatelessWidget {
     );
   }
 }
+

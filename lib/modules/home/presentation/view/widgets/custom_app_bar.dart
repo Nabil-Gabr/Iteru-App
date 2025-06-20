@@ -45,7 +45,7 @@ class CustomAppBar extends StatelessWidget {
               ),
               //2: Search text Filed
               const Expanded(
-                child: SearchTextField(),
+                child: Searchbutton(),
               ),
               const SizedBox(
                 width: 8,

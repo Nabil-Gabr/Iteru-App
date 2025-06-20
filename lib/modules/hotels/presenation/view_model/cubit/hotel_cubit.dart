@@ -22,4 +22,6 @@ class HotelCubit extends Cubit<HotelState> {
       (hotels) => emit(HotelSuccess(hotels)),
     );
   }
+
+  getHotel() {}
 }

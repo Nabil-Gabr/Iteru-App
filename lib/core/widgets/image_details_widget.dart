@@ -78,38 +78,41 @@ class ImageDetailsWidget extends StatelessWidget {
           ),
         ),
 
-        // Back button
-        Positioned(
-          top: 36,
-          left: 16,
-          child: GestureDetector(
-            onTap: () => Navigator.of(context).pop(),
-            child: const CircleAvatar(
-              backgroundColor: Colors.black54,
-              child: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
+        // App bar row: back + title
+Positioned(
+  top: 36,
+  left: 0,
+  right: 0,
+  child: Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16),
+    child: Row(
+      children: [
+        GestureDetector(
+          onTap: () => Navigator.of(context).pop(),
+          child: const CircleAvatar(
+            backgroundColor: Colors.black54,
+            child: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white),
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            title,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: [Shadow(blurRadius: 8, color: Colors.black)],
             ),
           ),
         ),
+      ],
+    ),
+  ),
+),
 
-        // Title
-        Positioned(
-          top: 40,
-          left: 25,
-          right: 0,
-          child: Center(
-            child: Text(
-              title,
-              
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                shadows: [Shadow(blurRadius: 8, color: Colors.black)],
-              ),
-            ),
-          ),
-        ),
 
         // Weather Info Card
         Positioned(

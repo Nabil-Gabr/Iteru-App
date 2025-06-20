@@ -24,12 +24,12 @@ final List  <MonumentEntity> monumentEntity;
               ? SizedBox(
                   child: AspectRatio(
                       aspectRatio: 172 / 202,
-                      child: TourismTypeListViewItem(
+                      child: MonumentsListViewItem(
                           monumentEntity: monumentEntity[index])))
               : SizedBox(
                   child: AspectRatio(
                   aspectRatio: 172 / 252,
-                  child: TourismTypeListViewItem(
+                  child: MonumentsListViewItem(
                       monumentEntity: monumentEntity[index]),
                 ));
                 },

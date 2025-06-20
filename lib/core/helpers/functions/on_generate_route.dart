@@ -27,6 +27,7 @@ import 'package:iteru_app/modules/popular_places/presentation/view/popular_place
 import 'package:iteru_app/modules/recommendation/domain/entity/recommentation_entity.dart';
 import 'package:iteru_app/modules/recommendation/presentation/view/recommendation_result_view.dart';
 import 'package:iteru_app/modules/recommendation/recommendation.dart';
+import 'package:iteru_app/modules/research/view/research_view.dart';
 import 'package:iteru_app/modules/splash/presentation/views/splash_view.dart';
 import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_details_view.dart';
 import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_view.dart';
@@ -143,10 +144,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         ),
       );
 
-    case TourismTypesDetailsView.routeName:
+    case MonumentDetailsView.routeName:
       final monumentEntity = settings.arguments as MonumentEntity;
       return MaterialPageRoute(
-        builder: (context) => TourismTypesDetailsView(
+        builder: (context) => MonumentDetailsView(
             monumentEntity: monumentEntity),
       );
 
@@ -180,6 +181,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case NotificationView.routeName:
       return MaterialPageRoute(
         builder: (context) => const NotificationView(),
+      );
+    
+    case ResearchView.routeName:
+      return MaterialPageRoute(
+        builder: (context) => const ResearchView(),
       );
 
     default:

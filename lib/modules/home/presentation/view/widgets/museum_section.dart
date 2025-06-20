@@ -9,14 +9,11 @@ import 'package:iteru_app/modules/museum/presentation/view/museum_view.dart';
 import 'package:shimmer/shimmer.dart';
 
 class MuseumSection extends StatelessWidget {
-  const MuseumSection({
-    super.key,
-  });
+  const MuseumSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MuseumCubit, MuseumState>(
-      //
       builder: (context, state) {
         if (state is MuseumSuccess) {
           return Column(
@@ -24,21 +21,42 @@ class MuseumSection extends StatelessWidget {
               HeaderSection(
                 title: S.of(context).museum,
                 onTap: () {
-                  Navigator.of(context).pushNamed(MuseumView.routeName,arguments: state.museumItemEntity);
+                  Navigator.of(context).pushNamed(
+                    MuseumView.routeName,
+                    arguments: state.museumItemEntity,
+                  );
                 },
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               MuseumListView(
                 museumItems: state.museumItemEntity.take(3).toList(),
               ),
             ],
           );
         } else if (state is MuseumFailure) {
-          return CustomErrorWidget(errMessage: state.errMessage);
+          return Column(
+            children: [
+              const Icon(Icons.error_outline, color: Colors.red, size: 48),
+              const SizedBox(height: 12),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  state.errMessage, // ✅ هنا بنعرض رسالة الخطأ الفعلية
+                  style: const TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                onPressed: () {
+                  context.read<MuseumCubit>().getMuseum();
+                },
+                icon: const Icon(Icons.refresh),
+                label: const Text('Retry'),
+              ),
+            ],
+          );
         } else {
-          // 🔹 عرض Shimmer أثناء التحميل
           return Shimmer.fromColors(
             baseColor: Colors.white,
             highlightColor: Colors.grey.withOpacity(.6),
@@ -46,7 +64,7 @@ class MuseumSection extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: List.generate(
-                  3, // عدد العناصر الهيكلية المؤقتة
+                  3,
                   (index) => Padding(
                     padding: const EdgeInsetsDirectional.only(end: 16),
                     child: SizedBox(
@@ -63,3 +81,4 @@ class MuseumSection extends StatelessWidget {
     );
   }
 }
+

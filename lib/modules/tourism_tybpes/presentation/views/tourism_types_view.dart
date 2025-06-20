@@ -16,6 +16,7 @@ class TourismTypesView extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           surfaceTintColor: null,
+          forceMaterialTransparency: true,
           
           elevation: 0,
           backgroundColor: isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor,

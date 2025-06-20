@@ -21,7 +21,7 @@ class TourismTypesListView extends StatelessWidget {
               width: MediaQuery.sizeOf(context).width * .36,
               child: AspectRatio(
                 aspectRatio: 143 / 91,
-                child: TourismTypeListViewItem(
+                child: MonumentsListViewItem(
                   monumentEntity: e,
                 ),
               ),

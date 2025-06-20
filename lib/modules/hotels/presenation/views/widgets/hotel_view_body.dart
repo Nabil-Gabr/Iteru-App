@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteru_app/modules/hotels/presenation/view_model/cubit/hotel_cubit.dart';
-import 'package:iteru_app/modules/hotels/presenation/views/hotel_details_view.dart';
+import 'package:iteru_app/modules/hotels/presenation/views/widgets/hotel_item.dart';
 
 class HotelViewBody extends StatelessWidget {
   const HotelViewBody({
@@ -23,19 +23,7 @@ class HotelViewBody extends StatelessWidget {
             itemCount: state.hotelEntity.length,
             itemBuilder: (context, index) {
               final hotel = state.hotelEntity[index];
-              return ListTile(
-                leading: const Icon(Icons.hotel, color: Colors.orange),
-                title: Text(hotel.name),
-                subtitle: Text(hotel.address),
-                trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    HotelDetailsView.routeName,
-                    arguments: hotel,
-                  );
-                },
-              );
+              return HotelItem(hotel: hotel);
             },
           );
         }
@@ -44,3 +32,5 @@ class HotelViewBody extends StatelessWidget {
     );
   }
 }
+
+

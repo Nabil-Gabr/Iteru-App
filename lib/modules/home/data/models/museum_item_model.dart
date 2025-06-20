@@ -24,35 +24,37 @@ class MuseumItemModel extends MuseumItemEntity {
   });
 
   factory MuseumItemModel.fromJson(Map<String, dynamic> json) {
-    final ticketPrices = json['ticket_prices'] ?? {};
-    final weather = json['weather'] ?? {};
+    try {
+      final ticketPrices = json['ticket_prices'] ?? {};
+      final weather = json['weather'] ?? {};
 
-    return MuseumItemModel(
-      ourInsiderTips: (json['ourInsiderTips'] as List<dynamic>?)
-              ?.map((e) => Map<String, String>.from(e as Map))
-              .toList() ??
-          [],
-      description: json['description'] ?? '',
-      foreignerPriceChild: ticketPrices['foreign_child'] ?? '',
-      illustrativeImages: List<String>.from(json['images'] ?? []),
-      coverPicture: json['coverPicture'] ?? '',
-      name: json['name'] ?? '',
-      location: json['location'] ?? '',
-      closingTime: json['closing_hours'] ?? '',
-      openingTime: json['opening_hours'] ?? '',
-      egyptiansPriceAdult: ticketPrices['egyptian_adult'] ?? '',
-      egyptiansPriceStudent: ticketPrices['egyptian_student'] ?? '',
-      foreignerPriceAdult: ticketPrices['foreign_adult'] ?? '',
-      foreignerPriceStudent: ticketPrices['foreign_student'] ?? '',
-      egyptianArabsPrice: ticketPrices['egyptian_arabs'] ?? '',
-      foreignersPrice: ticketPrices['foreigners'] ?? '',
-
-      // ✅ الطقس
-      tempC: "${weather['temp_c'] ?? 0}",
-    condition: weather['condition'] ?? '',
-    windKph: "${weather['wind_kph'] ?? 0}",
-    humidity: "${weather['humidity'] ?? 0}",
-    );
+      return MuseumItemModel(
+        ourInsiderTips: (json['ourInsiderTips'] as List<dynamic>?)
+                ?.map((e) => Map<String, String>.from(e as Map))
+                .toList() ??
+            [],
+        description: json['description'] ?? '',
+        foreignerPriceChild: ticketPrices['foreign_child'] ?? '',
+        illustrativeImages: List<String>.from(json['images'] ?? []),
+        coverPicture: json['coverPicture'] ?? '',
+        name: json['name'] ?? '',
+        location: json['location'] ?? '',
+        closingTime: json['closing_hours'] ?? '',
+        openingTime: json['opening_hours'] ?? '',
+        egyptiansPriceAdult: ticketPrices['egyptian_adult'] ?? '',
+        egyptiansPriceStudent: ticketPrices['egyptian_student'] ?? '',
+        foreignerPriceAdult: ticketPrices['foreign_adult'] ?? '',
+        foreignerPriceStudent: ticketPrices['foreign_student'] ?? '',
+        egyptianArabsPrice: ticketPrices['egyptian_arabs'] ?? '',
+        foreignersPrice: ticketPrices['foreigners'] ?? '',
+        tempC: "${weather['temp_c'] ?? 0}",
+        condition: weather['condition'] ?? '',
+        windKph: "${weather['wind_kph'] ?? 0}",
+        humidity: "${weather['humidity'] ?? 0}",
+      );
+    } catch (e) {
+      throw Exception("Error parsing museum item: $e");
+    }
   }
 }
 

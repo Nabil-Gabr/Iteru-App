@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iteru_app/core/services/get_it_service.dart';
+import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
 import 'package:iteru_app/modules/home/domain/entites/hotel_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/hotel_list_view_item.dart';
@@ -56,10 +57,21 @@ class HotelViewAll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return BlocProvider(
       create: (context) => HotelCubit(getIt<HotelRepo>()),
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+        surfaceTintColor: null,
+        forceMaterialTransparency: true,
+        elevation: 0,
+        backgroundColor: isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor,
+        centerTitle: true,
+        title: const Text(
+          'Hotels',
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        ),
+      ),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: MasonryGridView.count(

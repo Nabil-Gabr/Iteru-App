@@ -19,6 +19,7 @@ class MuseumView extends StatelessWidget {
       //1:AppBar
       appBar: AppBar(
         surfaceTintColor: null,
+        forceMaterialTransparency: true,
         elevation: 0,
         backgroundColor: isDarkMode ? AppColors.darkModePrimary : AppColors.whiteColor,
         centerTitle: true,

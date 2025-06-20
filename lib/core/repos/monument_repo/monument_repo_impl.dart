@@ -12,31 +12,34 @@ class MonumentRepoImpl extends MonumentRepo {
   final ApiDatabaseService apiDatabaseService;
 
   MonumentRepoImpl({required this.apiDatabaseService});
+
   @override
   Future<Either<Failure, List<MonumentEntity>>> getMonument() async {
     try {
-      
       var result = await apiDatabaseService.getData(
-          url: 'https://iteru-clone-e8l9.vercel.app/api/monuments-with-weather');
+        url: 'https://iteru-clone-e8l9.vercel.app/api/monuments-with-weather',
+      );
+
       if (result is Map<String, dynamic> && result.containsKey('data')) {
         var data = result['data'];
         if (data is List) {
-          List<MonumentEntity> monument = data
+          List<MonumentEntity> monuments = data
               .map((item) =>
                   MonumentModel.fromJson(item as Map<String, dynamic>))
               .toList();
-          return right(monument);
+          return right(monuments);
         } else {
-          throw Exception('Data is not a list');
+          return left(ServerFailuer(errMessag: 'Data is not a list.'));
         }
-      } else if (result is List<dynamic>) {
-        List<MonumentEntity> museums = result
+      } else if (result is List) {
+        List<MonumentEntity> monuments = result
             .map((item) =>
                 MonumentModel.fromJson(item as Map<String, dynamic>))
             .toList();
-        return right(museums);
+        return right(monuments);
       } else {
-        throw Exception('Unexpected response format');
+        return left(ServerFailuer(
+            errMessag: 'Unexpected response format from the server.'));
       }
     } catch (e) {
       log('Error occurred: ${e.toString()}');
@@ -44,7 +47,8 @@ class MonumentRepoImpl extends MonumentRepo {
         log('DioException data: ${e.response?.data}');
         return left(ServerFailuer.fromDioExeption(e));
       }
-      return left(ServerFailuer(errMessag: e.toString()));
+      return left(ServerFailuer(errMessag: 'An error occurred. Please check your internet connection.'));
     }
   }
 }
+

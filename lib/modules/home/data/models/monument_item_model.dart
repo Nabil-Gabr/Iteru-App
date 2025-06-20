@@ -13,15 +13,20 @@ class MonumentModel extends MonumentEntity {
   });
 
   factory MonumentModel.fromJson(Map<String, dynamic> json) {
-    return MonumentModel(
-      id: json['_id'] ?? '',
-      name: json['name'] ?? '',
-      location: json['location'] ?? '',
-      description: json['description'] ?? '',
-      images: List<String>.from(json['images'] ?? []),
-      coverPicture: json['coverPicture'] ?? '',
-      weather: Weather.fromJson(json['weather'] ?? {}),
-      tickets: Tickets.fromJson(json['ticket_prices']),
-    );
+    try {
+      return MonumentModel(
+        id: json['_id'] ?? '',
+        name: json['name'] ?? '',
+        location: json['location'] ?? '',
+        description: json['description'] ?? '',
+        images: List<String>.from(json['images'] ?? []),
+        coverPicture: json['coverPicture'] ?? '',
+        weather: Weather.fromJson(json['weather'] ?? {}),
+        tickets: Tickets.fromJson(json['ticket_prices'] ?? {}),
+      );
+    } catch (e) {
+      throw Exception('Error parsing MonumentModel: $e');
+    }
   }
 }
+
