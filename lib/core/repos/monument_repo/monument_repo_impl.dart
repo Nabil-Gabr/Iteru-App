@@ -47,7 +47,7 @@ class MonumentRepoImpl extends MonumentRepo {
         log('DioException data: ${e.response?.data}');
         return left(ServerFailuer.fromDioExeption(e));
       }
-      return left(ServerFailuer(errMessag: 'An error occurred. Please check your internet connection.'));
+      return left(ServerFailuer(errMessag: 'Something went wrong. Please check your internet connection or try again later'));
     }
   }
 }

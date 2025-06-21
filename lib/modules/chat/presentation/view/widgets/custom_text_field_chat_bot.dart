@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 
 class CustomTextFieldChatBot extends StatelessWidget {
@@ -8,10 +7,12 @@ class CustomTextFieldChatBot extends StatelessWidget {
     this.onSubmitted,
     this.controller,
     this.prefixIcon,
+    this.onTap,
   });
 
   final void Function(String)? onSubmitted;
   final TextEditingController? controller;
+  final void Function()? onTap;
   final Widget? prefixIcon;
 
   @override
@@ -24,9 +25,7 @@ class CustomTextFieldChatBot extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'Send Message',
           suffixIcon: GestureDetector(
-            onTap: () {
-              print('Cach=========================${CacheHelpe.getData(key: 'token')}');
-            },
+            onTap: onTap,
             child: const Icon(
               Icons.send,
               color: AppColors.primaryColor,

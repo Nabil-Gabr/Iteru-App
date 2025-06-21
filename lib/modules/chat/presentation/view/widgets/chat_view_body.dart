@@ -28,113 +28,154 @@ class ChatViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void sendTextMessage(BuildContext context) {
+      final text = controller.text.trim();
+      if (text.isEmpty) return;
+      context.read<SendMessageCubit>().sendMessage(
+            token: CacheHelpe.getData(key: 'token'),
+            message: text,
+          );
+      controller.clear();
+      FocusScope.of(context).unfocus(); // 👈 يغلق الكيبورد
+    }
+
+    void pickImage(BuildContext context) {
+      showModalBottomSheet(
+        context: context,
+        builder: (_) {
+          return SafeArea(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  leading: const Icon(Icons.camera_alt),
+                  title: const Text('Take a photo'),
+                  onTap: () async {
+                    Navigator.pop(context);
+                    final pickedFile = await ImagePicker().pickImage(
+                      source: ImageSource.camera,
+                    );
+                    if (pickedFile != null) {
+                      final imageFile = File(pickedFile.path);
+                      context.read<SendMessageCubit>().sendImage(imageFile);
+                    }
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.photo_library),
+                  title: const Text('Choose from gallery'),
+                  onTap: () async {
+                    Navigator.pop(context);
+                    final pickedFile = await ImagePicker().pickImage(
+                      source: ImageSource.gallery,
+                    );
+                    if (pickedFile != null) {
+                      final imageFile = File(pickedFile.path);
+                      context.read<SendMessageCubit>().sendImage(imageFile);
+                    }
+                  },
+                ),
+              ],
+            ),
+          );
+        },
+      );
+    }
+
     return Column(
       children: [
-        //1 App Bar
         const ChatBotAppBar(),
         const SizedBox(height: 30),
-        // 2 ListView messages
         Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: ListView.builder(
-              controller: scrollController,
-              itemCount:
-                  isLoading ? messages.length * 2 + 1 : messages.length * 2,
-              itemBuilder: (context, index) {
-                if (isLoading && index == messages.length * 2) {
-                  return const ChatBotTypingIndicator();
-                }
+  child: Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    child: messages.isEmpty
+        ? const Center(
+            child: Text(
+              'What can I help with?',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )
+        : ListView.builder(
+            controller: scrollController,
+            itemCount:
+                isLoading ? messages.length * 2 + 1 : messages.length * 2,
+            itemBuilder: (context, index) {
+              if (isLoading && index == messages.length * 2) {
+                return const ChatBotTypingIndicator();
+              }
 
-                final realIndex = index ~/ 2;
-                final isUserMessage = index.isEven;
-                final message = messages[realIndex];
+              final realIndex = index ~/ 2;
+              final isUserMessage = index.isEven;
+              final message = messages[realIndex];
 
-                if (isUserMessage) {
-                  // لو الرسالة من النوع ImageEntity، نعرض الصورة
-                  if (message is ImageEntity) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Container(
-                            decoration: const BoxDecoration(
-                              color: AppColors.blackColor,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                                bottomLeft: Radius.circular(20),
-                              ),
-                            ),
-                            padding: const EdgeInsets.all(
-                                4), // 👈 المسافة بين الصورة والإطار
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(16),
-                                topRight: Radius.circular(16),
-                                bottomLeft: Radius.circular(16),
-                              ),
-                              child: Image.file(
-                                File(message.imagePath),
-                                width: 250,
-                                height: 350,
-                                fit: BoxFit.cover,
-                              ),
+              if (isUserMessage) {
+                if (message is ImageEntity) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: AppColors.blackColor,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
                             ),
                           ),
-                        ],
-                      ),
-                    );
-                  } else {
-                    // رسالة نصية عادية من المستخدم
-                    return Padding(
-                      padding: const EdgeInsets.only(top: 8.0, bottom: 8),
-                      child: UserMessage(message: message.content),
-                    );
-                  }
+                          padding: const EdgeInsets.all(4),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(16),
+                              topRight: Radius.circular(16),
+                              bottomLeft: Radius.circular(16),
+                            ),
+                            child: Image.file(
+                              File(message.imagePath),
+                              width: 250,
+                              height: 350,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
                 } else {
-                  // رسالة من الـ AI (رد)
-                  if (message is ImageEntity) {
-                    // لو فيه detectedClasses من الـ AI بعد إرسال صورة
-                    return message.detectedClasses.isNotEmpty
-                        ? ChatBotMessage(
-                            message: message.detectedClasses.join(', '),
-                          )
-                        : const SizedBox();
-                  } else if (message.aiReply.isNotEmpty) {
-                    return ChatBotMessage(message: message.aiReply);
-                  } else {
-                    return const SizedBox(); // لسه مفيش رد
-                  }
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8),
+                    child: UserMessage(message: message.content),
+                  );
                 }
-              },
-            ),
-          ),
-        ),
-
-        //3 TextField
-        CustomTextFieldChatBot(
-          controller: controller,
-          onSubmitted: (data) {
-            context.read<SendMessageCubit>().sendMessage(
-                  token: CacheHelpe.getData(key: 'token'),
-                  message: data,
-                );
-            controller.clear();
-          },
-          prefixIcon: GestureDetector(
-            onTap: () async {
-              final picker = ImagePicker();
-              final pickedFile = await picker.pickImage(
-                source: ImageSource.gallery, // أو camera لو حبيت
-              );
-
-              if (pickedFile != null) {
-                final imageFile = File(pickedFile.path);
-                context.read<SendMessageCubit>().sendImage(imageFile);
+              } else {
+                if (message is ImageEntity) {
+                  return message.detectedClasses.isNotEmpty
+                      ? ChatBotMessage(
+                          message: message.detectedClasses.join(', '),
+                        )
+                      : const SizedBox();
+                } else if (message.aiReply.isNotEmpty) {
+                  return ChatBotMessage(message: message.aiReply);
+                } else {
+                  return const SizedBox();
+                }
               }
             },
+          ),
+  ),
+),
+
+        CustomTextFieldChatBot(
+          onTap: () => sendTextMessage(context),
+          controller: controller,
+          onSubmitted: (_) => sendTextMessage(context),
+          prefixIcon: GestureDetector(
+            onTap: () => pickImage(context), // 👈 يفتح خيارات الصور
             child: const Icon(
               Icons.camera_alt,
               color: AppColors.primaryColor,
@@ -145,3 +186,7 @@ class ChatViewBody extends StatelessWidget {
     );
   }
 }
+
+
+
+

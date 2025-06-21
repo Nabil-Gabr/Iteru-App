@@ -69,7 +69,7 @@ class HotelViewAll extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'Hotels',
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          style:  TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
       ),
         body: Padding(

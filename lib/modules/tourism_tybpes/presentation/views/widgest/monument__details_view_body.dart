@@ -10,8 +10,8 @@ import 'package:iteru_app/modules/home/domain/entites/monument_item_entity.dart'
 import 'package:iteru_app/modules/museum/presentation/view/widgets/description_section.dart';
 import 'package:iteru_app/modules/museum/presentation/view/widgets/labeled_value_row.dart';
 
-class TourismTypesDetailsViewBody extends StatelessWidget {
-  const TourismTypesDetailsViewBody({super.key, required this.monumentEntity,});
+class MonumentDetailsViewBody extends StatelessWidget {
+  const MonumentDetailsViewBody({super.key, required this.monumentEntity,});
   final MonumentEntity monumentEntity;
 
   @override

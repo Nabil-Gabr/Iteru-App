@@ -95,9 +95,37 @@ Future<dynamic> post({
 
 
   @override
-  Future delete({required String url, String? token}) {
-    throw UnimplementedError();
+Future<dynamic> delete({
+  required String url,
+  String? token,
+}) async {
+  try {
+    final Map<String, String> headers = {};
+
+    // إضافة Authorization إذا كان الـ token موجودًا
+    if (token != null) {
+      headers['Authorization'] = 'Bearer $token';
+    }
+
+    final response = await dio.delete(
+      url,
+      options: Options(headers: headers),
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 204) {
+      // قد لا تحتوي الاستجابة على بيانات عند الحذف
+      return response.data;
+    } else {
+      throw Exception(
+          "Failed to delete data. Status code: ${response.statusCode}");
+    }
+  } on DioException catch (e) {
+    throw Exception("DioException: ${e.message}");
+  } catch (e) {
+    throw Exception("Unexpected error: $e");
   }
+}
+
 
   @override
   Future put({required String url, required body, String? token}) {

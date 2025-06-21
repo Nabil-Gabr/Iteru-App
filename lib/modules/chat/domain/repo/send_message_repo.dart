@@ -11,4 +11,6 @@ abstract class SendMessageRepo {
       {required String token, required String message});
 
   Future<Either<Failure, ImageEntity>> sendImage(File imageFile);
+
+  Future<Either<Failure, Unit>> deleteAllMessages(String token);
 }

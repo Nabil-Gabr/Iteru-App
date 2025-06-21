@@ -78,6 +78,24 @@ Future<Either<Failure, ImageEntity>> sendImage(File imageFile) async {
   }
 }
 
+@override
+Future<Either<Failure, Unit>> deleteAllMessages(String token) async {
+  try {
+    await apiDatabaseService.delete(
+      url: 'https://iteru-clone-e8l9.vercel.app/api/Del_all_messages',
+      token: token,
+    );
+    return right(unit); // from dartz
+  } catch (e) {
+    log('Delete Error: ${e.toString()}');
+    if (e is DioException) {
+      return left(ServerFailuer.fromDioExeption(e));
+    }
+    return left(ServerFailuer(errMessag: e.toString()));
+  }
+}
+
+
 
   
 }

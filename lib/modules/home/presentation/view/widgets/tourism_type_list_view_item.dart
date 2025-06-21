@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iteru_app/core/utils/app_colors.dart';
 import 'package:iteru_app/core/utils/app_text_styles.dart';
 import 'package:iteru_app/modules/home/domain/entites/monument_item_entity.dart';
-import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_details_view.dart';
+import 'package:iteru_app/modules/tourism_tybpes/presentation/views/monument_details_view.dart';
 
 class MonumentsListViewItem extends StatelessWidget {
   final MonumentEntity monumentEntity;

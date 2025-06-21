@@ -4,6 +4,7 @@ import 'package:iteru_app/core/repos/monument_repo/monument_repo.dart';
 import 'package:iteru_app/core/repos/museum_repo/museum_repo.dart';
 import 'package:iteru_app/core/services/get_it_service.dart';
 import 'package:iteru_app/core/utils/app_images.dart';
+import 'package:iteru_app/modules/chat/presentation/manager/send_message/send_message_cubit.dart';
 import 'package:iteru_app/modules/chat/presentation/view/chat_view.dart';
 import 'package:iteru_app/modules/home/presentation/manager/monument/monument_cubit.dart';
 import 'package:iteru_app/modules/home/presentation/manager/museum/museum_cubit.dart';
@@ -12,43 +13,63 @@ import 'package:iteru_app/modules/home/presentation/view/widgets/home_view_body.
 import 'package:iteru_app/modules/hotels/domain/repo/hotel_repo.dart';
 import 'package:iteru_app/modules/hotels/presenation/view_model/cubit/hotel_cubit.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
-
   static const String routeName = 'HomeView';
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  late final SendMessageCubit sendMessageCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    // نخزن المرجع بأمان بدل استخدام context مباشرةً في dispose
+    sendMessageCubit = context.read<SendMessageCubit>();
+  }
+
+  @override
+  void dispose() {
+    sendMessageCubit.deleteAllMessages();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => MuseumCubit(getIt.get<MuseumRepo>())..getMuseum(),
+          create: (context) =>
+              MuseumCubit(getIt.get<MuseumRepo>())..getMuseum(),
         ),
         BlocProvider(
-          create: (context) => MonumentCubit(getIt.get<MonumentRepo>())..getMonument(),
+          create: (context) =>
+              MonumentCubit(getIt.get<MonumentRepo>())..getMonument(),
         ),
         BlocProvider(
-          create: (context) => HotelCubit(getIt.get<HotelRepo>())..getHotel(),
+          create: (context) =>
+              HotelCubit(getIt.get<HotelRepo>())..getHotel(),
         ),
       ],
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: Scaffold(
-          key: GlobalKey<ScaffoldState>(),
+          key: scaffoldKey,
           floatingActionButton: const BouncingChatBotButton(),
           drawer: const CustomDrawer(),
           body: SafeArea(
-            child: HomeViewBody(
-              scaffoldKey: GlobalKey<ScaffoldState>(),
-            ),
+            child: HomeViewBody(scaffoldKey: scaffoldKey),
           ),
         ),
       ),
     );
   }
 }
-
-
 
 class BouncingChatBotButton extends StatefulWidget {
   const BouncingChatBotButton({super.key});

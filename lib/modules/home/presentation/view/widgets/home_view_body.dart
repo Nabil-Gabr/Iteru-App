@@ -6,7 +6,7 @@ import 'package:iteru_app/modules/home/presentation/view/widgets/custom_app_bar.
 import 'package:iteru_app/modules/home/presentation/view/widgets/hotels_section.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/most_visited_section.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/museum_section.dart';
-import 'package:iteru_app/modules/home/presentation/view/widgets/torism_type_section.dart';
+import 'package:iteru_app/modules/home/presentation/view/widgets/monument_section.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key, required this.scaffoldKey});
@@ -40,7 +40,7 @@ class HomeViewBody extends StatelessWidget {
           // ),
           //Section 2
           const SliverToBoxAdapter(
-            child: TorismTypeSection(),
+            child: MonumentSection(),
           ),
           //SizedBox 24
           const SliverToBoxAdapter(

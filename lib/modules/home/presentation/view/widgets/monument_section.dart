@@ -5,11 +5,11 @@ import 'package:iteru_app/generated/l10n.dart';
 import 'package:iteru_app/modules/home/presentation/manager/monument/monument_cubit.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/header_section.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/tourism_types_list_view.dart';
-import 'package:iteru_app/modules/tourism_tybpes/presentation/views/tourism_types_view.dart';
+import 'package:iteru_app/modules/tourism_tybpes/presentation/views/monument_view.dart';
 import 'package:shimmer/shimmer.dart';
 
-class TorismTypeSection extends StatelessWidget {
-  const TorismTypeSection({super.key});
+class MonumentSection extends StatelessWidget {
+  const MonumentSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class TorismTypeSection extends StatelessWidget {
                 title: S.of(context).tourism_types,
                 onTap: () {
                   Navigator.of(context).pushNamed(
-                    TourismTypesView.routeName,
+                    MonumentView.routeName,
                     arguments: state.monumentItemEntity,
                   );
                 },

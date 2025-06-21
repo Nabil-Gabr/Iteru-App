@@ -1,7 +1,9 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteru_app/core/cache/shared_preferences_singleton.dart';
 import 'package:iteru_app/modules/chat/domain/entity/image_entity.dart';
 import 'package:iteru_app/modules/chat/domain/entity/message_entity.dart';
 import 'package:iteru_app/modules/chat/domain/repo/send_message_repo.dart';
@@ -113,5 +115,19 @@ class SendMessageCubit extends Cubit<SendMessageState> {
       },
     );
   }
+
+  Future<void> deleteAllMessages() async {
+  final token = CacheHelpe.getData(key: 'token');
+  final result = await sendMessageRepo.deleteAllMessages(token);
+
+  result.fold(
+    (failure) => log("Failed to delete messages: ${failure.errMessag}"),
+    (_) {
+      emit(SendMessageState.initial()); // Reset UI to empty
+      log("Messages deleted successfully.");
+    },
+  );
+}
+
 }
 

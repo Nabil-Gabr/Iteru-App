@@ -3,8 +3,8 @@ import 'package:iteru_app/core/widgets/masonry_grid_view_widget.dart';
 import 'package:iteru_app/modules/home/domain/entites/monument_item_entity.dart';
 import 'package:iteru_app/modules/home/presentation/view/widgets/tourism_type_list_view_item.dart';
 
-class TourismGridView extends StatelessWidget {
-  const TourismGridView({
+class MonumentGridView extends StatelessWidget {
+  const MonumentGridView({
     super.key, 
     required this.monumentEntity,
   });

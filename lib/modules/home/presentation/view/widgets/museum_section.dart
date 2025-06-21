@@ -36,12 +36,10 @@ class MuseumSection extends StatelessWidget {
         } else if (state is MuseumFailure) {
           return Column(
             children: [
-              const Icon(Icons.error_outline, color: Colors.red, size: 48),
-              const SizedBox(height: 12),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  state.errMessage, // ✅ هنا بنعرض رسالة الخطأ الفعلية
+                  state.errMessage,
                   style: const TextStyle(fontSize: 16),
                   textAlign: TextAlign.center,
                 ),
